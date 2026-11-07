@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Faith &amp; Fire Crusade | The Watchmen Prayer Network International</title>
-<meta name="description" content="Faith & Fire Crusade, DELSU Prays edition. Sun Dec 6 to Tue Dec 8, 2026, 4:30pm daily. Crusade Ground, Abraka, Delta State. Register now.">
+<meta name="description" content="Faith &amp; Fire Crusade, DELSU Prays edition. Sun Dec 6 to Tue Dec 8, 2026, 4:30pm daily. Crusade Ground, Abraka, Delta State. Register now.">
 <link rel="preload" href="assets/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{
@@ -34,208 +34,264 @@ body{
   font-family:'Space Grotesk',system-ui,sans-serif;
   background:var(--bg);color:var(--ink);line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
 }
 img{max-width:100%}
 a{color:inherit}
-.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+.wrap{max-width:1440px;margin:0 auto;padding:0 48px}
 .display{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em;line-height:1.04}
-.eyebrow{color:var(--ember);font-size:.85rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.eyebrow{color:var(--ember);font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;transition:.3s}
-nav.solid{background:rgba(13,11,9,.92);backdrop-filter:blur(12px);padding:14px 40px;border-bottom:1px solid var(--line)}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;transition:.3s}
+nav.solid{background:rgba(13,11,9,.9);backdrop-filter:blur(12px);padding:14px 48px;border-bottom:1px solid var(--line)}
 nav img{height:56px;width:auto}
-nav ul{display:flex;gap:30px;list-style:none;align-items:center}
-nav ul a{text-decoration:none;font-size:.88rem;font-weight:500;color:rgba(255,255,255,.85)}
+nav ul{display:flex;gap:34px;list-style:none;align-items:center}
+nav ul a{text-decoration:none;font-size:.88rem;font-weight:500;color:rgba(255,255,255,.85);transition:.2s}
 nav ul a:hover{color:var(--ember)}
-.nav-cta{border:1px solid rgba(255,255,255,.3);padding:10px 22px;border-radius:999px;font-weight:600!important;color:#fff!important;transition:.25s}
-.nav-cta:hover{background:var(--ember);border-color:var(--ember)}
+.nav-cta{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.3);padding:10px 14px 10px 22px;border-radius:999px;font-weight:600!important;color:#fff!important;transition:.25s}
+.nav-cta i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--ember);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;transition:.25s}
+.nav-cta:hover{background:rgba(255,90,31,.14);border-color:var(--ember)}
 .menu-btn{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;z-index:60;position:relative}
 
 /* HERO */
-.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;
-  background:radial-gradient(70% 55% at 78% 68%,rgba(255,90,31,.28),transparent 65%),
-             radial-gradient(50% 40% at 20% 90%,rgba(255,179,71,.12),transparent 60%),
-             linear-gradient(180deg,#131010 0%,#0d0b09 100%)}
-.hero-art{position:absolute;right:-2%;bottom:0;height:82vh;max-width:52vw;object-fit:contain;object-position:bottom;pointer-events:none;
-  filter:drop-shadow(0 0 80px rgba(255,90,31,.25)) drop-shadow(0 30px 60px rgba(0,0,0,.6))}
-.hero-inner{position:relative;z-index:2;width:100%;padding:150px 40px 60px}
-.hero h1{font-size:clamp(3.2rem,8.4vw,8.2rem)}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.hero-photo{position:absolute;inset:0;z-index:0}
+.hero-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) brightness(.5) contrast(1.06)}
+.hero-photo::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(13,11,9,.94) 0%,rgba(13,11,9,.42) 34%,rgba(13,11,9,.18) 58%,rgba(13,11,9,.55) 84%,rgba(13,11,9,.92) 100%),
+             radial-gradient(55% 45% at 12% 88%,rgba(255,90,31,.4),transparent 66%)}
+.hero-art{position:absolute;right:0;bottom:0;height:80vh;max-width:44vw;object-fit:contain;object-position:bottom;pointer-events:none;z-index:1;
+  filter:drop-shadow(0 0 80px rgba(255,90,31,.3)) drop-shadow(0 30px 60px rgba(0,0,0,.65))}
+.hero-inner{position:relative;z-index:2;width:100%;padding:170px 48px 0}
+.hero-kicker{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.hero-kicker .rule{width:56px;height:1px;background:var(--ember)}
+.hero h1{font-size:clamp(3.6rem,10.5vw,10.5rem);line-height:.96;letter-spacing:.005em}
 .hero h1 .accent{color:var(--ember)}
-.hero-words{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:28px;max-width:920px}
-.hero-words p{font-size:.88rem;color:var(--dim);max-width:220px}
+.hero-words{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin:44px 0 0;max-width:820px}
+.hero-words p{font-size:.85rem;color:rgba(244,241,236,.82);max-width:230px}
 .hero-words p b{display:block;color:var(--ink);font-weight:600;margin-bottom:4px;font-size:.95rem}
-.hero-bottom{position:absolute;left:40px;right:40px;bottom:34px;display:flex;align-items:flex-end;justify-content:space-between;gap:30px;z-index:3}
-.stat-card{display:flex;gap:0;background:rgba(22,18,16,.72);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:20px;padding:20px 8px}
+.hero-bottom{position:relative;z-index:3;display:flex;align-items:flex-end;justify-content:space-between;gap:30px;padding:56px 48px 44px}
+.stat-card{display:flex;background:rgba(22,18,16,.6);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:18px;padding:18px 8px}
 .stat-card div{padding:0 26px;text-align:left}
 .stat-card div+div{border-left:1px solid var(--line)}
 .stat-card strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;color:var(--gold)}
-.stat-card span{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.hero-cta{display:inline-flex;align-items:center;gap:12px;color:var(--ember);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-decoration:none;text-transform:uppercase;white-space:nowrap}
-.hero-cta i{font-style:normal;transition:.25s}
-.hero-cta:hover i{transform:translate(4px,-4px)}
+.stat-card span{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;color:var(--ember);font-weight:700;font-size:1rem;letter-spacing:.06em;text-decoration:none;text-transform:uppercase;white-space:nowrap}
+.hero-cta i{font-style:normal;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,90,31,.55);display:inline-flex;align-items:center;justify-content:center;font-size:.9rem;transition:.25s}
+.hero-cta:hover i{background:var(--ember);transform:translate(3px,-3px)}
 
 /* MARQUEE */
-.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:18px 0;background:#0b0908}
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:20px 0;background:#0b0908}
 .marquee-track{display:flex;gap:0;white-space:nowrap;animation:slide 28s linear infinite;width:max-content}
-.marquee-track span{font-weight:700;font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;padding-right:48px;
-  color:transparent;-webkit-text-stroke:1px rgba(255,90,31,.4)}
+.marquee-track span{font-family:'Anton',sans-serif;font-size:1.3rem;letter-spacing:.14em;text-transform:uppercase;padding-right:56px;
+  color:transparent;-webkit-text-stroke:1px rgba(255,90,31,.45)}
 @keyframes slide{to{transform:translateX(-50%)}}
 
 /* SECTION BASICS */
-section{padding:110px 0}
-.sec-title{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:54px}
-.sec-title h2{font-size:clamp(2rem,4.2vw,3.4rem)}
-.sec-title .side{color:var(--faint);font-size:.9rem;max-width:260px;text-align:right}
+section{padding:130px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:64px}
+.sec-head h2{font-size:clamp(2.6rem,6vw,5.6rem);line-height:.98}
+.sec-head .side{color:var(--faint);font-size:.95rem;max-width:300px;text-align:right}
 
-/* CARD PANELS (pitch-deck style) */
-.panel{background:var(--card);border:1px solid var(--line);border-radius:32px;padding:56px}
-.split{display:grid;grid-template-columns:1fr 1.15fr;gap:56px}
-.split h2{font-size:clamp(1.9rem,3.8vw,3rem)}
-.split .lede{color:var(--dim);margin:22px 0 40px;font-size:1.02rem;max-width:480px}
-.split .lede b{color:var(--ink);font-weight:600}
-.arrow-line{display:flex;align-items:center;gap:18px}
-.arrow-line h2{font-size:clamp(1.6rem,3vw,2.4rem)}
-.arrow-line i{font-style:normal;color:var(--ember);font-size:1.8rem}
-.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.step{background:var(--card2);border:1px solid var(--line);border-radius:20px;padding:26px;transition:.3s;position:relative}
-.step:hover{border-color:rgba(255,90,31,.5);transform:translateY(-4px)}
-.step .dot{position:absolute;top:22px;right:22px;width:20px;height:20px;border-radius:50%;background:var(--ember);
-  box-shadow:0 0 0 5px rgba(255,90,31,.15)}
-.step b.num{display:block;color:var(--gold);font-size:.8rem;font-weight:600;margin-bottom:10px}
-.step h3{font-weight:600;font-size:1.05rem;margin-bottom:8px;letter-spacing:-.01em}
-.step p{color:var(--dim);font-size:.85rem}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:7vw;align-items:start}
+.about-grid h2{font-size:clamp(2.8rem,6.4vw,6.4rem);line-height:.98}
+.about-lede{color:var(--dim);font-size:1.05rem;max-width:460px;padding-top:18px}
+.about-lede b{color:var(--ink);font-weight:600}
+.about-photo{position:relative;margin-top:56px;border-radius:36px;overflow:hidden;aspect-ratio:4/3;
+  border:1px solid var(--line)}
+.about-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+.about-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(200deg,rgba(255,90,31,.16),transparent 45%),linear-gradient(0deg,rgba(13,11,9,.55),transparent 55%)}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:90px;border-top:1px solid var(--line)}
+.step{padding:44px 34px 52px 0;border-bottom:1px solid var(--line);position:relative;transition:.3s}
+.step:nth-child(odd){border-right:1px solid var(--line);padding-right:44px}
+.step:nth-child(even){padding-left:44px}
+.step .num{font-family:'Anton',sans-serif;font-size:clamp(3rem,5vw,4.6rem);color:transparent;-webkit-text-stroke:1.6px rgba(255,90,31,.7);line-height:.9;display:block}
+.step:hover .num{-webkit-text-stroke-color:var(--ember)}
+.step h3{font-weight:600;font-size:1.25rem;margin:22px 0 10px;letter-spacing:-.01em}
+.step p{color:var(--dim);font-size:.9rem;max-width:330px}
 
-/* CHECKLIST */
-.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.check-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
-.check-item:last-child{border:none}
-.check-item .dot{flex:none;width:22px;height:22px;border-radius:50%;background:var(--ember);display:flex;align-items:center;justify-content:center;font-size:.6rem;margin-top:2px}
-.check-item b{display:block;font-weight:600;font-size:1rem}
-.check-item p{color:var(--dim);font-size:.88rem}
-.check-art{border-radius:28px;overflow:hidden;position:relative;min-height:460px;
-  background:radial-gradient(80% 60% at 50% 100%,rgba(255,90,31,.3),transparent 70%),linear-gradient(165deg,#241a14,#141110)}
-.check-art img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:92%;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+/* WHAT YOU LEAVE WITH */
+.feat-grid{display:grid;grid-template-columns:1fr .92fr;gap:7vw;align-items:center}
+.feat-grid h2{font-size:clamp(2.6rem,5.6vw,5.4rem);line-height:.98;margin-bottom:44px}
+.feat{display:flex;gap:20px;padding:26px 0;border-top:1px solid var(--line)}
+.feat:last-child{border-bottom:1px solid var(--line)}
+.feat .dot{flex:none;width:40px;height:40px;border-radius:50%;background:rgba(255,90,31,.12);border:1px solid rgba(255,90,31,.5);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--ember);margin-top:2px}
+.feat b{display:block;font-weight:600;font-size:1.2rem;margin-bottom:6px}
+.feat p{color:var(--dim);font-size:.9rem;max-width:400px}
+.feat-art{position:relative;border-radius:40px;overflow:hidden;min-height:560px;
+  background:radial-gradient(80% 60% at 50% 100%,rgba(255,90,31,.32),transparent 70%),linear-gradient(165deg,#241a14,#141110);border:1px solid var(--line)}
+.feat-art img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:94%;object-fit:contain;filter:drop-shadow(0 24px 44px rgba(0,0,0,.5))}
 
-/* MINISTERS SLIDER */
-.slider{display:flex;gap:20px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory}
-.slider::-webkit-scrollbar{height:6px}
-.slider::-webkit-scrollbar-thumb{background:rgba(255,90,31,.4);border-radius:99px}
-.slider::-webkit-scrollbar-track{background:var(--card)}
-.min-card{flex:0 0 min(440px,82vw);scroll-snap-align:start;border-radius:26px;overflow:hidden;position:relative;aspect-ratio:4/4.6;
-  background:radial-gradient(85% 60% at 50% 105%,rgba(255,90,31,.32),transparent 72%),linear-gradient(160deg,#2b1c13,#141110)}
-.min-card img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:88%;object-fit:contain;filter:drop-shadow(0 24px 44px rgba(0,0,0,.55))}
+/* MINISTERS */
+.slider{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.min-card{border-radius:30px;overflow:hidden;position:relative;aspect-ratio:3/4.1;
+  background:radial-gradient(85% 60% at 50% 105%,rgba(255,90,31,.32),transparent 72%),linear-gradient(160deg,#2b1c13,#141110);border:1px solid var(--line)}
+.min-card img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:90%;object-fit:contain;filter:drop-shadow(0 24px 44px rgba(0,0,0,.55));transition:.4s}
 .min-card:hover img{transform:translateX(-50%) translateY(-8px)}
-.min-card .chip{position:absolute;top:20px;left:20px;display:flex;align-items:center;gap:8px;background:rgba(13,11,9,.65);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;z-index:2}
+.min-card .chip{position:absolute;top:22px;left:22px;display:flex;align-items:center;gap:8px;background:rgba(13,11,9,.65);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;z-index:2}
 .min-card .chip em{font-style:normal;width:8px;height:8px;border-radius:50%;background:var(--ember)}
-.min-card .name{position:absolute;left:26px;bottom:22px;z-index:2;font-size:clamp(1.5rem,2.6vw,2rem)}
-.min-card .role{position:absolute;right:22px;bottom:26px;z-index:2;color:rgba(255,255,255,.55);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;text-align:right;max-width:150px}
+.min-card .name{position:absolute;left:26px;bottom:24px;z-index:2;font-size:clamp(1.7rem,2.6vw,2.5rem);line-height:1.05}
+.min-card .role{position:absolute;right:24px;bottom:28px;z-index:2;color:rgba(255,255,255,.55);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-align:right;max-width:150px}
 
-/* EXPERIENCE FULL-BLEED */
-.exp{position:relative;overflow:hidden;text-align:center;min-height:78vh;display:flex;flex-direction:column;justify-content:center;
-  background:radial-gradient(60% 55% at 50% 62%,rgba(255,90,31,.4),rgba(120,35,8,.25) 55%,transparent 75%),
-             linear-gradient(180deg,#0d0b09,#150e08 50%,#0d0b09)}
-.exp .watermark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(860px,90vw);opacity:.16;pointer-events:none}
-.exp h2{position:relative;z-index:2;font-size:clamp(2.4rem,6vw,5.4rem);text-transform:uppercase;letter-spacing:-.02em;line-height:1.04;max-width:900px;margin:0 auto}
-.exp p{position:relative;z-index:2;color:var(--dim);max-width:520px;margin:24px auto 0}
-.exp .btn-row{position:relative;z-index:2;margin-top:34px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:999px;font-weight:600;text-decoration:none;transition:.25s;font-family:inherit;border:none;cursor:pointer}
-.btn-ember{background:var(--ember);color:#fff}
-.btn-ember:hover{background:#ff6f38;transform:translateY(-2px)}
-.btn-ghost{border:1.5px solid rgba(255,255,255,.3);color:#fff;background:transparent}
-.btn-ghost:hover{border-color:#fff}
-
-/* PROGRAMME */
-.prog-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
-.prog-cell{padding:40px 34px 44px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
-.prog-cell:last-child{border-right:none}
-.prog-cell b.num{color:transparent;-webkit-text-stroke:1.2px rgba(255,90,31,.65);font-size:2.6rem;font-weight:700;letter-spacing:-.03em;display:block;line-height:1}
-.prog-cell h3{font-weight:700;font-size:1.5rem;margin:18px 0 4px;letter-spacing:-.01em}
-.prog-cell .when{color:var(--gold);font-size:.85rem;font-weight:600}
-.prog-cell p{color:var(--dim);font-size:.9rem;margin-top:12px}
+/* THREE NIGHTS */
+.nights{display:flex;flex-direction:column}
+.night{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(28px,5vw,72px);align-items:center;border-top:1px solid var(--line);padding:70px 0;position:relative;transition:.3s}
+.night:last-child{border-bottom:1px solid var(--line)}
+.night .num{font-family:'Anton',sans-serif;font-size:clamp(4.4rem,9vw,9.6rem);color:transparent;-webkit-text-stroke:2px rgba(255,90,31,.65);line-height:.85;transition:.3s}
+.night:hover .num{-webkit-text-stroke-color:var(--ember)}
+.night h3{font-family:'Anton',sans-serif;font-size:clamp(2.2rem,4.6vw,4.4rem);letter-spacing:.01em;margin-bottom:14px}
+.night .when{color:var(--gold);font-size:.92rem;font-weight:600;letter-spacing:.04em}
+.night p{color:var(--dim);font-size:.95rem;max-width:480px;margin-top:12px}
+.night-photo{width:clamp(180px,20vw,280px);aspect-ratio:3/4;border-radius:24px;overflow:hidden;border:1px solid var(--line);flex:none}
+.night-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.92)}
+.night.rev .num{order:3}
+.night.rev .night-photo{order:2}
+.night.rev .txt{order:1}
 
 /* COUNTDOWN */
-.count-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0b0908;padding:40px 0}
-.count-flex{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
-.count-flex .label{font-size:.95rem;color:var(--dim);max-width:200px}
-.count{display:flex;gap:10px}
-.count div{min-width:78px;padding:14px 6px;background:var(--card);border:1px solid var(--line);border-radius:16px;text-align:center}
-.count strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:700;color:var(--gold);letter-spacing:-.02em}
-.count span{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.count-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,#0b0908,#120c08 50%,#0b0908);padding:84px 0;position:relative;overflow:hidden}
+.count-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(50% 70% at 50% 50%,rgba(255,90,31,.14),transparent 70%);pointer-events:none}
+.count-flex{position:relative;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.count-flex .label{font-family:'Anton',sans-serif;font-size:clamp(1.4rem,2.6vw,2.2rem);letter-spacing:.04em;text-transform:uppercase;max-width:280px;line-height:1.15}
+.count{display:flex;gap:0}
+.count div{min-width:120px;text-align:center;padding:0 18px;border-left:1px solid var(--line)}
+.count div:first-child{border-left:none;padding-left:0}
+.count strong{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(3.2rem,6.5vw,6rem);line-height:1;color:var(--gold);letter-spacing:.01em;font-variant-numeric:tabular-nums}
+.count span{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+
+/* OUR STORY */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;position:relative;padding-top:40px}
+.tl::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--line)}
+.tl-item{position:relative}
+.tl-item::before{content:'';position:absolute;top:-45px;left:0;width:11px;height:11px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 5px rgba(255,90,31,.15)}
+.tl-item .yr{font-family:'Anton',sans-serif;font-size:clamp(2.6rem,4.8vw,4.6rem);color:transparent;-webkit-text-stroke:1.6px rgba(255,90,31,.7);line-height:.9;display:block;margin-bottom:20px;letter-spacing:.01em}
+.tl-item.now .yr{-webkit-text-stroke-color:var(--ember)}
+.tl-item h3{font-weight:600;font-size:1.15rem;margin-bottom:10px}
+.tl-item p{color:var(--dim);font-size:.9rem;max-width:290px}
 
 /* GALLERY */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.g-item{aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:radial-gradient(70% 60% at 50% 100%,rgba(255,90,31,.18),transparent 70%),linear-gradient(160deg,#241a14,#141110);border:1px solid var(--line)}
-.g-item img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;grid-auto-flow:dense;gap:16px}
+.g-item{border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#241a14,#141110);border:1px solid var(--line)}
+.g-item img{width:100%;height:100%;object-fit:cover;filter:saturate(.92);transition:.5s}
 .g-item:hover img{transform:scale(1.05)}
+.g-item.w2{grid-column:span 2}
+.g-item.h2{grid-row:span 2}
+.g-item.b4{grid-column:span 2;grid-row:span 2}
+
+/* FINAL CTA */
+.cta{position:relative;min-height:86vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;text-align:center}
+.cta-photo{position:absolute;inset:0;z-index:0}
+.cta-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.4)}
+.cta-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,9,.85),rgba(13,11,9,.35) 45%,rgba(13,11,9,.9)),radial-gradient(55% 55% at 50% 60%,rgba(255,90,31,.32),transparent 70%)}
+.cta .wrap{position:relative;z-index:2}
+.cta h2{font-size:clamp(3rem,8.5vw,8.4rem);line-height:.98;max-width:900px;margin:0 auto}
+.cta h2 .accent{color:var(--ember)}
+.cta p{color:rgba(244,241,236,.82);max-width:540px;margin:28px auto 0}
+.cta .btn-row{margin-top:40px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:18px 38px;border-radius:999px;font-weight:600;text-decoration:none;transition:.25s;font-family:inherit;border:none;cursor:pointer}
+.btn-ember{background:var(--ember);color:#fff}
+.btn-ember:hover{background:#ff6f38;transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff;background:transparent}
+.btn-ghost:hover{border-color:#fff}
 
 /* REGISTER */
-.reg-card{max-width:640px;margin:0 auto;background:var(--card);border:1px solid rgba(255,90,31,.35);border-radius:32px;padding:56px 48px}
-.reg-card h2{font-size:clamp(2rem,3.8vw,2.8rem)}
-.reg-card>p{color:var(--dim);margin:14px 0 34px}
-.field{margin-bottom:20px;text-align:left}
-.field label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
-.field input,.field select,.field textarea{width:100%;padding:15px 18px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font-family:inherit;font-size:.95rem;outline:none;transition:.2s}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ember)}
+.reg-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:7vw;align-items:start}
+.reg-grid h2{font-size:clamp(2.6rem,5.6vw,5.2rem);line-height:.98;margin:20px 0 26px}
+.reg-grid .reg-copy{color:var(--dim);font-size:1.05rem;max-width:420px}
+.reg-card{background:var(--card);border:1px solid rgba(255,90,31,.3);border-radius:36px;padding:56px}
+.field{margin-bottom:22px;text-align:left}
+.field label{display:block;font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}
+.field input,.field select,.field textarea{width:100%;padding:16px 18px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font-family:inherit;font-size:.98rem;outline:none;transition:.2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ember);background:rgba(255,255,255,.06)}
 .field textarea{min-height:110px;resize:vertical}
 .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ff5a1f' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
 .field select option{background:#161211}
 .reg-note{font-size:.8rem;color:var(--faint);margin-top:16px;text-align:center}
-.reg-btn{width:100%;margin-top:6px;background:var(--ember);color:#fff}
+.reg-btn{width:100%;margin-top:6px;background:var(--ember);color:#fff;font-size:1rem}
 .reg-btn:hover{background:#ff6f38}
-.success{display:none;text-align:center;padding:30px 0}
-.success h3{font-weight:700;font-size:1.5rem;margin-bottom:10px;color:var(--gold)}
+.success{display:none;text-align:center;padding:40px 0}
+.success h3{font-family:'Anton',sans-serif;font-weight:400;font-size:2rem;margin-bottom:12px;color:var(--gold)}
 .success p{color:var(--dim)}
 
 /* LOCATION */
-.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.loc-card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:40px 34px}
-.loc-card h3{font-weight:700;font-size:1.3rem;margin-bottom:14px}
-.loc-card p{color:var(--dim);font-size:.95rem}
-.loc-map{background:var(--card);border:1px solid var(--line);border-radius:26px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;min-height:300px}
-.loc-map p{color:var(--faint);font-size:.9rem;max-width:300px}
+.loc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:stretch}
+.loc-card{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:48px 44px}
+.loc-card h3{font-family:'Anton',sans-serif;font-weight:400;font-size:1.9rem;margin-bottom:18px}
+.loc-card p{color:var(--dim);font-size:1rem;max-width:420px}
+.loc-card p b{color:var(--ink)}
+.loc-map{background:radial-gradient(70% 60% at 50% 100%,rgba(255,90,31,.16),transparent 70%),var(--card);border:1px dashed rgba(255,90,31,.35);border-radius:30px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;min-height:300px}
+.loc-map p{color:var(--faint);font-size:.9rem;max-width:320px}
 
 /* FOOTER */
-footer{border-top:1px solid var(--line);padding:70px 0 36px;background:#0a0807}
-.foot-words{font-weight:700;font-size:clamp(1.6rem,4.6vw,4rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:56px}
+footer{border-top:1px solid var(--line);padding:90px 0 36px;background:#0a0807}
+.foot-words{font-weight:400;font-family:'Anton',sans-serif;font-size:clamp(2.4rem,6.4vw,6.4rem);letter-spacing:.01em;line-height:1.05;margin-bottom:70px;max-width:1100px}
 .foot-words .accent{color:var(--ember)}
-.foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:38px}
-.foot-brand img{height:52px;width:auto;display:block;margin-bottom:14px}
+.foot-grid{display:flex;justify-content:space-between;gap:44px;flex-wrap:wrap;padding-bottom:46px}
+.foot-brand img{height:52px;width:auto;display:block;margin-bottom:16px}
 .foot-brand p{color:var(--faint);font-size:.9rem;max-width:300px}
-.foot-col h4{font-size:.75rem;font-weight:600;color:var(--gold);margin-bottom:14px;letter-spacing:.1em;text-transform:uppercase}
-.foot-col a{display:block;color:var(--dim);text-decoration:none;font-size:.92rem;padding:4px 0}
+.foot-col h4{font-size:.74rem;font-weight:600;color:var(--gold);margin-bottom:16px;letter-spacing:.14em;text-transform:uppercase}
+.foot-col a{display:block;color:var(--dim);text-decoration:none;font-size:.94rem;padding:5px 0;transition:.2s}
 .foot-col a:hover{color:var(--ember)}
-.foot-base{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--faint);font-size:.8rem}
+.foot-base{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--faint);font-size:.8rem}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
 
+@media(max-width:1024px){
+  .about-grid,.feat-grid,.reg-grid{gap:48px}
+  .slider{gap:16px}
+}
 @media(max-width:960px){
-  .wrap{padding:0 22px}
-  nav{padding:16px 22px}nav.solid{padding:12px 22px}
+  .wrap{padding:0 24px}
+  nav{padding:16px 24px}nav.solid{padding:12px 24px}
   nav img{height:44px}
   nav ul{position:fixed;inset:0;background:rgba(10,8,7,.97);flex-direction:column;justify-content:center;gap:30px;transform:translateY(-100%);transition:.35s;z-index:55}
   nav ul.open{transform:none}
   nav ul a{font-size:1.2rem}
   .nav-cta{display:none}
   .menu-btn{display:block}
-  section{padding:72px 0}
-  .hero{min-height:88vh}
-  .hero-art{opacity:.5;height:56vh;max-width:80vw}
-  .hero-inner{padding:130px 22px 200px}
-  .hero-words{grid-template-columns:1fr;gap:14px}
-  .hero-bottom{flex-direction:column;align-items:flex-start;left:22px;right:22px}
-  .panel{padding:32px 24px;border-radius:24px}
-  .split,.check-grid,.loc-grid{grid-template-columns:1fr;gap:34px}
-  .steps{grid-template-columns:1fr}
-  .prog-row{grid-template-columns:1fr}
-  .prog-cell{border-right:none}
-  .gal{grid-template-columns:repeat(2,1fr)}
-  .sec-title{flex-direction:column;align-items:flex-start}
-  .sec-title .side{text-align:left}
-  .reg-card{padding:38px 26px}
-  .stat-card div{padding:0 16px}
+  section{padding:84px 0}
+  .hero-art{opacity:.45;height:52vh;max-width:80vw}
+  .hero-inner{padding:140px 24px 0}
+  .hero-words{grid-template-columns:1fr;gap:14px;margin-top:30px}
+  .hero-bottom{flex-direction:column;align-items:flex-start;padding:40px 24px 36px}
+  .stat-card{flex-wrap:wrap}
+  .about-grid,.feat-grid,.reg-grid,.loc-grid{grid-template-columns:1fr;gap:40px}
+  .about-photo{margin-top:36px}
+  .steps{grid-template-columns:1fr;margin-top:56px}
+  .step:nth-child(odd){border-right:none;padding-right:0}
+  .step:nth-child(even){padding-left:0}
+  .slider{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px}
+  .slider::-webkit-scrollbar{height:5px}
+  .slider::-webkit-scrollbar-thumb{background:rgba(255,90,31,.4);border-radius:99px}
+  .min-card{flex:0 0 min(420px,84vw);scroll-snap-align:start}
+  .night{grid-template-columns:1fr;gap:20px;padding:52px 0}
+  .night .num{order:0}
+  .night.rev .num{order:0}
+  .night.rev .night-photo{order:2}
+  .night.rev .txt{order:1}
+  .night-photo{width:100%;aspect-ratio:16/9}
+  .count-flex{flex-direction:column;align-items:flex-start}
+  .count div{min-width:76px;padding:0 10px}
+  .tl{grid-template-columns:1fr;gap:36px;padding-top:0;padding-left:28px}
+  .tl::before{top:0;bottom:0;left:0;right:auto;width:1px;height:auto}
+  .tl-item::before{top:6px;left:-33px}
+  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:10px}
+  .g-item.b4{grid-column:span 2;grid-row:span 2}
+  .g-item.w2{grid-column:span 2}
+  .reg-card{padding:36px 26px}
+  .feat-art{min-height:420px}
+  .loc-card{padding:34px 28px}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .sec-head .side{text-align:left}
+  .sec-head h2{font-size:clamp(2.4rem,9vw,4rem)}
+}
+@media(max-width:560px){
+  .gal{grid-auto-rows:130px}
+  .count strong{font-size:2.6rem}
 }
 </style>
 </head>
@@ -250,15 +306,19 @@ footer{border-top:1px solid var(--line);padding:70px 0 36px;background:#0a0807}
     <li><a href="#ministers">Ministers</a></li>
     <li><a href="#programme">Programme</a></li>
     <li><a href="#gallery">Past Crusades</a></li>
-    <li><a href="#register" class="nav-cta">Reserve a Seat ↗</a></li>
+    <li><a href="#register" class="nav-cta">Reserve a Seat <i>↗</i></a></li>
   </ul>
   <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
 </nav>
 
 <header class="hero" id="top">
+  <div class="hero-photo"><img src="assets/gallery/g-163.jpg" alt="" aria-hidden="true"></div>
   <img class="hero-art" src="assets/ministers/pioneer.webp" alt="" aria-hidden="true">
   <div class="hero-inner">
-    <span class="eyebrow" style="display:block;margin-bottom:22px">Faith &amp; Fire Crusade · DELSU Prays · Dec 6 to 8, 2026</span>
+    <div class="hero-kicker">
+      <span class="rule"></span>
+      <span class="eyebrow">Faith &amp; Fire Crusade · DELSU Prays · Dec 6 to 8, 2026</span>
+    </div>
     <h1 class="display">The Word. <span class="accent">The Spirit.</span> The Fire.</h1>
     <div class="hero-words">
       <p><b>Six evenings a week, one altar.</b>The Watchmen Prayer Network gathers believers around the Word, the Spirit, and Prayer.</p>
@@ -284,43 +344,40 @@ footer{border-top:1px solid var(--line);padding:70px 0 36px;background:#0a0807}
 
 <section id="about">
   <div class="wrap">
-    <div class="panel reveal">
-      <div class="split">
-        <div>
-          <span class="eyebrow" style="display:block;margin-bottom:18px">About</span>
-          <h2 class="display">What Is<br>Faith &amp; Fire</h2>
-          <p class="lede"><b>Faith &amp; Fire</b> is the annual crusade of The Watchmen Prayer Network International: three evenings of the Word, worship, and prayer on one ground in Abraka. Formerly known as DELSU Prays, December 2026 is its first edition under the new name. Same altar. Deeper fire.</p>
-          <div class="arrow-line">
-            <h2 class="display">Three nights,<br>step by step</h2>
-            <i>→</i>
-          </div>
-        </div>
-        <div class="steps">
-          <div class="step"><span class="dot"></span><b class="num">Step 01</b><h3>Register Your Seat</h3><p>A one-minute form: your name, your phone, and whether you want in on the WhatsApp group.</p></div>
-          <div class="step"><span class="dot"></span><b class="num">Step 02</b><h3>Get the Direction</h3><p>Crusade Ground, behind Ese-G Hostel, off Olori 19 road, Abraka. Doors open from 4:00pm.</p></div>
-          <div class="step"><span class="dot"></span><b class="num">Step 03</b><h3>Come Hungry</h3><p>Bring your Bible, your expectations, and someone who needs the fire too.</p></div>
-          <div class="step"><span class="dot"></span><b class="num">Step 04</b><h3>Stand in the Fire</h3><p>Three evenings of worship, the Word, and prayer. Leave carrying what you came for.</p></div>
+    <div class="about-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:24px">About</span>
+        <h2 class="display">What Is<br>Faith &amp; Fire</h2>
+      </div>
+      <div class="reveal">
+        <p class="about-lede"><b>Faith &amp; Fire</b> is the annual crusade of The Watchmen Prayer Network International: three evenings of the Word, worship, and prayer on one ground in Abraka. Formerly known as DELSU Prays, December 2026 is its first edition under the new name. Same altar. Deeper fire.</p>
+        <div class="about-photo">
+          <img src="assets/gallery/g-180.jpg" alt="The Watchmen Prayer Network gathering" loading="lazy">
         </div>
       </div>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><b class="num">01</b><h3>Register Your Seat</h3><p>A one-minute form: your name, your phone, and whether you want in on the WhatsApp group.</p></div>
+      <div class="step"><b class="num">02</b><h3>Get the Direction</h3><p>Crusade Ground, behind Ese-G Hostel, off Olori 19 road, Abraka. Doors open from 4:00pm.</p></div>
+      <div class="step"><b class="num">03</b><h3>Come Hungry</h3><p>Bring your Bible, your expectations, and someone who needs the fire too.</p></div>
+      <div class="step"><b class="num">04</b><h3>Stand in the Fire</h3><p>Three evenings of worship, the Word, and prayer. Leave carrying what you came for.</p></div>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="panel reveal">
-      <div class="check-grid">
-        <div>
-          <span class="eyebrow" style="display:block;margin-bottom:18px">For You</span>
-          <h2 class="display" style="margin-bottom:26px">What You<br>Leave With</h2>
-          <div class="check-item"><span class="dot">✓</span><div><b>A word that stays</b><p>Teaching that follows you home and holds through the year.</p></div></div>
-          <div class="check-item"><span class="dot">✓</span><div><b>Prayer that shifts things</b><p>Altar nights where heaven responds to standing prayer.</p></div></div>
-          <div class="check-item"><span class="dot">✓</span><div><b>A people to stand with</b><p>RE-FIRE Thursdays and the prayer network carry you beyond the crusade.</p></div></div>
-          <div class="check-item"><span class="dot">✓</span><div><b>Fire for the new year</b><p>You cross into 2027 lit, not lukewarm.</p></div></div>
-        </div>
-        <div class="check-art">
-          <img src="assets/ministers/kolawole.webp" alt="Rev. Kolawole Williams Ogoigbe">
-        </div>
+    <div class="feat-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="display:block;margin-bottom:24px">For You</span>
+        <h2 class="display">What You<br>Leave With</h2>
+        <div class="feat"><span class="dot">✓</span><div><b>A word that stays</b><p>Teaching that follows you home and holds through the year.</p></div></div>
+        <div class="feat"><span class="dot">✓</span><div><b>Prayer that shifts things</b><p>Altar nights where heaven responds to standing prayer.</p></div></div>
+        <div class="feat"><span class="dot">✓</span><div><b>A people to stand with</b><p>RE-FIRE Thursdays and the prayer network carry you beyond the crusade.</p></div></div>
+        <div class="feat"><span class="dot">✓</span><div><b>Fire for the new year</b><p>You cross into 2027 lit, not lukewarm.</p></div></div>
+      </div>
+      <div class="feat-art reveal">
+        <img src="assets/ministers/kolawole.webp" alt="Rev. Kolawole Williams Ogoigbe">
       </div>
     </div>
   </div>
@@ -328,7 +385,7 @@ footer{border-top:1px solid var(--line);padding:70px 0 36px;background:#0a0807}
 
 <section id="ministers" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-title reveal">
+    <div class="sec-head reveal">
       <h2 class="display">Meet the Ministers</h2>
       <span class="side">Three voices, one altar. Scroll through.</span>
     </div>
@@ -355,16 +412,40 @@ footer{border-top:1px solid var(--line);padding:70px 0 36px;background:#0a0807}
   </div>
 </section>
 
-<section id="programme" class="exp" style="min-height:0;padding:110px 0">
+<section id="programme" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-title reveal">
+    <div class="sec-head reveal">
       <h2 class="display">The Three Nights</h2>
       <span class="side">Same ground, same hour, three evenings. Come early, bring someone.</span>
     </div>
-    <div class="prog-row reveal">
-      <div class="prog-cell"><b class="num">01</b><h3>Ignition</h3><span class="when">Sun, Dec 6 · 4:30pm</span><p>The crusade opens with worship, the Word, and the first altar call of the three nights.</p></div>
-      <div class="prog-cell"><b class="num">02</b><h3>Consecration</h3><span class="when">Mon, Dec 7 · 4:30pm</span><p>A night set apart for the Spirit: prayer, prophetic ministry, and consecration.</p></div>
-      <div class="prog-cell"><b class="num">03</b><h3>Fire &amp; Commissioning</h3><span class="when">Tue, Dec 8 · 4:30pm</span><p>Thanksgiving, testimonies, and the commissioning of a people on fire.</p></div>
+    <div class="nights">
+      <div class="night reveal">
+        <b class="num">01</b>
+        <div class="txt">
+          <h3>Ignition</h3>
+          <span class="when">Sun, Dec 6 · 4:30pm</span>
+          <p>The crusade opens with worship, the Word, and the first altar call of the three nights.</p>
+        </div>
+        <div class="night-photo"><img src="assets/gallery/g-151.jpg" alt="Worship at a past crusade" loading="lazy"></div>
+      </div>
+      <div class="night rev reveal">
+        <b class="num">02</b>
+        <div class="txt">
+          <h3>Consecration</h3>
+          <span class="when">Mon, Dec 7 · 4:30pm</span>
+          <p>A night set apart for the Spirit: prayer, prophetic ministry, and consecration.</p>
+        </div>
+        <div class="night-photo"><img src="assets/gallery/g-153.jpg" alt="The congregation at a past crusade" loading="lazy"></div>
+      </div>
+      <div class="night reveal">
+        <b class="num">03</b>
+        <div class="txt">
+          <h3>Fire &amp; Commissioning</h3>
+          <span class="when">Tue, Dec 8 · 4:30pm</span>
+          <p>Thanksgiving, testimonies, and the commissioning of a people on fire.</p>
+        </div>
+        <div class="night-photo"><img src="assets/gallery/g-157.jpg" alt="Ministering at a past crusade" loading="lazy"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -384,83 +465,90 @@ footer{border-top:1px solid var(--line);padding:70px 0 36px;background:#0a0807}
 
 <section id="story">
   <div class="wrap">
-    <div class="sec-title reveal">
+    <div class="sec-head reveal">
       <h2 class="display">Our Story</h2>
       <span class="side">From one altar of fifty to crusade grounds of a thousand.</span>
     </div>
-    <div class="prog-row reveal" style="border-top:1px solid var(--line)">
-      <div class="prog-cell"><b class="num">2017</b><h3>The first meeting</h3><p>The Watchmen Prayer Network International begins with about fifty people around one altar of prayer.</p></div>
-      <div class="prog-cell"><b class="num">——</b><h3>A network takes shape</h3><p>RE-FIRE Thursdays and month-end Prophetic Nights become the rhythm of the house.</p></div>
-      <div class="prog-cell"><b class="num">——</b><h3>The crusade years</h3><p>Yearly crusades grow into open gatherings drawing over a thousand people.</p></div>
-      <div class="prog-cell" style="grid-column:1/-1;border-right:none;background:linear-gradient(120deg,rgba(255,90,31,.12),transparent 60%)"><b class="num">2026</b><h3>Faith &amp; Fire: the first edition</h3><p>December 2026, the crusade takes on a new name. The fire is only getting started.</p></div>
+    <div class="tl reveal">
+      <div class="tl-item"><b class="yr">2017</b><h3>The first meeting</h3><p>The Watchmen Prayer Network International begins with about fifty people around one altar of prayer.</p></div>
+      <div class="tl-item"><b class="yr">——</b><h3>A network takes shape</h3><p>RE-FIRE Thursdays and month-end Prophetic Nights become the rhythm of the house.</p></div>
+      <div class="tl-item"><b class="yr">——</b><h3>The crusade years</h3><p>Yearly crusades grow into open gatherings drawing over a thousand people.</p></div>
+      <div class="tl-item now"><b class="yr">2026</b><h3>Faith &amp; Fire: the first edition</h3><p>December 2026, the crusade takes on a new name. The fire is only getting started.</p></div>
     </div>
   </div>
 </section>
 
 <section id="gallery" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-title reveal">
+    <div class="sec-head reveal">
       <h2 class="display">Past Crusades</h2>
       <span class="side">Moments from past meetings and crusades.</span>
     </div>
     <div class="gal reveal">
-      <div class="g-item"><img src="assets/gallery/light-244.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
-      <div class="g-item"><img src="assets/gallery/light-245.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
-      <div class="g-item"><img src="assets/gallery/light-246.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
-      <div class="g-item"><img src="assets/gallery/light-254.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
-      <div class="g-item"><img src="assets/gallery/light-276.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
-      <div class="g-item"><img src="assets/gallery/light-285.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
-      <div class="g-item"><img src="assets/gallery/light-323.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
-      <div class="g-item"><img src="assets/gallery/light-333.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
-      <div class="g-item"><img src="assets/gallery/light-347.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
-      <div class="g-item"><img src="assets/gallery/light-370.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
-      <div class="g-item"><img src="assets/gallery/light-377.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
-      <div class="g-item"><img src="assets/gallery/light-12.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item b4"><img src="assets/gallery/g-157.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item"><img src="assets/gallery/g-151.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item"><img src="assets/gallery/g-155.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item h2"><img src="assets/gallery/g-164.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item w2"><img src="assets/gallery/g-163.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item"><img src="assets/gallery/g-165.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item"><img src="assets/gallery/g-168.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item w2"><img src="assets/gallery/g-180.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item h2"><img src="assets/gallery/g-186.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item"><img src="assets/gallery/g-184.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item w2"><img src="assets/gallery/g-153.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item"><img src="assets/gallery/g-185.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="g-item"><img src="assets/gallery/g-162.jpg" alt="Past crusade" loading="lazy"></div>
     </div>
   </div>
 </section>
 
-<section class="exp">
-  <img class="watermark" src="assets/brand/tag.png" alt="" aria-hidden="true">
-  <h2 class="display">Come and stand<br>in the fire</h2>
-  <p>Three evenings. One ground. A people gathered around the Word, the Spirit, and Prayer.</p>
-  <div class="btn-row"><a href="#register" class="btn btn-ember">Reserve a Seat</a></div>
+<section class="cta">
+  <div class="cta-photo"><img src="assets/gallery/g-162.jpg" alt="" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 class="display reveal">Come and stand<br><span class="accent">in the fire</span></h2>
+    <p class="reveal">Three evenings. One ground. A people gathered around the Word, the Spirit, and Prayer.</p>
+    <div class="btn-row reveal"><a href="#register" class="btn btn-ember">Reserve a Seat</a></div>
+  </div>
 </section>
 
 <section id="register">
   <div class="wrap">
-    <div class="reg-card reveal">
-      <span class="eyebrow" style="display:block;margin-bottom:16px">Registration</span>
-      <h2 class="display">Count Me In</h2>
-      <p>Register so we can pray for you through the prayer period and keep you posted on the crusade.</p>
-      <form id="regForm">
-        <div class="field">
-          <label for="fname">Full name</label>
-          <input id="fname" name="name" type="text" required placeholder="Your full name">
+    <div class="reg-grid">
+      <div class="reveal">
+        <span class="eyebrow" style="display:block">Registration</span>
+        <h2 class="display">Count Me In</h2>
+        <p class="reg-copy">Register so we can pray for you through the prayer period and keep you posted on the crusade.</p>
+      </div>
+      <div class="reg-card reveal">
+        <form id="regForm">
+          <div class="field">
+            <label for="fname">Full name</label>
+            <input id="fname" name="name" type="text" required placeholder="Your full name">
+          </div>
+          <div class="field">
+            <label for="fphone">Phone number</label>
+            <input id="fphone" name="phone" type="tel" required placeholder="e.g. 0803 000 0000">
+          </div>
+          <div class="field">
+            <label for="fwa">Join the crusade WhatsApp group?</label>
+            <select id="fwa" name="whatsapp_group" required>
+              <option value="" selected disabled>Choose one</option>
+              <option value="Yes">Yes, add me to the group</option>
+              <option value="No">No, just the registration</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fpray">Prayer request <span style="text-transform:none;letter-spacing:0;color:var(--faint)">(optional)</span></label>
+            <textarea id="fpray" name="prayer_request" placeholder="What should we stand with you in prayer for?"></textarea>
+          </div>
+          <p id="regError" style="display:none;color:#ff8a5c;margin:14px 0 0;font-size:.9rem"></p>
+          <button type="submit" class="btn reg-btn">Submit Registration</button>
+          <p class="reg-note">Your prayer request goes to the prayer team only.</p>
+        </form>
+        <div class="success" id="regSuccess">
+          <h3>You are registered</h3>
+          <p>See you at the Crusade Ground, 4:30pm, Sunday December 6. The fire starts then.</p>
         </div>
-        <div class="field">
-          <label for="fphone">Phone number</label>
-          <input id="fphone" name="phone" type="tel" required placeholder="e.g. 0803 000 0000">
-        </div>
-        <div class="field">
-          <label for="fwa">Join the crusade WhatsApp group?</label>
-          <select id="fwa" name="whatsapp_group" required>
-            <option value="" selected disabled>Choose one</option>
-            <option value="Yes">Yes, add me to the group</option>
-            <option value="No">No, just the registration</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="fpray">Prayer request <span style="text-transform:none;letter-spacing:0;color:var(--faint)">(optional)</span></label>
-          <textarea id="fpray" name="prayer_request" placeholder="What should we stand with you in prayer for?"></textarea>
-        </div>
-        <p id="regError" style="display:none;color:#ff8a5c;margin:14px 0 0;font-size:.9rem"></p>
-                <button type="submit" class="btn reg-btn">Submit Registration</button>
-        <p class="reg-note">Your prayer request goes to the prayer team only.</p>
-      </form>
-      <div class="success" id="regSuccess">
-        <h3>You are registered</h3>
-        <p>See you at the Crusade Ground, 4:30pm, Sunday December 6. The fire starts then.</p>
       </div>
     </div>
   </div>
@@ -468,16 +556,12 @@ footer{border-top:1px solid var(--line);padding:70px 0 36px;background:#0a0807}
 
 <section id="location" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-title reveal">
-      <h2 class="display">Find the Ground</h2>
-      <span class="side">Crusade Ground, Abraka, Delta State. 4:30pm daily.</span>
-    </div>
     <div class="loc-grid">
       <div class="loc-card reveal">
-        <h3>Venue</h3>
+        <h3>Find the Ground</h3>
         <p>Crusade Ground, opposite Gospel Stars church, off Olori 19 road, behind Ese-G Hostel, Abraka, Delta State.</p>
-        <p style="margin-top:16px"><b style="color:var(--ink)">Sun Dec 6 to Tue Dec 8, 2026 · 4:30pm daily</b></p>
-        <p style="margin-top:14px">Coming from outside Abraka? The ground is behind Ese-G Hostel, a short walk off Olori 19 road. Follow the sound of worship.</p>
+        <p style="margin-top:18px"><b>Sun Dec 6 to Tue Dec 8, 2026 · 4:30pm daily</b></p>
+        <p style="margin-top:16px">Coming from outside Abraka? The ground is behind Ese-G Hostel, a short walk off Olori 19 road. Follow the sound of worship.</p>
       </div>
       <div class="loc-map reveal"><p>Venue map pin loading here. If you know the ground, share this page with a friend coming along.</p></div>
     </div>
