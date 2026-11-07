@@ -247,8 +247,8 @@ footer{border-top:1px solid var(--line);padding:90px 0 36px;background:#0a0807}
   .wrap{padding:0 24px}
   nav{padding:16px 24px}nav.solid{padding:12px 24px}
   nav img{height:44px}
-  nav ul{position:fixed;inset:0;background:rgba(10,8,7,.97);flex-direction:column;justify-content:center;gap:30px;transform:translateY(-100%);transition:.35s;z-index:55}
-  nav ul.open{transform:none}
+  nav ul{position:fixed;inset:0;background:rgba(10,8,7,.97);flex-direction:column;justify-content:center;gap:30px;transform:translateY(-100%);visibility:hidden;transition:.35s;z-index:55}
+  nav ul.open{transform:none;visibility:visible}
   nav ul a{font-size:1.2rem}
   .nav-cta{display:none}
   .menu-btn{display:block}
@@ -305,7 +305,6 @@ footer{border-top:1px solid var(--line);padding:90px 0 36px;background:#0a0807}
   .menu-btn{font-size:1.3rem}
   nav ul{gap:26px}
   nav ul a{font-size:1.1rem}
-  nav ul .nav-cta{display:inline-flex;margin-top:12px;border-color:var(--ember)}
   .nav-cta i{width:24px;height:24px}
 
   /* RHYTHM */
