@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faith &amp; Fire Crusade | The Watchmen Prayer Network International</title>
+<meta name="description" content="Faith & Fire Crusade, DELSU Prays edition. Sun Dec 6 to Tue Dec 8, 2026, 4:30pm daily. Crusade Ground, Abraka, Delta State. Register now.">
+<link rel="preload" href="assets/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{
+  font-family:'Space Grotesk';
+  src:url('assets/fonts/SpaceGrotesk.woff2') format('woff2');
+  font-weight:300 700;font-style:normal;font-display:swap;
+}
+@font-face{
+  font-family:'Anton';
+  src:url('assets/fonts/Anton.woff2') format('woff2');
+  font-weight:400;font-style:normal;font-display:swap;
+}
+:root{
+  --bg:#0d0b09;
+  --card:#161211;
+  --card2:#1d1815;
+  --line:rgba(255,255,255,.08);
+  --ink:#f4f1ec;
+  --dim:#a89e94;
+  --faint:#7c736a;
+  --ember:#ff5a1f;
+  --gold:#ffb347;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+.display{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em;line-height:1.04}
+.eyebrow{color:var(--ember);font-size:.85rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;transition:.3s}
+nav.solid{background:rgba(13,11,9,.92);backdrop-filter:blur(12px);padding:14px 40px;border-bottom:1px solid var(--line)}
+nav img{height:56px;width:auto}
+nav ul{display:flex;gap:30px;list-style:none;align-items:center}
+nav ul a{text-decoration:none;font-size:.88rem;font-weight:500;color:rgba(255,255,255,.85)}
+nav ul a:hover{color:var(--ember)}
+.nav-cta{border:1px solid rgba(255,255,255,.3);padding:10px 22px;border-radius:999px;font-weight:600!important;color:#fff!important;transition:.25s}
+.nav-cta:hover{background:var(--ember);border-color:var(--ember)}
+.menu-btn{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;z-index:60;position:relative}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;
+  background:radial-gradient(70% 55% at 78% 68%,rgba(255,90,31,.28),transparent 65%),
+             radial-gradient(50% 40% at 20% 90%,rgba(255,179,71,.12),transparent 60%),
+             linear-gradient(180deg,#131010 0%,#0d0b09 100%)}
+.hero-art{position:absolute;right:-2%;bottom:0;height:82vh;max-width:52vw;object-fit:contain;object-position:bottom;pointer-events:none;
+  filter:drop-shadow(0 0 80px rgba(255,90,31,.25)) drop-shadow(0 30px 60px rgba(0,0,0,.6))}
+.hero-inner{position:relative;z-index:2;width:100%;padding:150px 40px 60px}
+.hero h1{font-size:clamp(3.2rem,8.4vw,8.2rem)}
+.hero h1 .accent{color:var(--ember)}
+.hero-words{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:28px;max-width:920px}
+.hero-words p{font-size:.88rem;color:var(--dim);max-width:220px}
+.hero-words p b{display:block;color:var(--ink);font-weight:600;margin-bottom:4px;font-size:.95rem}
+.hero-bottom{position:absolute;left:40px;right:40px;bottom:34px;display:flex;align-items:flex-end;justify-content:space-between;gap:30px;z-index:3}
+.stat-card{display:flex;gap:0;background:rgba(22,18,16,.72);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:20px;padding:20px 8px}
+.stat-card div{padding:0 26px;text-align:left}
+.stat-card div+div{border-left:1px solid var(--line)}
+.stat-card strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;color:var(--gold)}
+.stat-card span{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.hero-cta{display:inline-flex;align-items:center;gap:12px;color:var(--ember);font-weight:700;font-size:1.05rem;letter-spacing:.04em;text-decoration:none;text-transform:uppercase;white-space:nowrap}
+.hero-cta i{font-style:normal;transition:.25s}
+.hero-cta:hover i{transform:translate(4px,-4px)}
+
+/* MARQUEE */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:18px 0;background:#0b0908}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:slide 28s linear infinite;width:max-content}
+.marquee-track span{font-weight:700;font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;padding-right:48px;
+  color:transparent;-webkit-text-stroke:1px rgba(255,90,31,.4)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* SECTION BASICS */
+section{padding:110px 0}
+.sec-title{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:54px}
+.sec-title h2{font-size:clamp(2rem,4.2vw,3.4rem)}
+.sec-title .side{color:var(--faint);font-size:.9rem;max-width:260px;text-align:right}
+
+/* CARD PANELS (pitch-deck style) */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:32px;padding:56px}
+.split{display:grid;grid-template-columns:1fr 1.15fr;gap:56px}
+.split h2{font-size:clamp(1.9rem,3.8vw,3rem)}
+.split .lede{color:var(--dim);margin:22px 0 40px;font-size:1.02rem;max-width:480px}
+.split .lede b{color:var(--ink);font-weight:600}
+.arrow-line{display:flex;align-items:center;gap:18px}
+.arrow-line h2{font-size:clamp(1.6rem,3vw,2.4rem)}
+.arrow-line i{font-style:normal;color:var(--ember);font-size:1.8rem}
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.step{background:var(--card2);border:1px solid var(--line);border-radius:20px;padding:26px;transition:.3s;position:relative}
+.step:hover{border-color:rgba(255,90,31,.5);transform:translateY(-4px)}
+.step .dot{position:absolute;top:22px;right:22px;width:20px;height:20px;border-radius:50%;background:var(--ember);
+  box-shadow:0 0 0 5px rgba(255,90,31,.15)}
+.step b.num{display:block;color:var(--gold);font-size:.8rem;font-weight:600;margin-bottom:10px}
+.step h3{font-weight:600;font-size:1.05rem;margin-bottom:8px;letter-spacing:-.01em}
+.step p{color:var(--dim);font-size:.85rem}
+
+/* CHECKLIST */
+.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.check-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.check-item:last-child{border:none}
+.check-item .dot{flex:none;width:22px;height:22px;border-radius:50%;background:var(--ember);display:flex;align-items:center;justify-content:center;font-size:.6rem;margin-top:2px}
+.check-item b{display:block;font-weight:600;font-size:1rem}
+.check-item p{color:var(--dim);font-size:.88rem}
+.check-art{border-radius:28px;overflow:hidden;position:relative;min-height:460px;
+  background:radial-gradient(80% 60% at 50% 100%,rgba(255,90,31,.3),transparent 70%),linear-gradient(165deg,#241a14,#141110)}
+.check-art img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:92%;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+
+/* MINISTERS SLIDER */
+.slider{display:flex;gap:20px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory}
+.slider::-webkit-scrollbar{height:6px}
+.slider::-webkit-scrollbar-thumb{background:rgba(255,90,31,.4);border-radius:99px}
+.slider::-webkit-scrollbar-track{background:var(--card)}
+.min-card{flex:0 0 min(440px,82vw);scroll-snap-align:start;border-radius:26px;overflow:hidden;position:relative;aspect-ratio:4/4.6;
+  background:radial-gradient(85% 60% at 50% 105%,rgba(255,90,31,.32),transparent 72%),linear-gradient(160deg,#2b1c13,#141110)}
+.min-card img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:88%;object-fit:contain;filter:drop-shadow(0 24px 44px rgba(0,0,0,.55))}
+.min-card:hover img{transform:translateX(-50%) translateY(-8px)}
+.min-card .chip{position:absolute;top:20px;left:20px;display:flex;align-items:center;gap:8px;background:rgba(13,11,9,.65);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;z-index:2}
+.min-card .chip em{font-style:normal;width:8px;height:8px;border-radius:50%;background:var(--ember)}
+.min-card .name{position:absolute;left:26px;bottom:22px;z-index:2;font-size:clamp(1.5rem,2.6vw,2rem)}
+.min-card .role{position:absolute;right:22px;bottom:26px;z-index:2;color:rgba(255,255,255,.55);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;text-align:right;max-width:150px}
+
+/* EXPERIENCE FULL-BLEED */
+.exp{position:relative;overflow:hidden;text-align:center;min-height:78vh;display:flex;flex-direction:column;justify-content:center;
+  background:radial-gradient(60% 55% at 50% 62%,rgba(255,90,31,.4),rgba(120,35,8,.25) 55%,transparent 75%),
+             linear-gradient(180deg,#0d0b09,#150e08 50%,#0d0b09)}
+.exp .watermark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(860px,90vw);opacity:.16;pointer-events:none}
+.exp h2{position:relative;z-index:2;font-size:clamp(2.4rem,6vw,5.4rem);text-transform:uppercase;letter-spacing:-.02em;line-height:1.04;max-width:900px;margin:0 auto}
+.exp p{position:relative;z-index:2;color:var(--dim);max-width:520px;margin:24px auto 0}
+.exp .btn-row{position:relative;z-index:2;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:999px;font-weight:600;text-decoration:none;transition:.25s;font-family:inherit;border:none;cursor:pointer}
+.btn-ember{background:var(--ember);color:#fff}
+.btn-ember:hover{background:#ff6f38;transform:translateY(-2px)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.3);color:#fff;background:transparent}
+.btn-ghost:hover{border-color:#fff}
+
+/* PROGRAMME */
+.prog-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.prog-cell{padding:40px 34px 44px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.prog-cell:last-child{border-right:none}
+.prog-cell b.num{color:transparent;-webkit-text-stroke:1.2px rgba(255,90,31,.65);font-size:2.6rem;font-weight:700;letter-spacing:-.03em;display:block;line-height:1}
+.prog-cell h3{font-weight:700;font-size:1.5rem;margin:18px 0 4px;letter-spacing:-.01em}
+.prog-cell .when{color:var(--gold);font-size:.85rem;font-weight:600}
+.prog-cell p{color:var(--dim);font-size:.9rem;margin-top:12px}
+
+/* COUNTDOWN */
+.count-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#0b0908;padding:40px 0}
+.count-flex{display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap}
+.count-flex .label{font-size:.95rem;color:var(--dim);max-width:200px}
+.count{display:flex;gap:10px}
+.count div{min-width:78px;padding:14px 6px;background:var(--card);border:1px solid var(--line);border-radius:16px;text-align:center}
+.count strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.7rem;font-weight:700;color:var(--gold);letter-spacing:-.02em}
+.count span{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+
+/* GALLERY */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.g-item{aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:radial-gradient(70% 60% at 50% 100%,rgba(255,90,31,.18),transparent 70%),linear-gradient(160deg,#241a14,#141110);border:1px solid var(--line)}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.g-item:hover img{transform:scale(1.05)}
+
+/* REGISTER */
+.reg-card{max-width:640px;margin:0 auto;background:var(--card);border:1px solid rgba(255,90,31,.35);border-radius:32px;padding:56px 48px}
+.reg-card h2{font-size:clamp(2rem,3.8vw,2.8rem)}
+.reg-card>p{color:var(--dim);margin:14px 0 34px}
+.field{margin-bottom:20px;text-align:left}
+.field label{display:block;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.field input,.field select,.field textarea{width:100%;padding:15px 18px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font-family:inherit;font-size:.95rem;outline:none;transition:.2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ember)}
+.field textarea{min-height:110px;resize:vertical}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ff5a1f' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
+.field select option{background:#161211}
+.reg-note{font-size:.8rem;color:var(--faint);margin-top:16px;text-align:center}
+.reg-btn{width:100%;margin-top:6px;background:var(--ember);color:#fff}
+.reg-btn:hover{background:#ff6f38}
+.success{display:none;text-align:center;padding:30px 0}
+.success h3{font-weight:700;font-size:1.5rem;margin-bottom:10px;color:var(--gold)}
+.success p{color:var(--dim)}
+
+/* LOCATION */
+.loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.loc-card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:40px 34px}
+.loc-card h3{font-weight:700;font-size:1.3rem;margin-bottom:14px}
+.loc-card p{color:var(--dim);font-size:.95rem}
+.loc-map{background:var(--card);border:1px solid var(--line);border-radius:26px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;min-height:300px}
+.loc-map p{color:var(--faint);font-size:.9rem;max-width:300px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:70px 0 36px;background:#0a0807}
+.foot-words{font-weight:700;font-size:clamp(1.6rem,4.6vw,4rem);letter-spacing:-.03em;line-height:1.15;margin-bottom:56px}
+.foot-words .accent{color:var(--ember)}
+.foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:38px}
+.foot-brand img{height:52px;width:auto;display:block;margin-bottom:14px}
+.foot-brand p{color:var(--faint);font-size:.9rem;max-width:300px}
+.foot-col h4{font-size:.75rem;font-weight:600;color:var(--gold);margin-bottom:14px;letter-spacing:.1em;text-transform:uppercase}
+.foot-col a{display:block;color:var(--dim);text-decoration:none;font-size:.92rem;padding:4px 0}
+.foot-col a:hover{color:var(--ember)}
+.foot-base{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--faint);font-size:.8rem}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:960px){
+  .wrap{padding:0 22px}
+  nav{padding:16px 22px}nav.solid{padding:12px 22px}
+  nav img{height:44px}
+  nav ul{position:fixed;inset:0;background:rgba(10,8,7,.97);flex-direction:column;justify-content:center;gap:30px;transform:translateY(-100%);transition:.35s;z-index:55}
+  nav ul.open{transform:none}
+  nav ul a{font-size:1.2rem}
+  .nav-cta{display:none}
+  .menu-btn{display:block}
+  section{padding:72px 0}
+  .hero{min-height:88vh}
+  .hero-art{opacity:.5;height:56vh;max-width:80vw}
+  .hero-inner{padding:130px 22px 200px}
+  .hero-words{grid-template-columns:1fr;gap:14px}
+  .hero-bottom{flex-direction:column;align-items:flex-start;left:22px;right:22px}
+  .panel{padding:32px 24px;border-radius:24px}
+  .split,.check-grid,.loc-grid{grid-template-columns:1fr;gap:34px}
+  .steps{grid-template-columns:1fr}
+  .prog-row{grid-template-columns:1fr}
+  .prog-cell{border-right:none}
+  .gal{grid-template-columns:repeat(2,1fr)}
+  .sec-title{flex-direction:column;align-items:flex-start}
+  .sec-title .side{text-align:left}
+  .reg-card{padding:38px 26px}
+  .stat-card div{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#top" aria-label="The Watchmen Prayer Network International">
+    <img src="assets/brand/logo.png" alt="The Watchmen Prayer Network International">
+  </a>
+  <ul id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#ministers">Ministers</a></li>
+    <li><a href="#programme">Programme</a></li>
+    <li><a href="#gallery">Past Crusades</a></li>
+    <li><a href="#register" class="nav-cta">Reserve a Seat ↗</a></li>
+  </ul>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+</nav>
+
+<header class="hero" id="top">
+  <img class="hero-art" src="assets/ministers/pioneer.webp" alt="" aria-hidden="true">
+  <div class="hero-inner">
+    <span class="eyebrow" style="display:block;margin-bottom:22px">Faith &amp; Fire Crusade · DELSU Prays · Dec 6 to 8, 2026</span>
+    <h1 class="display">The Word. <span class="accent">The Spirit.</span> The Fire.</h1>
+    <div class="hero-words">
+      <p><b>Six evenings a week, one altar.</b>The Watchmen Prayer Network gathers believers around the Word, the Spirit, and Prayer.</p>
+      <p><b>Three nights this December.</b>The crusade returns to Abraka with a new name and the same fire.</p>
+      <p><b>Come with someone.</b>Admission is free. Registration saves your seat and puts you on the prayer list.</p>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="stat-card">
+      <div><strong>9 yrs</strong><span>of standing prayer</span></div>
+      <div><strong>1000+</strong><span>gathered per crusade</span></div>
+      <div><strong>3 nights</strong><span>one ground, Abraka</span></div>
+    </div>
+    <a class="hero-cta" href="#register">Reserve a Seat <i>↗</i></a>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span><span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span><span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span><span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="panel reveal">
+      <div class="split">
+        <div>
+          <span class="eyebrow" style="display:block;margin-bottom:18px">About</span>
+          <h2 class="display">What Is<br>Faith &amp; Fire</h2>
+          <p class="lede"><b>Faith &amp; Fire</b> is the annual crusade of The Watchmen Prayer Network International: three evenings of the Word, worship, and prayer on one ground in Abraka. Formerly known as DELSU Prays, December 2026 is its first edition under the new name. Same altar. Deeper fire.</p>
+          <div class="arrow-line">
+            <h2 class="display">Three nights,<br>step by step</h2>
+            <i>→</i>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step"><span class="dot"></span><b class="num">Step 01</b><h3>Register Your Seat</h3><p>A one-minute form: your name, your phone, and whether you want in on the WhatsApp group.</p></div>
+          <div class="step"><span class="dot"></span><b class="num">Step 02</b><h3>Get the Direction</h3><p>Crusade Ground, behind Ese-G Hostel, off Olori 19 road, Abraka. Doors open from 4:00pm.</p></div>
+          <div class="step"><span class="dot"></span><b class="num">Step 03</b><h3>Come Hungry</h3><p>Bring your Bible, your expectations, and someone who needs the fire too.</p></div>
+          <div class="step"><span class="dot"></span><b class="num">Step 04</b><h3>Stand in the Fire</h3><p>Three evenings of worship, the Word, and prayer. Leave carrying what you came for.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="panel reveal">
+      <div class="check-grid">
+        <div>
+          <span class="eyebrow" style="display:block;margin-bottom:18px">For You</span>
+          <h2 class="display" style="margin-bottom:26px">What You<br>Leave With</h2>
+          <div class="check-item"><span class="dot">✓</span><div><b>A word that stays</b><p>Teaching that follows you home and holds through the year.</p></div></div>
+          <div class="check-item"><span class="dot">✓</span><div><b>Prayer that shifts things</b><p>Altar nights where heaven responds to standing prayer.</p></div></div>
+          <div class="check-item"><span class="dot">✓</span><div><b>A people to stand with</b><p>RE-FIRE Thursdays and the prayer network carry you beyond the crusade.</p></div></div>
+          <div class="check-item"><span class="dot">✓</span><div><b>Fire for the new year</b><p>You cross into 2027 lit, not lukewarm.</p></div></div>
+        </div>
+        <div class="check-art">
+          <img src="assets/ministers/kolawole.webp" alt="Rev. Kolawole Williams Ogoigbe">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ministers" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <h2 class="display">Meet the Ministers</h2>
+      <span class="side">Three voices, one altar. Scroll through.</span>
+    </div>
+    <div class="slider reveal">
+      <article class="min-card">
+        <span class="chip"><em></em>The Pioneer · Host</span>
+        <img src="assets/ministers/pioneer.webp" alt="Pastor Ikechukwu Ubabudike">
+        <span class="name display">Pastor Ikechukwu Ubabudike</span>
+        <span class="role">President, The Watchmen Prayer Network Intl.</span>
+      </article>
+      <article class="min-card">
+        <span class="chip"><em></em>Virtual · From Lagos</span>
+        <img src="assets/ministers/olayinka.webp" alt="Pastor Oluwatobi Olayinka">
+        <span class="name display">Pastor Oluwatobi Olayinka</span>
+        <span class="role">Joining live by virtual connection</span>
+      </article>
+      <article class="min-card">
+        <span class="chip"><em></em>Onsite · From Port Harcourt</span>
+        <img src="assets/ministers/kolawole.webp" alt="Rev. Kolawole Williams Ogoigbe">
+        <span class="name display">Rev. Kolawole Williams Ogoigbe</span>
+        <span class="role">Ministering all three nights</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="programme" class="exp" style="min-height:0;padding:110px 0">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <h2 class="display">The Three Nights</h2>
+      <span class="side">Same ground, same hour, three evenings. Come early, bring someone.</span>
+    </div>
+    <div class="prog-row reveal">
+      <div class="prog-cell"><b class="num">01</b><h3>Ignition</h3><span class="when">Sun, Dec 6 · 4:30pm</span><p>The crusade opens with worship, the Word, and the first altar call of the three nights.</p></div>
+      <div class="prog-cell"><b class="num">02</b><h3>Consecration</h3><span class="when">Mon, Dec 7 · 4:30pm</span><p>A night set apart for the Spirit: prayer, prophetic ministry, and consecration.</p></div>
+      <div class="prog-cell"><b class="num">03</b><h3>Fire &amp; Commissioning</h3><span class="when">Tue, Dec 8 · 4:30pm</span><p>Thanksgiving, testimonies, and the commissioning of a people on fire.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="count-strip">
+  <div class="wrap count-flex">
+    <span class="label">The fire starts in</span>
+    <div class="count" id="count">
+      <div><strong id="cd">00</strong><span>Days</span></div>
+      <div><strong id="ch">00</strong><span>Hours</span></div>
+      <div><strong id="cm">00</strong><span>Mins</span></div>
+      <div><strong id="cs">00</strong><span>Secs</span></div>
+    </div>
+    <a href="#register" class="btn btn-ember">Save My Seat</a>
+  </div>
+</div>
+
+<section id="story">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <h2 class="display">Our Story</h2>
+      <span class="side">From one altar of fifty to crusade grounds of a thousand.</span>
+    </div>
+    <div class="prog-row reveal" style="border-top:1px solid var(--line)">
+      <div class="prog-cell"><b class="num">2017</b><h3>The first meeting</h3><p>The Watchmen Prayer Network International begins with about fifty people around one altar of prayer.</p></div>
+      <div class="prog-cell"><b class="num">——</b><h3>A network takes shape</h3><p>RE-FIRE Thursdays and month-end Prophetic Nights become the rhythm of the house.</p></div>
+      <div class="prog-cell"><b class="num">——</b><h3>The crusade years</h3><p>Yearly crusades grow into open gatherings drawing over a thousand people.</p></div>
+      <div class="prog-cell" style="grid-column:1/-1;border-right:none;background:linear-gradient(120deg,rgba(255,90,31,.12),transparent 60%)"><b class="num">2026</b><h3>Faith &amp; Fire: the first edition</h3><p>December 2026, the crusade takes on a new name. The fire is only getting started.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <h2 class="display">Past Crusades</h2>
+      <span class="side">Moments from past meetings and crusades.</span>
+    </div>
+    <div class="gal reveal">
+      <div class="g-item"><img src="assets/gallery/light-244.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item"><img src="assets/gallery/light-245.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item"><img src="assets/gallery/light-246.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item"><img src="assets/gallery/light-254.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item"><img src="assets/gallery/light-276.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item"><img src="assets/gallery/light-285.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item"><img src="assets/gallery/light-323.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item"><img src="assets/gallery/light-333.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item"><img src="assets/gallery/light-347.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item"><img src="assets/gallery/light-370.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item"><img src="assets/gallery/light-377.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+      <div class="g-item"><img src="assets/gallery/light-12.jpg" alt="Past crusade" loading="lazy" onerror="this.remove()"></div>
+    </div>
+  </div>
+</section>
+
+<section class="exp">
+  <img class="watermark" src="assets/brand/tag.png" alt="" aria-hidden="true">
+  <h2 class="display">Come and stand<br>in the fire</h2>
+  <p>Three evenings. One ground. A people gathered around the Word, the Spirit, and Prayer.</p>
+  <div class="btn-row"><a href="#register" class="btn btn-ember">Reserve a Seat</a></div>
+</section>
+
+<section id="register">
+  <div class="wrap">
+    <div class="reg-card reveal">
+      <span class="eyebrow" style="display:block;margin-bottom:16px">Registration</span>
+      <h2 class="display">Count Me In</h2>
+      <p>Register so we can pray for you through the prayer period and keep you posted on the crusade.</p>
+      <form id="regForm">
+        <div class="field">
+          <label for="fname">Full name</label>
+          <input id="fname" name="name" type="text" required placeholder="Your full name">
+        </div>
+        <div class="field">
+          <label for="fphone">Phone number</label>
+          <input id="fphone" name="phone" type="tel" required placeholder="e.g. 0803 000 0000">
+        </div>
+        <div class="field">
+          <label for="fwa">Join the crusade WhatsApp group?</label>
+          <select id="fwa" name="whatsapp_group" required>
+            <option value="" selected disabled>Choose one</option>
+            <option value="Yes">Yes, add me to the group</option>
+            <option value="No">No, just the registration</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fpray">Prayer request <span style="text-transform:none;letter-spacing:0;color:var(--faint)">(optional)</span></label>
+          <textarea id="fpray" name="prayer_request" placeholder="What should we stand with you in prayer for?"></textarea>
+        </div>
+        <p id="regError" style="display:none;color:#ff8a5c;margin:14px 0 0;font-size:.9rem"></p>
+                <button type="submit" class="btn reg-btn">Submit Registration</button>
+        <p class="reg-note">Your prayer request goes to the prayer team only.</p>
+      </form>
+      <div class="success" id="regSuccess">
+        <h3>You are registered</h3>
+        <p>See you at the Crusade Ground, 4:30pm, Sunday December 6. The fire starts then.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="location" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-title reveal">
+      <h2 class="display">Find the Ground</h2>
+      <span class="side">Crusade Ground, Abraka, Delta State. 4:30pm daily.</span>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-card reveal">
+        <h3>Venue</h3>
+        <p>Crusade Ground, opposite Gospel Stars church, off Olori 19 road, behind Ese-G Hostel, Abraka, Delta State.</p>
+        <p style="margin-top:16px"><b style="color:var(--ink)">Sun Dec 6 to Tue Dec 8, 2026 · 4:30pm daily</b></p>
+        <p style="margin-top:14px">Coming from outside Abraka? The ground is behind Ese-G Hostel, a short walk off Olori 19 road. Follow the sound of worship.</p>
+      </div>
+      <div class="loc-map reveal"><p>Venue map pin loading here. If you know the ground, share this page with a friend coming along.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-words display">Come ready. Come hungry. <span class="accent">Leave on fire.</span></div>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/brand/logo.png" alt="The Watchmen Prayer Network International">
+        <p>The annual crusade of The Watchmen Prayer Network International. Setting hearts on fire.</p>
+      </div>
+      <div class="foot-col">
+        <h4>The Crusade</h4>
+        <a href="#about">About</a>
+        <a href="#ministers">Ministers</a>
+        <a href="#programme">Programme</a>
+        <a href="#gallery">Past Crusades</a>
+      </div>
+      <div class="foot-col">
+        <h4>The Ministry</h4>
+        <a href="#story">Our Story</a>
+        <a href="https://www.instagram.com/thewatchmenpraynetworkintl" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://t.me/theWatchmenprayernetworkintl" target="_blank" rel="noopener">Telegram</a>
+        <a href="tel:+2349082727263">+234 908 272 7263</a>
+      </div>
+      <div class="foot-col">
+        <h4>Join</h4>
+        <a href="#register">Register</a>
+        <a href="#location">Get Direction</a>
+        <a href="#register">Prayer Requests</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 The Watchmen Prayer Network International</span>
+      <span>Raising a people of the Word, the Spirit, and Prayer</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60),{passive:true});
+const links=document.getElementById('navLinks');
+document.getElementById('menuBtn').addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+const target=new Date('2026-12-06T16:30:00+01:00').getTime();
+function tick(){
+  let d=target-Date.now();
+  if(d<=0){document.getElementById('count').innerHTML='<div style="flex:1"><strong style="color:var(--gold)">IT IS TIME</strong></div>';return}
+  const s=Math.floor(d/1000);
+  document.getElementById('cd').textContent=String(Math.floor(s/86400)).padStart(2,'0');
+  document.getElementById('ch').textContent=String(Math.floor(s%86400/3600)).padStart(2,'0');
+  document.getElementById('cm').textContent=String(Math.floor(s%3600/60)).padStart(2,'0');
+  document.getElementById('cs').textContent=String(s%60).padStart(2,'0');
+}
+tick();setInterval(tick,1000);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const form=document.getElementById('regForm');
+const SB_URL='https://wyffeifapgjyndsickzw.supabase.co/rest/v1/registrations';
+const SB_KEY='sb_publishable_-l_aiV-1dwtGWg9wmm3vig_72yl4HgL';
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const fd=new FormData(form);
+  const payload={full_name:(fd.get('name')||'').trim(),phone:(fd.get('phone')||'').trim(),whatsapp_group:fd.get('whatsapp_group')==='Yes',prayer_request:((fd.get('prayer_request')||'').trim()||null)};
+  const btn=form.querySelector('button[type=submit]');
+  btn.disabled=true;btn.textContent='Registering...';
+  const errEl=document.getElementById('regError');
+  try{
+    const r=await fetch(SB_URL,{method:'POST',headers:{'Content-Type':'application/json','apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Prefer':'return=minimal'},body:JSON.stringify(payload)});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    form.style.display='none';
+    document.getElementById('regSuccess').style.display='block';
+  }catch(err){
+    errEl.style.display='block';
+    errEl.textContent='Network hiccup, your registration did not go through. Check your connection and try again.';
+    btn.disabled=false;btn.textContent='Submit Registration';
+  }
+});
+</script>
+</body>
+</html>
