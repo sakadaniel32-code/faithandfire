@@ -238,8 +238,6 @@ footer{border-top:1px solid var(--line);padding:90px 0 36px;background:#0a0807}
 .foot-base{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--faint);font-size:.8rem}
 
 /* REVEAL */
-body.js .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
-body.js .reveal.in{opacity:1;transform:none}
 
 @media(max-width:1024px){
   .about-grid,.feat-grid,.reg-grid{gap:48px}
@@ -622,10 +620,6 @@ function tick(){
   document.getElementById('cs').textContent=String(s%60).padStart(2,'0');
 }
 tick();setInterval(tick,1000);
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.body.classList.add('js');
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-setTimeout(()=>document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in')),3000);
 const form=document.getElementById('regForm');
 const SB_URL='https://wyffeifapgjyndsickzw.supabase.co/rest/v1/registrations';
 const SB_KEY='sb_publishable_-l_aiV-1dwtGWg9wmm3vig_72yl4HgL';
