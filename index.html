@@ -74,6 +74,14 @@ h2.display .accent{color:var(--ember)}
 .hero-stats strong{display:block;font-size:1.3rem;letter-spacing:-.02em}
 .hero-stats span{font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
 
+/* testimonies */
+.testi-grid{display:flex;gap:14px;margin-top:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 18px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.testi-grid::-webkit-scrollbar{display:none}
+.testi-card{flex:0 0 min(80vw,330px);scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px 20px;box-shadow:0 10px 26px rgba(22,19,17,.06);display:flex;flex-direction:column;gap:14px}
+.testi-mark{color:var(--ember);font:700 2.6rem/0.55 'Space Grotesk',sans-serif}
+.testi-quote{font-size:.98rem;line-height:1.6;color:var(--ink);font-weight:500}
+.testi-by b{display:block;font-size:.85rem}
+.testi-by span{font-size:.78rem;color:var(--muted)}
 /* video panel + intro splash */
 .video-card{border-radius:26px;overflow:hidden;background:#0a0603;box-shadow:0 18px 44px rgba(22,19,17,.14)}
 .video-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
@@ -251,7 +259,7 @@ footer{margin:64px 0 0;background:var(--ink);color:#fff;border-radius:30px 30px 
   </a>
   <ul class="nav-links" id="navLinks">
     <button class="menu-x" id="menuX" aria-label="Close menu">✕</button>
-    <li><a href="#about">About</a></li>
+    <li><a href="#testimonies">Testimonies</a></li><li><a href="#about">About</a></li>
     <li><a href="#ministers">Ministers</a></li>
     <li><a href="#programme">Programme</a></li>
     <li><a href="#gallery">Past Crusades</a></li>
@@ -282,6 +290,22 @@ footer{margin:64px 0 0;background:var(--ink);color:#fff;border-radius:30px 30px 
   </div>
 </header>
 
+<section id="testimonies" class="testimonies">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="chip"><em>✦</em> Testimonies</span>
+      <h2 class="display">What God<br>Has <span class="accent">Done</span></h2>
+      <span class="side">Stories from our altars and past meetings. New ones are added as they come in, swipe to read more.</span>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card"><span class="testi-mark">"</span><p class="testi-quote">Testimony slot one. Swap this for a real story, told in the person&#39;s own words, and how it ended.</p><div class="testi-by"><b>Name here</b><span>Church or city</span></div></div>
+      <div class="testi-card"><span class="testi-mark">"</span><p class="testi-quote">Testimony slot two. Swap this for a real story, told in the person&#39;s own words, and how it ended.</p><div class="testi-by"><b>Name here</b><span>Church or city</span></div></div>
+      <div class="testi-card"><span class="testi-mark">"</span><p class="testi-quote">Testimony slot three. Swap this for a real story, told in the person&#39;s own words, and how it ended.</p><div class="testi-by"><b>Name here</b><span>Church or city</span></div></div>
+      <div class="testi-card"><span class="testi-mark">"</span><p class="testi-quote">Testimony slot four. Swap this for a real story, told in the person&#39;s own words, and how it ended.</p><div class="testi-by"><b>Name here</b><span>Church or city</span></div></div>
+      <div class="testi-card"><span class="testi-mark">"</span><p class="testi-quote">Testimony slot five. Swap this for a real story, told in the person&#39;s own words, and how it ended.</p><div class="testi-by"><b>Name here</b><span>Church or city</span></div></div>
+    </div>
+  </div>
+</section>
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span><span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span><span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span><span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span>
