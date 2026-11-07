@@ -79,7 +79,8 @@ h2.display .accent{color:var(--ember)}
 .video-card video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
 #splash{position:fixed;inset:0;z-index:9999;background:#000;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease}
 #splash.gone{opacity:0;pointer-events:none}
-#splash video{width:min(94vw,960px);aspect-ratio:16/9;object-fit:contain}
+#splash video{width:min(94vw,960px);aspect-ratio:16/9;object-fit:contain;animation:splashZoom 12.4s ease-in-out forwards;transform-origin:center}
+@keyframes splashZoom{0%{transform:scale(1)}100%{transform:scale(1.16)}}
 #splash .skip{position:absolute;bottom:22px;right:18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:999px;padding:9px 18px;font:600 .8rem 'Space Grotesk',sans-serif;cursor:pointer}
 body.splash-lock{overflow:hidden}
 /* marquee */
