@@ -2,470 +2,240 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Faith &amp; Fire Crusade | The Watchmen Prayer Network International</title>
-<meta name="description" content="Faith &amp; Fire Crusade, DELSU Prays edition. Sun Dec 6 to Tue Dec 8, 2026, 4:30pm daily. Crusade Ground, Abraka, Delta State. Register now.">
-<link rel="preload" href="assets/fonts/SpaceGrotesk.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Faith &amp; Fire Crusade · Dec 6–8, 2026 · Abraka</title>
+<meta name="description" content="Faith & Fire Crusade, the annual crusade of The Watchmen Prayer Network International. Three nights of the Word, worship, and prayer. Sun Dec 6 to Tue Dec 8, 2026, 4:30pm daily, Abraka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-@font-face{
-  font-family:'Space Grotesk';
-  src:url('assets/fonts/SpaceGrotesk.woff2') format('woff2');
-  font-weight:300 700;font-style:normal;font-display:swap;
-}
-@font-face{
-  font-family:'Anton';
-  src:url('assets/fonts/Anton.woff2') format('woff2');
-  font-weight:400;font-style:normal;font-display:swap;
-}
 :root{
-  --bg:#0d0b09;
-  --card:#161211;
-  --card2:#1d1815;
-  --line:rgba(255,255,255,.08);
-  --ink:#f4f1ec;
-  --dim:#a89e94;
-  --faint:#7c736a;
-  --ember:#ff5a1f;
-  --gold:#ffb347;
+  --bg:#fffdf8; --ink:#161311; --muted:#6f665e; --line:#eadfd2;
+  --ember:#ff5a1f; --ember-deep:#e6480f; --gold:#ffb347;
+  --card:#ffffff; --soft:#f7f1e9; --r:24px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 section[id],footer{scroll-margin-top:76px}
-body{
-  font-family:'Space Grotesk',system-ui,sans-serif;
-  background:var(--bg);color:var(--ink);line-height:1.6;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-img{max-width:100%}
-a{color:inherit}
-.wrap{max-width:1440px;margin:0 auto;padding:0 48px}
-.display{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em;line-height:1.04}
-.eyebrow{color:var(--ember);font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{padding:0 18px;max-width:560px;margin:0 auto}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;transition:.3s}
-nav.solid{background:rgba(13,11,9,.9);backdrop-filter:blur(12px);padding:14px 48px;border-bottom:1px solid var(--line)}
-nav img{height:56px;width:auto}
-nav ul{display:flex;gap:34px;list-style:none;align-items:center}
-nav ul a{text-decoration:none;font-size:.88rem;font-weight:500;color:rgba(255,255,255,.85);transition:.2s}
-nav ul a:hover{color:var(--ember)}
-.nav-cta{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.3);padding:10px 14px 10px 22px;border-radius:999px;font-weight:600!important;color:#fff!important;transition:.25s}
-.nav-cta i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--ember);display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;transition:.25s}
-.nav-cta:hover{background:rgba(255,90,31,.14);border-color:var(--ember)}
-.menu-btn{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;z-index:60;position:relative}
+/* announcement bar */
+.annbar{background:linear-gradient(90deg,var(--ember-deep),var(--ember) 55%,#ff8a3d);color:#fff;font-size:.66rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;text-align:center;padding:8px 14px}
 
-/* HERO */
-.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
-.hero-photo{position:absolute;inset:0;z-index:0}
-.hero-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.92) brightness(.5) contrast(1.06)}
-.hero-photo::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(13,11,9,.94) 0%,rgba(13,11,9,.42) 34%,rgba(13,11,9,.2) 56%,rgba(13,11,9,.72) 82%,rgba(13,11,9,.97) 100%),
-             radial-gradient(55% 45% at 12% 88%,rgba(255,90,31,.4),transparent 66%)}
-.hero-art{position:absolute;right:0;bottom:0;height:72vh;max-width:38vw;object-fit:contain;object-position:bottom;pointer-events:none;z-index:1;
-  filter:drop-shadow(0 0 80px rgba(255,90,31,.3)) drop-shadow(0 30px 60px rgba(0,0,0,.65))}
-.hero-inner{position:relative;z-index:2;width:100%;padding:170px 48px 0}
-.hero-kicker{display:flex;align-items:center;gap:14px;margin-bottom:26px}
-.hero-kicker .rule{width:56px;height:1px;background:var(--ember)}
-.hero h1{font-size:clamp(3.4rem,8.2vw,8.4rem);line-height:.98;letter-spacing:.005em}
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(255,253,248,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--line)}
+nav img{height:46px;width:auto}
+.nav-links{display:none}
+.menu-btn{background:none;border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:1.15rem;line-height:1;color:var(--ink);cursor:pointer}
+.nav-links{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding:0 30px;transform:translateY(-102%);transition:transform .35s ease,visibility .35s;visibility:hidden;z-index:60}
+.nav-links.open{transform:none;visibility:visible}
+.nav-links a{font-size:2rem;font-weight:700;letter-spacing:-.02em}
+.nav-links .nav-cta{font-size:1.1rem;background:var(--ink);color:#fff;padding:14px 26px;border-radius:999px}
+.menu-x{position:absolute;top:18px;right:20px;background:none;border:1px solid var(--line);border-radius:12px;padding:8px 13px;font-size:1.1rem;cursor:pointer}
+
+/* chips + buttons */
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:.78rem;font-weight:600;box-shadow:0 2px 10px rgba(22,19,17,.05)}
+.chip em{font-style:normal}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:999px;font-weight:700;font-size:.95rem;border:1px solid transparent;cursor:pointer;font-family:inherit}
+.btn i{font-style:normal;font-weight:500}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-ember{background:var(--ember);color:#fff;box-shadow:0 10px 24px rgba(255,90,31,.28)}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn-sm{padding:11px 20px;font-size:.85rem}
+
+/* section scaffolding */
+section{padding:58px 0 8px}
+.sec-head{margin-bottom:26px}
+.sec-head .chip{margin-bottom:16px}
+h2.display{font-size:clamp(2.2rem,9.4vw,3rem);font-weight:700;letter-spacing:-.03em;line-height:1.04}
+h2.display .accent{color:var(--ember)}
+.sec-head .side{display:block;margin-top:12px;color:var(--muted);font-size:.95rem;max-width:44ch}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 12px 32px rgba(22,19,17,.05)}
+.photo{border-radius:20px;overflow:hidden;background:var(--soft)}
+.photo img{width:100%;height:100%;object-fit:cover}
+</style>
+<style>
+/* hero */
+.hero{padding:30px 0 0;text-align:center}
+.hero h1{font-size:clamp(3rem,13.5vw,4.8rem);font-weight:700;letter-spacing:-.035em;line-height:1.0;margin:18px 0 14px}
 .hero h1 .accent{color:var(--ember)}
-.hero-words{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin:44px 0 0;max-width:820px}
-.hero-words p{font-size:.88rem;color:rgba(244,241,236,.92);max-width:230px;text-shadow:0 1px 14px rgba(13,11,9,.9),0 0 4px rgba(13,11,9,.7)}
-.hero-words p b{display:block;color:#fff;font-weight:600;margin-bottom:4px;font-size:.95rem;text-shadow:0 1px 12px rgba(13,11,9,.95)}
-.hero-bottom{position:relative;z-index:3;display:flex;align-items:flex-end;justify-content:space-between;gap:30px;padding:48px 48px 56px}
-.stat-card{display:flex;background:rgba(18,14,12,.72);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:18px;padding:18px 8px}
-.stat-card div{padding:0 26px;text-align:left}
-.stat-card div+div{border-left:1px solid var(--line)}
-.stat-card strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;letter-spacing:-.02em;color:var(--gold)}
-.stat-card span{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
-.hero-cta{display:inline-flex;align-items:center;gap:12px;background:var(--ember);color:#fff;padding:17px 30px;border-radius:999px;font-weight:600;font-size:.95rem;letter-spacing:.04em;text-decoration:none;text-transform:uppercase;white-space:nowrap}
-.hero-cta i{font-style:normal;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.18);display:inline-flex;align-items:center;justify-content:center;font-size:.85rem;transition:.25s}
-.hero-cta:hover{background:#ff6f38;transform:translateY(-2px)}
-.hero-cta:hover i{transform:translate(2px,-2px)}
+.hero .lede{color:var(--muted);font-size:1rem;max-width:40ch;margin:0 auto}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:20px}
+.hero-cta-row{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.hero-cta-row .btn{width:100%}
+.hero-media{margin:26px 0 0;aspect-ratio:4/3;border-radius:26px}
+.hero-media img{filter:none}
+.hero-stats{display:flex;margin:18px 0 0;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 12px 32px rgba(22,19,17,.05)}
+.hero-stats>div{flex:1;padding:16px 6px;text-align:center}
+.hero-stats>div+div{border-left:1px solid var(--line)}
+.hero-stats strong{display:block;font-size:1.3rem;letter-spacing:-.02em}
+.hero-stats span{font-size:.6rem;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
 
-/* MARQUEE */
-.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:20px 0;background:#0b0908}
-.marquee-track{display:flex;gap:0;white-space:nowrap;animation:slide 28s linear infinite;width:max-content}
-.marquee-track span{font-family:'Anton',sans-serif;font-size:1.3rem;letter-spacing:.14em;text-transform:uppercase;padding-right:56px;
-  color:transparent;-webkit-text-stroke:1px rgba(255,90,31,.45)}
+/* marquee */
+.marquee{margin:40px 0 0;background:var(--ink);color:#fff;padding:11px 0;overflow:hidden}
+.marquee-track{display:flex;white-space:nowrap;animation:slide 22s linear infinite}
+.marquee-track span{font-size:.8rem;font-weight:600;letter-spacing:.06em;padding-right:40px;text-transform:uppercase}
 @keyframes slide{to{transform:translateX(-50%)}}
 
-/* SECTION BASICS */
-section{padding:130px 0}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:64px}
-.sec-head h2{font-size:clamp(2.6rem,6vw,5.6rem);line-height:.98}
-.sec-head .side{color:var(--faint);font-size:.95rem;max-width:300px;text-align:right}
+/* about */
+.about{padding-top:56px}
+.about-card{padding:26px 22px}
+.about-card p{color:var(--muted);font-size:.98rem;margin-top:10px}
+.about-card p b{color:var(--ink)}
+.about-photo{margin-top:22px;aspect-ratio:4/5}
 
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:7vw;align-items:start}
-.about-grid h2{font-size:clamp(2.8rem,6.4vw,6.4rem);line-height:.98}
-.about-lede{color:var(--dim);font-size:1.05rem;max-width:460px;padding-top:18px}
-.about-lede b{color:var(--ink);font-weight:600}
-.about-photo{position:relative;margin-top:56px;border-radius:36px;overflow:hidden;aspect-ratio:4/3;
-  border:1px solid var(--line)}
-.about-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
-.about-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(200deg,rgba(255,90,31,.16),transparent 45%),linear-gradient(0deg,rgba(13,11,9,.55),transparent 55%)}
-.steps{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:90px;border-top:1px solid var(--line)}
-.step{padding:44px 34px 52px 0;border-bottom:1px solid var(--line);position:relative;transition:.3s}
-.step:nth-child(odd){border-right:1px solid var(--line);padding-right:44px}
-.step:nth-child(even){padding-left:44px}
-.step .num{font-family:'Anton',sans-serif;font-size:clamp(3rem,5vw,4.6rem);color:transparent;-webkit-text-stroke:1.6px rgba(255,90,31,.7);line-height:.9;display:block}
-.step:hover .num{-webkit-text-stroke-color:var(--ember)}
-.step h3{font-weight:600;font-size:1.25rem;margin:22px 0 10px;letter-spacing:-.01em}
-.step p{color:var(--dim);font-size:.9rem;max-width:330px}
+/* steps */
+.steps{display:grid;gap:12px;margin-top:14px}
+.step{padding:20px}
+.step .num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:linear-gradient(140deg,var(--ember),var(--gold));color:#fff;font-weight:700;font-size:.95rem;margin-bottom:14px}
+.step h3{font-size:1.1rem;letter-spacing:-.01em}
+.step p{color:var(--muted);font-size:.9rem;margin-top:6px}
 
-/* WHAT YOU LEAVE WITH */
-.feat-grid{display:grid;grid-template-columns:1fr .92fr;gap:7vw;align-items:center}
-.feat-grid h2{font-size:clamp(2.6rem,5.6vw,5.4rem);line-height:.98;margin-bottom:44px}
-.feat{display:flex;gap:20px;padding:26px 0;border-top:1px solid var(--line)}
-.feat:last-child{border-bottom:1px solid var(--line)}
-.feat .dot{flex:none;width:40px;height:40px;border-radius:50%;background:rgba(255,90,31,.12);border:1px solid rgba(255,90,31,.5);display:flex;align-items:center;justify-content:center;font-size:.72rem;color:var(--ember);margin-top:2px}
-.feat b{display:block;font-weight:600;font-size:1.2rem;margin-bottom:6px}
-.feat p{color:var(--dim);font-size:.9rem;max-width:400px}
-.feat-art{position:relative;border-radius:40px;overflow:hidden;min-height:560px;
-  background:radial-gradient(80% 60% at 50% 100%,rgba(255,90,31,.32),transparent 70%),linear-gradient(165deg,#241a14,#141110);border:1px solid var(--line)}
-.feat-art img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:94%;object-fit:contain;filter:drop-shadow(0 24px 44px rgba(0,0,0,.5))}
+/* feats */
+.feats{display:grid;gap:12px;margin-top:14px}
+.feat{display:flex;gap:14px;align-items:flex-start;padding:18px 20px}
+.feat .dot{flex:none;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:999px;background:#fff1e8;color:var(--ember);font-weight:700}
+.feat b{font-size:1rem;letter-spacing:-.01em}
+.feat p{color:var(--muted);font-size:.9rem;margin-top:4px}
 
-/* MINISTERS */
-.slider{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.min-card{border-radius:30px;overflow:hidden;position:relative;aspect-ratio:3/4.1;
-  background:radial-gradient(85% 60% at 50% 105%,rgba(255,90,31,.32),transparent 72%),linear-gradient(160deg,#2b1c13,#141110);border:1px solid var(--line)}
-.min-card img{position:absolute;left:50%;bottom:0;transform:translateX(-50%);height:90%;object-fit:contain;filter:drop-shadow(0 24px 44px rgba(0,0,0,.55));transition:.4s}
-.min-card:hover img{transform:translateX(-50%) translateY(-8px)}
-.min-card .chip{position:absolute;top:22px;left:22px;display:flex;align-items:center;gap:8px;background:rgba(13,11,9,.65);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;z-index:2}
-.min-card .chip em{font-style:normal;width:8px;height:8px;border-radius:50%;background:var(--ember)}
-.min-card .name{position:absolute;left:26px;bottom:24px;z-index:2;font-size:clamp(1.7rem,2.6vw,2.5rem);line-height:1.05}
-.min-card .role{position:absolute;right:24px;bottom:28px;z-index:2;color:rgba(255,255,255,.55);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-align:right;max-width:150px}
+/* ministers */
+.min-cards{display:grid;gap:14px}
+.min-card{overflow:hidden;padding:0}
+.min-card .photo{border-radius:0;aspect-ratio:4/4.6;position:relative}
+.min-card .chip{position:absolute;top:14px;left:14px}
+.min-card .body{padding:18px 20px 22px}
+.min-card h3{font-size:1.35rem;letter-spacing:-.02em}
+.min-card p{color:var(--muted);font-size:.88rem;margin-top:5px}
 
-/* THREE NIGHTS */
-.nights{display:flex;flex-direction:column}
-.night{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(28px,5vw,72px);align-items:center;border-top:1px solid var(--line);padding:70px 0;position:relative;transition:.3s}
-.night:last-child{border-bottom:1px solid var(--line)}
-.night .num{font-family:'Anton',sans-serif;font-size:clamp(4.4rem,9vw,9.6rem);color:transparent;-webkit-text-stroke:2px rgba(255,90,31,.65);line-height:.85;transition:.3s}
-.night:hover .num{-webkit-text-stroke-color:var(--ember)}
-.night h3{font-family:'Anton',sans-serif;font-size:clamp(2.2rem,4.6vw,4.4rem);letter-spacing:.01em;margin-bottom:14px}
-.night .when{color:var(--gold);font-size:.92rem;font-weight:600;letter-spacing:.04em}
-.night p{color:var(--dim);font-size:.95rem;max-width:480px;margin-top:12px}
-.night-photo{width:clamp(180px,20vw,280px);aspect-ratio:3/4;border-radius:24px;overflow:hidden;border:1px solid var(--line);flex:none}
-.night-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) brightness(1.12) contrast(1.02)}
-.night.rev .num{order:3}
-.night.rev .night-photo{order:2}
-.night.rev .txt{order:1}
+/* nights */
+.night-cards{display:grid;gap:14px}
+.night{overflow:hidden;padding:0}
+.night .body{padding:22px 22px 6px}
+.night .n-chip{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:#fff1e8;color:var(--ember-deep);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.night h3{font-size:1.6rem;letter-spacing:-.02em;margin-top:12px}
+.night .when{display:block;color:var(--muted);font-size:.85rem;margin-top:4px}
+.night p{color:var(--muted);font-size:.92rem;margin-top:10px;padding-bottom:18px}
+.night .photo{border-radius:0;aspect-ratio:16/10}
+</style>
+<style>
+/* countdown banner */
+.count-banner{margin:56px 18px 0;border-radius:28px;background:linear-gradient(135deg,var(--ember-deep),var(--ember) 55%,#ff8a3d);color:#fff;padding:30px 24px;box-shadow:0 18px 44px rgba(255,90,31,.3)}
+.count-banner .lbl{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.9}
+.count{display:flex;gap:8px;margin-top:16px}
+.count>div{flex:1;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:12px 4px;text-align:center}
+.count strong{display:block;font-size:clamp(1.7rem,8.5vw,2.4rem);letter-spacing:-.02em}
+.count span{font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;opacity:.85}
+.count-banner .btn{margin-top:18px;width:100%;background:#fff;color:var(--ember-deep)}
 
-/* COUNTDOWN */
-.count-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,#0b0908,#120c08 50%,#0b0908);padding:84px 0;position:relative;overflow:hidden}
-.count-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(50% 70% at 50% 50%,rgba(255,90,31,.14),transparent 70%);pointer-events:none}
-.count-flex{position:relative;display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
-.count-flex .label{font-family:'Anton',sans-serif;font-size:clamp(1.4rem,2.6vw,2.2rem);letter-spacing:.04em;text-transform:uppercase;max-width:280px;line-height:1.15}
-.count{display:flex;gap:0}
-.count div{min-width:120px;text-align:center;padding:0 18px;border-left:1px solid var(--line)}
-.count div:first-child{border-left:none;padding-left:0}
-.count strong{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(3.2rem,6.5vw,6rem);line-height:1;color:var(--gold);letter-spacing:.01em;font-variant-numeric:tabular-nums}
-.count span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,241,236,.65)}
-
-/* OUR STORY */
-.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;position:relative;padding-top:40px}
-.tl::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--line)}
+/* story timeline */
+.tl{border-left:2px solid var(--line);margin:8px 0 0 6px;padding-left:22px;display:grid;gap:26px}
 .tl-item{position:relative}
-.tl-item::before{content:'';position:absolute;top:-45px;left:0;width:11px;height:11px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 5px rgba(255,90,31,.15)}
-.tl-item .yr{font-family:'Anton',sans-serif;font-size:clamp(2.6rem,4.8vw,4.6rem);color:transparent;-webkit-text-stroke:1.6px rgba(255,90,31,.7);line-height:.9;display:block;margin-bottom:20px;letter-spacing:.01em}
-.tl-item.now .yr{-webkit-text-stroke-color:var(--ember)}
-.tl-item h3{font-weight:600;font-size:1.15rem;margin-bottom:10px}
-.tl-item p{color:var(--dim);font-size:.9rem;max-width:290px}
+.tl-item::before{content:"";position:absolute;left:-28px;top:8px;width:10px;height:10px;border-radius:999px;background:var(--ember);box-shadow:0 0 0 4px #ffe4d6}
+.tl-item .yr{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ember-deep)}
+.tl-item h3{font-size:1.1rem;margin-top:4px;letter-spacing:-.01em}
+.tl-item p{color:var(--muted);font-size:.92rem;margin-top:5px}
 
-/* GALLERY */
-.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;grid-auto-flow:dense;gap:16px}
-.g-item{border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#241a14,#141110);border:1px solid var(--line)}
-.g-item img{width:100%;height:100%;object-fit:cover;filter:saturate(.92);transition:.5s}
-.g-item:hover img{transform:scale(1.05)}
-.g-item.w2{grid-column:span 2}
-.g-item.h2{grid-row:span 2}
-.g-item.b4{grid-column:span 2;grid-row:span 2}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.gal .photo{aspect-ratio:1/1;border-radius:18px}
 
-/* FINAL CTA */
-.cta{position:relative;min-height:86vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;text-align:center}
-.cta-photo{position:absolute;inset:0;z-index:0}
-.cta-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.4)}
-.cta-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,9,.85),rgba(13,11,9,.35) 45%,rgba(13,11,9,.9)),radial-gradient(55% 55% at 50% 60%,rgba(255,90,31,.32),transparent 70%)}
-.cta .wrap{position:relative;z-index:2}
-.cta h2{font-size:clamp(3rem,8.5vw,8.4rem);line-height:.98;max-width:900px;margin:0 auto}
-.cta h2 .accent{color:var(--ember)}
-.cta p{color:rgba(244,241,236,.82);max-width:540px;margin:28px auto 0}
-.cta .btn-row{margin-top:40px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:18px 38px;border-radius:999px;font-weight:600;text-decoration:none;transition:.25s;font-family:inherit;border:none;cursor:pointer}
-.btn-ember{background:var(--ember);color:#fff}
-.btn-ember:hover{background:#ff6f38;transform:translateY(-2px)}
-.btn-ghost{border:1.5px solid rgba(255,255,255,.35);color:#fff;background:transparent}
-.btn-ghost:hover{border-color:#fff}
+/* final cta */
+.cta-card{background:var(--ink);color:#fff;border-radius:30px;padding:44px 24px;text-align:center;position:relative;overflow:hidden}
+.cta-card::after{content:"";position:absolute;right:-60px;bottom:-80px;width:240px;height:240px;border-radius:999px;background:radial-gradient(circle,rgba(255,90,31,.5),transparent 70%)}
+.cta-card h2{font-size:clamp(2.4rem,11vw,3.6rem);font-weight:700;letter-spacing:-.03em;line-height:1.02;position:relative;z-index:1}
+.cta-card h2 .accent{color:var(--ember)}
+.cta-card p{color:rgba(255,255,255,.75);font-size:.95rem;margin:14px auto 0;max-width:36ch;position:relative;z-index:1}
+.cta-card .btn{margin-top:24px;background:var(--ember);color:#fff;position:relative;z-index:1}
 
-/* REGISTER */
-.reg-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:7vw;align-items:start}
-.reg-grid h2{font-size:clamp(2.6rem,5.6vw,5.2rem);line-height:.98;margin:20px 0 26px}
-.reg-grid .reg-copy{color:var(--dim);font-size:1.05rem;max-width:420px}
-.reg-card{background:var(--card);border:1px solid rgba(255,90,31,.3);border-radius:36px;padding:56px}
-.field{margin-bottom:22px;text-align:left}
-.field label{display:block;font-size:.76rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:9px}
-.field input,.field select,.field textarea{width:100%;padding:16px 18px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--ink);font-family:inherit;font-size:.98rem;outline:none;transition:.2s}
-.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ember);background:rgba(255,255,255,.06)}
-.field textarea{min-height:110px;resize:vertical}
-.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23ff5a1f' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 18px center}
-.field select option{background:#161211}
-.reg-note{font-size:.8rem;color:var(--faint);margin-top:16px;text-align:center}
-.reg-btn{width:100%;margin-top:6px;background:var(--ember);color:#fff;font-size:1rem}
-.reg-btn:hover{background:#ff6f38}
-.success{display:none;text-align:center;padding:40px 0}
-.success h3{font-family:'Anton',sans-serif;font-weight:400;font-size:2rem;margin-bottom:12px;color:var(--gold)}
-.success p{color:var(--dim)}
+/* register */
+.reg-card{padding:24px 20px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;color:#8a7f74}
+.field input,.field select,.field textarea{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#fbf7f1;font-family:inherit;font-size:16px;color:var(--ink);-webkit-appearance:none;appearance:none}
+.field textarea{min-height:96px;resize:vertical}
+.field select{background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%;background-size:6px 6px,6px 6px;background-repeat:no-repeat}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--ember);outline-offset:1px}
+.reg-btn{width:100%;background:var(--ember);color:#fff;box-shadow:0 10px 24px rgba(255,90,31,.28)}
+.reg-note{font-size:.78rem;color:var(--muted);margin-top:12px;text-align:center}
+.success{display:none;padding:8px 0}
+.success h3{font-size:1.3rem;color:var(--ember-deep)}
+.success p{color:var(--muted);font-size:.92rem;margin-top:6px}
 
-/* LOCATION */
-.loc-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:stretch}
-.loc-card{background:var(--card);border:1px solid var(--line);border-radius:30px;padding:48px 44px}
-.loc-card h3{font-family:'Anton',sans-serif;font-weight:400;font-size:1.9rem;margin-bottom:18px}
-.loc-card p{color:var(--dim);font-size:1rem;max-width:420px}
+/* location */
+.loc-card{padding:24px 22px}
+.loc-card h3{font-size:1.2rem;letter-spacing:-.01em}
+.loc-card p{color:var(--muted);font-size:.92rem;margin-top:10px}
 .loc-card p b{color:var(--ink)}
-.loc-map{background:radial-gradient(70% 60% at 50% 100%,rgba(255,90,31,.16),transparent 70%),var(--card);border:1px dashed rgba(255,90,31,.35);border-radius:30px;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;min-height:300px}
-.loc-map p{color:var(--faint);font-size:.9rem;max-width:320px}
+.map-note{margin-top:18px;padding:16px;border:1px dashed var(--line);border-radius:16px;background:var(--soft);color:var(--muted);font-size:.85rem}
 
-/* FOOTER */
-footer{border-top:1px solid var(--line);padding:90px 0 36px;background:#0a0807}
-.foot-words{font-weight:400;font-family:'Anton',sans-serif;font-size:clamp(2.4rem,6.4vw,6.4rem);letter-spacing:.01em;line-height:1.05;margin-bottom:70px;max-width:1100px}
+/* footer */
+footer{margin:64px 0 0;background:var(--ink);color:#fff;border-radius:30px 30px 0 0;padding:44px 0 30px}
+.foot-words{font-size:clamp(2.2rem,10vw,3.2rem);font-weight:700;letter-spacing:-.03em;line-height:1.02}
 .foot-words .accent{color:var(--ember)}
-.foot-grid{display:flex;justify-content:space-between;gap:44px;flex-wrap:wrap;padding-bottom:46px}
-.foot-brand img{height:52px;width:auto;display:block;margin-bottom:16px}
-.foot-brand p{color:var(--faint);font-size:.9rem;max-width:300px}
-.foot-col h4{font-size:.74rem;font-weight:600;color:var(--gold);margin-bottom:16px;letter-spacing:.14em;text-transform:uppercase}
-.foot-col a{display:block;color:var(--dim);text-decoration:none;font-size:.94rem;padding:5px 0;transition:.2s}
-.foot-col a:hover{color:var(--ember)}
-.foot-base{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--faint);font-size:.8rem}
+.foot-grid{display:grid;gap:26px;margin-top:34px}
+.foot-brand img{height:52px;width:auto;filter:brightness(0) invert(1)}
+.foot-brand p{color:rgba(255,255,255,.6);font-size:.88rem;margin-top:12px;max-width:32ch}
+.foot-col h4{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.foot-col a{display:block;color:rgba(255,255,255,.78);font-size:.92rem;padding:5px 0}
+.foot-base{display:flex;flex-direction:column;gap:6px;margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.55);font-size:.78rem}
 
-/* REVEAL */
-
-@media(max-width:1024px){
-  .about-grid,.feat-grid,.reg-grid{gap:48px}
-  .slider{gap:16px}
-}
-@media(max-width:960px){
-  .wrap{padding:0 24px}
-  nav{padding:16px 24px}nav.solid{padding:12px 24px}
-  nav img{height:44px}
-  nav ul{position:fixed;inset:0;background:rgba(10,8,7,.97);flex-direction:column;justify-content:center;gap:30px;transform:translateY(-100%);visibility:hidden;transition:.35s;z-index:55}
-  nav ul.open{transform:none;visibility:visible}
-  nav ul a{font-size:1.2rem}
-  .nav-cta{display:none}
-  .menu-btn{display:block}
-  section{padding:84px 0}
-  .hero-art{opacity:.45;height:52vh;max-width:80vw}
-  .hero-inner{padding:140px 24px 0}
-  .hero-words{grid-template-columns:1fr;gap:14px;margin-top:30px}
-  .hero-bottom{flex-direction:column;align-items:flex-start;padding:40px 24px 36px}
-  .stat-card{flex-wrap:wrap}
-  .about-grid,.feat-grid,.reg-grid,.loc-grid{grid-template-columns:1fr;gap:40px}
-  .about-photo{margin-top:36px}
-  .steps{grid-template-columns:1fr;margin-top:56px}
-  .step:nth-child(odd){border-right:none;padding-right:0}
-  .step:nth-child(even){padding-left:0}
-  .slider{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px}
-  .slider::-webkit-scrollbar{height:5px}
-  .slider::-webkit-scrollbar-thumb{background:rgba(255,90,31,.4);border-radius:99px}
-  .min-card{flex:0 0 min(420px,84vw);scroll-snap-align:start}
-  .night{grid-template-columns:1fr;gap:20px;padding:52px 0}
-  .night .num{order:0}
-  .night.rev .num{order:0}
-  .night.rev .night-photo{order:2}
-  .night.rev .txt{order:1}
-  .night-photo{width:100%;aspect-ratio:16/9}
-  .count-flex{flex-direction:column;align-items:flex-start}
-  .count div{min-width:76px;padding:0 10px}
-  .tl{grid-template-columns:1fr;gap:36px;padding-top:0;padding-left:28px}
-  .tl::before{top:0;bottom:0;left:0;right:auto;width:1px;height:auto}
-  .tl-item::before{top:6px;left:-33px}
-  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;gap:10px}
-  .g-item.b4{grid-column:span 2;grid-row:span 2}
-  .g-item.w2{grid-column:span 2}
-  .reg-card{padding:36px 26px}
-  .feat-art{min-height:420px}
-  .loc-card{padding:34px 28px}
-  .sec-head{flex-direction:column;align-items:flex-start}
-  .sec-head .side{text-align:left}
-  .sec-head h2{font-size:clamp(2.4rem,9vw,4rem)}
-}
-@media(max-width:560px){
-  .gal{grid-auto-rows:130px}
-  .count strong{font-size:2.6rem}
-}
-/* ================= MOBILE ART DIRECTION ================= */
-@media(max-width:620px){
-  html{overflow-x:clip}
-  body{line-height:1.55}
-  .wrap{padding:0 20px}
-
-  /* NAV */
-  nav{padding:14px 16px}
-  nav.solid{padding:10px 16px}
-  nav img{height:40px}
-  .menu-btn{font-size:1.3rem}
-  nav ul{gap:26px}
-  nav ul a{font-size:1.1rem}
-  .nav-cta i{width:24px;height:24px}
-
-  /* RHYTHM */
-  section{padding:72px 0}
-  .sec-head{margin-bottom:38px;gap:12px}
-  .sec-head h2{font-size:clamp(2.5rem,11.5vw,3.4rem)}
-  .sec-head .side{font-size:.85rem;max-width:none}
-
-  /* HERO: poster composition, headline bottom-anchored, never clipped */
-  .hero{min-height:100svh;display:block}
-  .hero-photo img{filter:saturate(.95) brightness(.44) contrast(1.05);object-position:50% 68%}
-  .hero-photo::after{background:
-    linear-gradient(180deg,rgba(13,11,9,.92) 0%,rgba(13,11,9,.55) 16%,rgba(13,11,9,.26) 38%,rgba(13,11,9,.45) 58%,rgba(13,11,9,.94) 86%,#0d0b09 100%),
-    radial-gradient(100% 38% at 50% 100%,rgba(255,90,31,.3),transparent 72%)}
-  .hero-art{display:none}
-  .hero-inner{padding:104px 20px 0;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end}
-  .hero-kicker{margin-bottom:16px}
-  .hero-kicker .rule{width:32px}
-  .eyebrow{font-size:.7rem;letter-spacing:.12em}
-  .hero h1{font-size:clamp(3rem,16vw,4.8rem);line-height:.97}
-  .hero-words{grid-template-columns:1fr;gap:15px;margin-top:24px;max-width:none}
-  .hero-words p{font-size:.92rem;max-width:none;line-height:1.5}
-  .hero-words p b{font-size:.97rem;margin-bottom:2px}
-  .hero-bottom{display:block;padding:24px 20px 30px}
-  .stat-card{width:100%;justify-content:space-between;padding:15px 0;border-radius:16px;background:rgba(16,12,10,.82)}
-  .stat-card div{padding:0 13px;flex:1}
-  .stat-card div+div{border-left:1px solid var(--line)}
-  .stat-card strong{font-size:1.22rem}
-  .stat-card span{font-size:.6rem;letter-spacing:.06em;color:#9a8f85}
-  .hero-cta{display:flex;width:100%;justify-content:center;margin-top:12px;padding:16px 24px;font-size:.92rem}
-
-  /* MARQUEE */
-  .marquee{padding:13px 0}
-  .marquee-track span{font-size:1rem;padding-right:38px}
-
-  /* ABOUT: vertical editorial */
-  .about-grid{gap:0}
-  .about-grid h2{font-size:clamp(2.7rem,12vw,3.6rem)}
-  .about-lede{font-size:1rem;padding-top:10px;max-width:none}
-  .about-photo{margin-top:30px;border-radius:22px;aspect-ratio:4/5}
-  .about-photo img{object-position:50% 35%}
-  .steps{margin-top:44px}
-  .step{display:grid;grid-template-columns:auto 1fr;gap:2px 16px;padding:28px 0 32px}
-  .step:nth-child(odd){border-right:none;padding-right:0}
-  .step:nth-child(even){padding-left:0}
-  .step .num{grid-row:1/3;font-size:2.5rem;-webkit-text-stroke-width:1.2px}
-  .step h3{font-size:1.14rem;margin:2px 0 6px}
-  .step p{font-size:.92rem;max-width:none}
-}
-
-@media(max-width:620px){
-  /* WHAT YOU LEAVE WITH: stacked feats, art panel below */
-  .feat-grid h2{font-size:clamp(2.6rem,11.5vw,3.4rem);margin-bottom:26px}
-  .feat{gap:14px;padding:20px 0}
-  .feat .dot{width:34px;height:34px;font-size:.66rem}
-  .feat b{font-size:1.07rem}
-  .feat p{font-size:.92rem;max-width:none}
-  .feat-art{min-height:0;aspect-ratio:1/1;border-radius:24px;margin-top:6px}
-  .feat-art img{height:96%}
-
-  /* MINISTERS: full-bleed swipe carousel, big portrait cards */
-  .slider{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:4px 20px 14px;scroll-padding-left:20px}
-  .slider::-webkit-scrollbar{height:4px}
-  .slider::-webkit-scrollbar-thumb{background:rgba(255,90,31,.4);border-radius:99px}
-  .min-card{flex:0 0 78vw;max-width:340px;aspect-ratio:3/4.2;border-radius:26px;scroll-snap-align:start}
-  .min-card img{height:86%}
-  .min-card .chip{top:16px;left:16px;padding:7px 14px;font-size:.62rem}
-  .min-card .name{left:20px;right:20px;bottom:60px;font-size:clamp(1.35rem,6.6vw,1.9rem);line-height:1.06}
-  .min-card .role{left:20px;right:auto;bottom:24px;text-align:left;max-width:none;font-size:.66rem;color:rgba(255,255,255,.8)}
-
-  /* THREE NIGHTS: three distinct panels */
-  .nights{gap:16px}
-  .night{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:24px;padding:26px 20px 22px;background:linear-gradient(170deg,#181311,#100d0b)}
-  .night:last-child{border-bottom:1px solid var(--line)}
-  .night .num{font-size:3.1rem;-webkit-text-stroke-width:1.4px}
-  .night h3{font-size:clamp(2rem,9vw,2.6rem);margin-bottom:6px}
-  .night .when{font-size:.85rem}
-  .night p{font-size:.92rem;max-width:none;margin-top:10px}
-  .night-photo{order:5;width:100%;aspect-ratio:16/10;border-radius:16px;margin-top:18px}
-  .night.rev .num{order:0}
-  .night.rev .txt{order:1}
-  .night.rev .night-photo{order:5}
-
-  /* COUNTDOWN: large readable numerals */
-  .count-strip{padding:60px 0}
-  .count-flex{gap:22px}
-  .count-flex .label{font-size:1.35rem;max-width:none}
-  .count{width:100%;justify-content:space-between}
-  .count div{min-width:0;flex:1;padding:0 4px}
-  .count strong{font-size:clamp(2.6rem,13vw,3.6rem)}
-  .count span{font-size:.58rem;letter-spacing:.1em}
-
-  /* OUR STORY: clean vertical timeline */
-  .tl{gap:30px;padding-left:26px;padding-top:0}
-  .tl::before{top:4px;bottom:4px;left:0;right:auto;width:1px;height:auto}
-  .tl-item::before{top:4px;left:-31px;width:9px;height:9px;box-shadow:0 0 0 4px rgba(255,90,31,.15)}
-  .tl-item .yr{font-size:2.7rem;margin-bottom:10px}
-  .tl-item h3{font-size:1.07rem;margin-bottom:6px}
-  .tl-item p{font-size:.92rem;max-width:none}
-}
-
-@media(max-width:620px){
-  /* GALLERY */
-  .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:44vw;gap:10px}
-  .g-item{border-radius:14px}
-
-  /* FINAL CTA */
-  .cta{min-height:0;padding:84px 0}
-  .cta h2{font-size:clamp(2.7rem,13vw,4.2rem)}
-  .cta p{font-size:.97rem;margin-top:18px}
-  .btn-row{display:flex;flex-direction:column;gap:12px;margin-top:30px}
-  .btn-row .btn{width:100%;justify-content:center;padding:16px 24px}
-
-  /* REGISTER: spacious full-width form, 16px inputs (no iOS zoom) */
-  .reg-grid{gap:0}
-  .reg-grid h2{font-size:clamp(2.6rem,11.5vw,3.4rem);margin:12px 0 16px}
-  .reg-grid .reg-copy{font-size:.97rem;max-width:none}
-  .reg-card{padding:26px 20px;border-radius:22px;margin-top:26px}
-  .field{margin-bottom:16px}
-  .field label{font-size:.68rem;margin-bottom:7px}
-  .field input,.field select,.field textarea{padding:14px 15px;font-size:16px;border-radius:12px}
-  .field textarea{min-height:96px}
-  .reg-note{font-size:.73rem}
-  .btn.reg-btn{padding:16px 24px;font-size:.97rem}
-  .success h3{font-size:1.6rem}
-
-  /* LOCATION */
-  .loc-grid{gap:14px}
-  .loc-card{padding:26px 22px;border-radius:22px}
-  .loc-card h3{font-size:1.55rem;margin-bottom:12px}
-  .loc-card p{font-size:.94rem}
-  .loc-map{min-height:200px;border-radius:22px;padding:26px 18px}
-  .loc-map p{font-size:.84rem}
-
-  /* FOOTER */
-  footer{padding:64px 0 30px}
-  .foot-words{font-size:clamp(2.1rem,10.5vw,3rem);margin-bottom:40px}
-  .foot-grid{flex-direction:column;gap:32px;padding-bottom:32px}
-  .foot-brand img{height:44px}
-  .foot-base{flex-direction:column;gap:8px}
-}
-
-/* tiny phones: 360px and under */
-@media(max-width:374px){
-  .hero h1{font-size:15.4vw}
-  .stat-card strong{font-size:1.1rem}
-  .stat-card span{font-size:.5rem}
-  .count strong{font-size:2.3rem}
-  .count span{font-size:.52rem}
-  .night .num{font-size:2.7rem}
+/* ===== desktop: same card language, wider ===== */
+@media(min-width:820px){
+  .wrap{max-width:1080px;padding:0 36px}
+  nav{padding:14px 36px}
+  .menu-btn,.menu-x{display:none}
+  .nav-links{display:flex;position:static;flex-direction:row;align-items:center;gap:26px;padding:0;transform:none;visibility:visible;background:none}
+  .nav-links a{font-size:.9rem;font-weight:600}
+  .nav-links .nav-cta{font-size:.85rem;background:var(--ink);color:#fff;padding:11px 22px;border-radius:999px}
+  .hero{padding-top:64px}
+  .hero h1{font-size:clamp(4rem,7vw,6rem)}
+  .hero .lede{font-size:1.1rem;max-width:52ch}
+  .hero-cta-row{flex-direction:row;justify-content:center}
+  .hero-cta-row .btn{width:auto}
+  .hero-media{max-width:820px;margin:36px auto 0;aspect-ratio:16/8}
+  .hero-stats{max-width:820px;margin:22px auto 0}
+  .hero-stats strong{font-size:1.7rem}
+  section{padding:84px 0 10px}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:34px}
+  .sec-head .side{margin-top:0;max-width:36ch;text-align:right}
+  .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start}
+  .about-card{padding:34px}
+  .steps{grid-template-columns:repeat(4,1fr)}
+  .feats{grid-template-columns:repeat(2,1fr)}
+  .min-cards{grid-template-columns:repeat(3,1fr)}
+  .night-cards{grid-template-columns:repeat(3,1fr)}
+  .count-banner{margin:70px auto 0;max-width:1004px;padding:44px 48px}
+  .count-banner .row{display:flex;align-items:center;gap:36px}
+  .count{flex:1;margin-top:0}
+  .count-banner .btn{width:auto;margin-top:0}
+  .gal{grid-template-columns:repeat(3,1fr);grid-auto-rows:240px}
+  .cta-card{padding:80px 40px}
+  .reg-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .reg-card{padding:36px}
+  .loc-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  .foot-base{flex-direction:row;justify-content:space-between}
 }
 </style>
 </head>
 <body>
+<!-- ===================== PHOTO SLOTS =====================
+     Every photo on this page is a placeholder. To drop in your own image,
+     replace the file in assets/img/ keeping the SAME FILE NAME. No code changes.
+     Slots: hero.jpg, about.jpg, night-1.jpg, night-2.jpg, night-3.jpg,
+     minister-1.jpg, minister-2.jpg, minister-3.jpg, gallery-1.jpg … gallery-6.jpg
+===================================================== -->
+<div class="annbar">Faith &amp; Fire Crusade · Dec 6–8, 2026 · Abraka · 4:30pm daily</div>
 
 <nav id="nav">
   <a href="#top" aria-label="The Watchmen Prayer Network International">
     <img src="assets/brand/logo.png" alt="The Watchmen Prayer Network International">
   </a>
-  <ul id="navLinks">
+  <ul class="nav-links" id="navLinks">
+    <button class="menu-x" id="menuX" aria-label="Close menu">✕</button>
     <li><a href="#about">About</a></li>
     <li><a href="#ministers">Ministers</a></li>
     <li><a href="#programme">Programme</a></li>
@@ -476,27 +246,24 @@ footer{border-top:1px solid var(--line);padding:90px 0 36px;background:#0a0807}
 </nav>
 
 <header class="hero" id="top">
-  <div class="hero-photo"><img src="assets/gallery/g-163.jpg" alt="" aria-hidden="true"></div>
-  <img class="hero-art" src="assets/ministers/pioneer.webp" alt="" aria-hidden="true">
-  <div class="hero-inner">
-    <div class="hero-kicker">
-      <span class="rule"></span>
-      <span class="eyebrow">Faith &amp; Fire Crusade · DELSU Prays · Dec 6 to 8, 2026</span>
+  <div class="wrap">
+    <span class="chip"><em>🔥</em> The Watchmen Prayer Network International presents</span>
+    <h1>The Word.<br><span class="accent">The Spirit.</span><br>The Fire.</h1>
+    <p class="lede">Faith &amp; Fire Crusade, three evenings of the Word, worship, and prayer on one ground in Abraka. Admission is free.</p>
+    <div class="hero-chips">
+      <span class="chip"><em>📅</em> Sun Dec 6 – Tue Dec 8, 2026</span>
+      <span class="chip"><em>📍</em> Abraka, Delta State</span>
     </div>
-    <h1 class="display">The Word.<br><span class="accent">The Spirit.</span><br>The Fire.</h1>
-    <div class="hero-words">
-      <p><b>Six evenings a week, one altar.</b>The Watchmen Prayer Network gathers believers around the Word, the Spirit, and Prayer.</p>
-      <p><b>Three nights this December.</b>The crusade returns to Abraka with a new name and the same fire.</p>
-      <p><b>Come with someone.</b>Admission is free. Registration saves your seat and puts you on the prayer list.</p>
+    <div class="hero-cta-row">
+      <a href="#register" class="btn btn-dark">Reserve a Seat <i>↗</i></a>
+      <a href="#programme" class="btn btn-ghost">See the Programme</a>
     </div>
-  </div>
-  <div class="hero-bottom">
-    <div class="stat-card">
+    <div class="hero-media photo"><img src="assets/img/hero.jpg" alt="The Watchmen Prayer Network gathering" loading="lazy"></div>
+    <div class="hero-stats">
       <div><strong>9 yrs</strong><span>of standing prayer</span></div>
       <div><strong>1000+</strong><span>gathered per crusade</span></div>
       <div><strong>3 nights</strong><span>one ground, Abraka</span></div>
     </div>
-    <a class="hero-cta" href="#register">Reserve a Seat <i>↗</i></a>
   </div>
 </header>
 
@@ -505,185 +272,174 @@ footer{border-top:1px solid var(--line);padding:90px 0 36px;background:#0a0807}
     <span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span><span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span><span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span><span>Faith &amp; Fire Crusade ✦ Setting Hearts on Fire ✦ DELSU Prays ✦</span>
   </div>
 </div>
-
-<section id="about">
+<section id="about" class="about">
   <div class="wrap">
     <div class="about-grid">
-      <div class="reveal">
-        <span class="eyebrow" style="display:block;margin-bottom:24px">About</span>
-        <h2 class="display">What Is<br>Faith &amp; Fire</h2>
-      </div>
-      <div class="reveal">
-        <p class="about-lede"><b>Faith &amp; Fire</b> is the annual crusade of The Watchmen Prayer Network International: three evenings of the Word, worship, and prayer on one ground in Abraka. Formerly known as DELSU Prays, December 2026 is its first edition under the new name. Same altar. Deeper fire.</p>
-        <div class="about-photo">
-          <img src="assets/gallery/g-180.jpg" alt="The Watchmen Prayer Network gathering" loading="lazy">
+      <div>
+        <div class="sec-head">
+          <span class="chip"><em>✦</em> About</span>
+          <h2 class="display">What Is<br>Faith &amp; <span class="accent">Fire</span></h2>
+        </div>
+        <div class="card about-card">
+          <p><b>Faith &amp; Fire</b> is the annual crusade of The Watchmen Prayer Network International: three evenings of the Word, worship, and prayer on one ground in Abraka. Formerly known as DELSU Prays, December 2026 is its first edition under the new name. Same altar. Deeper fire.</p>
         </div>
       </div>
+      <div class="photo about-photo"><img src="assets/img/about.jpg" alt="The Watchmen Prayer Network gathering" loading="lazy"></div>
     </div>
-    <div class="steps reveal">
-      <div class="step"><b class="num">01</b><h3>Register Your Seat</h3><p>A one-minute form: your name, your phone, and whether you want in on the WhatsApp group.</p></div>
-      <div class="step"><b class="num">02</b><h3>Get the Direction</h3><p>Crusade Ground, behind Ese-G Hostel, off Olori 19 road, Abraka. Doors open from 4:00pm.</p></div>
-      <div class="step"><b class="num">03</b><h3>Come Hungry</h3><p>Bring your Bible, your expectations, and someone who needs the fire too.</p></div>
-      <div class="step"><b class="num">04</b><h3>Stand in the Fire</h3><p>Three evenings of worship, the Word, and prayer. Leave carrying what you came for.</p></div>
-    </div>
-  </div>
-</section>
-
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="feat-grid">
-      <div class="reveal">
-        <span class="eyebrow" style="display:block;margin-bottom:24px">For You</span>
-        <h2 class="display">What You<br>Leave With</h2>
-        <div class="feat"><span class="dot">✓</span><div><b>A word that stays</b><p>Teaching that follows you home and holds through the year.</p></div></div>
-        <div class="feat"><span class="dot">✓</span><div><b>Prayer that shifts things</b><p>Altar nights where heaven responds to standing prayer.</p></div></div>
-        <div class="feat"><span class="dot">✓</span><div><b>A people to stand with</b><p>RE-FIRE Thursdays and the prayer network carry you beyond the crusade.</p></div></div>
-        <div class="feat"><span class="dot">✓</span><div><b>Fire for the new year</b><p>You cross into 2027 lit, not lukewarm.</p></div></div>
-      </div>
-      <div class="feat-art reveal">
-        <img src="assets/ministers/kolawole.webp" alt="Rev. Kolawole Williams Ogoigbe">
-      </div>
+    <div class="steps">
+      <div class="step card"><b class="num">01</b><h3>Register Your Seat</h3><p>A one-minute form: your name, your phone, and whether you want in on the WhatsApp group.</p></div>
+      <div class="step card"><b class="num">02</b><h3>Get the Direction</h3><p>Crusade Ground, behind Ese-G Hostel, off Olori 19 road, Abraka. Doors open from 4:00pm.</p></div>
+      <div class="step card"><b class="num">03</b><h3>Come Hungry</h3><p>Bring your Bible, your expectations, and someone who needs the fire too.</p></div>
+      <div class="step card"><b class="num">04</b><h3>Stand in the Fire</h3><p>Three evenings of worship, the Word, and prayer. Leave carrying what you came for.</p></div>
     </div>
   </div>
 </section>
 
-<section id="ministers" style="padding-top:0">
+<section id="for-you">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <h2 class="display">Meet the Ministers</h2>
-      <span class="side">Three voices, one altar. Scroll through.</span>
+    <div class="sec-head">
+      <span class="chip"><em>✦</em> For You</span>
+      <h2 class="display">What You<br>Leave With</h2>
+      <span class="side">Come with someone. Registration saves your seat and puts you on the prayer list.</span>
     </div>
-    <div class="slider reveal">
-      <article class="min-card">
-        <span class="chip"><em></em>The Pioneer · Host</span>
-        <img src="assets/ministers/pioneer.webp" alt="Pastor Ikechukwu Ubabudike">
-        <span class="name display">Pastor Ikechukwu Ubabudike</span>
-        <span class="role">President, The Watchmen Prayer Network Intl.</span>
+    <div class="feats">
+      <div class="feat card"><span class="dot">✓</span><div><b>A word that stays</b><p>Teaching that follows you home and holds through the year.</p></div></div>
+      <div class="feat card"><span class="dot">✓</span><div><b>Prayer that shifts things</b><p>Altar nights where heaven responds to standing prayer.</p></div></div>
+      <div class="feat card"><span class="dot">✓</span><div><b>A people to stand with</b><p>RE-FIRE Thursdays and the prayer network carry you beyond the crusade.</p></div></div>
+      <div class="feat card"><span class="dot">✓</span><div><b>Fire for the new year</b><p>You cross into 2027 lit, not lukewarm.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ministers">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="chip"><em>✦</em> Ministers</span>
+      <h2 class="display">Meet the <span class="accent">Ministers</span></h2>
+      <span class="side">Three voices, one altar.</span>
+    </div>
+    <div class="min-cards">
+      <article class="min-card card">
+        <div class="photo"><img src="assets/img/minister-1.jpg" alt="Pastor Ikechukwu Ubabudike" loading="lazy"><span class="chip">The Pioneer · Host</span></div>
+        <div class="body"><h3>Pastor Ikechukwu Ubabudike</h3><p>President, The Watchmen Prayer Network Intl.</p></div>
       </article>
-      <article class="min-card">
-        <span class="chip"><em></em>Virtual · From Lagos</span>
-        <img src="assets/ministers/olayinka.webp" alt="Pastor Oluwatobi Olayinka">
-        <span class="name display">Pastor Oluwatobi Olayinka</span>
-        <span class="role">Joining live by virtual connection</span>
+      <article class="min-card card">
+        <div class="photo"><img src="assets/img/minister-2.jpg" alt="Pastor Oluwatobi Olayinka" loading="lazy"><span class="chip">Virtual · From Lagos</span></div>
+        <div class="body"><h3>Pastor Oluwatobi Olayinka</h3><p>Joining live by virtual connection</p></div>
       </article>
-      <article class="min-card">
-        <span class="chip"><em></em>Onsite · From Port Harcourt</span>
-        <img src="assets/ministers/kolawole.webp" alt="Rev. Kolawole Williams Ogoigbe">
-        <span class="name display">Rev. Kolawole Williams Ogoigbe</span>
-        <span class="role">Ministering all three nights</span>
+      <article class="min-card card">
+        <div class="photo"><img src="assets/img/minister-3.jpg" alt="Rev. Kolawole Williams Ogoigbe" loading="lazy"><span class="chip">Onsite · From Port Harcourt</span></div>
+        <div class="body"><h3>Rev. Kolawole Williams Ogoigbe</h3><p>Ministering all three nights</p></div>
       </article>
     </div>
   </div>
 </section>
 
-<section id="programme" style="padding-top:0">
+<section id="programme">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <h2 class="display">The Three Nights</h2>
+    <div class="sec-head">
+      <span class="chip"><em>✦</em> Programme</span>
+      <h2 class="display">The Three <span class="accent">Nights</span></h2>
       <span class="side">Same ground, same hour, three evenings. Come early, bring someone.</span>
     </div>
-    <div class="nights">
-      <div class="night reveal">
-        <b class="num">01</b>
-        <div class="txt">
+    <div class="night-cards">
+      <div class="night card">
+        <div class="body">
+          <span class="n-chip">Night 01</span>
           <h3>Ignition</h3>
           <span class="when">Sun, Dec 6 · 4:30pm</span>
           <p>The crusade opens with worship, the Word, and the first altar call of the three nights.</p>
         </div>
-        <div class="night-photo"><img src="assets/gallery/g-151.jpg" alt="Worship at a past crusade" loading="lazy"></div>
+        <div class="photo"><img src="assets/img/night-1.jpg" alt="Worship at a past crusade" loading="lazy"></div>
       </div>
-      <div class="night rev reveal">
-        <b class="num">02</b>
-        <div class="txt">
+      <div class="night card">
+        <div class="body">
+          <span class="n-chip">Night 02</span>
           <h3>Consecration</h3>
           <span class="when">Mon, Dec 7 · 4:30pm</span>
           <p>A night set apart for the Spirit: prayer, prophetic ministry, and consecration.</p>
         </div>
-        <div class="night-photo"><img src="assets/gallery/g-153.jpg" alt="The congregation at a past crusade" loading="lazy"></div>
+        <div class="photo"><img src="assets/img/night-2.jpg" alt="The congregation at a past crusade" loading="lazy"></div>
       </div>
-      <div class="night reveal">
-        <b class="num">03</b>
-        <div class="txt">
+      <div class="night card">
+        <div class="body">
+          <span class="n-chip">Night 03</span>
           <h3>Fire &amp; Commissioning</h3>
           <span class="when">Tue, Dec 8 · 4:30pm</span>
           <p>Thanksgiving, testimonies, and the commissioning of a people on fire.</p>
         </div>
-        <div class="night-photo"><img src="assets/gallery/g-157.jpg" alt="Ministering at a past crusade" loading="lazy"></div>
+        <div class="photo"><img src="assets/img/night-3.jpg" alt="Ministering at a past crusade" loading="lazy"></div>
       </div>
     </div>
   </div>
 </section>
-
-<div class="count-strip">
-  <div class="wrap count-flex">
-    <span class="label">The fire starts in</span>
-    <div class="count" id="count">
-      <div><strong id="cd">00</strong><span>Days</span></div>
-      <div><strong id="ch">00</strong><span>Hours</span></div>
-      <div><strong id="cm">00</strong><span>Mins</span></div>
-      <div><strong id="cs">00</strong><span>Secs</span></div>
+<div class="count-banner">
+  <div class="wrap row">
+    <div style="flex:1;min-width:0">
+      <span class="lbl">The fire starts in</span>
+      <div class="count" id="count">
+        <div><strong id="cd">00</strong><span>Days</span></div>
+        <div><strong id="ch">00</strong><span>Hours</span></div>
+        <div><strong id="cm">00</strong><span>Mins</span></div>
+        <div><strong id="cs">00</strong><span>Secs</span></div>
+      </div>
     </div>
-    <a href="#register" class="btn btn-ember">Save My Seat</a>
+    <a href="#register" class="btn">Save My Seat</a>
   </div>
 </div>
 
 <section id="story">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <h2 class="display">Our Story</h2>
+    <div class="sec-head">
+      <span class="chip"><em>✦</em> Our Story</span>
+      <h2 class="display">From one altar<br>to <span class="accent">a thousand</span></h2>
       <span class="side">From one altar of fifty to crusade grounds of a thousand.</span>
     </div>
-    <div class="tl reveal">
+    <div class="tl">
       <div class="tl-item"><b class="yr">2017</b><h3>The first meeting</h3><p>The Watchmen Prayer Network International begins with about fifty people around one altar of prayer.</p></div>
-      <div class="tl-item"><b class="yr">——</b><h3>A network takes shape</h3><p>RE-FIRE Thursdays and month-end Prophetic Nights become the rhythm of the house.</p></div>
-      <div class="tl-item"><b class="yr">——</b><h3>The crusade years</h3><p>Yearly crusades grow into open gatherings drawing over a thousand people.</p></div>
-      <div class="tl-item now"><b class="yr">2026</b><h3>Faith &amp; Fire: the first edition</h3><p>December 2026, the crusade takes on a new name. The fire is only getting started.</p></div>
+      <div class="tl-item"><b class="yr">The rhythm</b><h3>A network takes shape</h3><p>RE-FIRE Thursdays and month-end Prophetic Nights become the rhythm of the house.</p></div>
+      <div class="tl-item"><b class="yr">The crusade years</b><h3>Gatherings grow</h3><p>Yearly crusades grow into open gatherings drawing over a thousand people.</p></div>
+      <div class="tl-item"><b class="yr">2026</b><h3>Faith &amp; Fire: the first edition</h3><p>December 2026, the crusade takes on a new name. The fire is only getting started.</p></div>
     </div>
   </div>
 </section>
 
-<section id="gallery" style="padding-top:0">
+<section id="gallery">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <h2 class="display">Past Crusades</h2>
-      <span class="side">Moments from past meetings and crusades.</span>
+    <div class="sec-head">
+      <span class="chip"><em>✦</em> Past Crusades</span>
+      <h2 class="display">Moments from<br>past <span class="accent">crusades</span></h2>
     </div>
-    <div class="gal reveal">
-      <div class="g-item b4"><img src="assets/gallery/g-157.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item"><img src="assets/gallery/g-151.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item"><img src="assets/gallery/g-155.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item h2"><img src="assets/gallery/g-164.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item w2"><img src="assets/gallery/g-163.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item"><img src="assets/gallery/g-165.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item"><img src="assets/gallery/g-168.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item w2"><img src="assets/gallery/g-180.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item h2"><img src="assets/gallery/g-186.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item"><img src="assets/gallery/g-184.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item w2"><img src="assets/gallery/g-153.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item"><img src="assets/gallery/g-185.jpg" alt="Past crusade" loading="lazy"></div>
-      <div class="g-item"><img src="assets/gallery/g-162.jpg" alt="Past crusade" loading="lazy"></div>
+    <div class="gal">
+      <div class="photo"><img src="assets/img/gallery-1.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="photo"><img src="assets/img/gallery-2.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="photo"><img src="assets/img/gallery-3.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="photo"><img src="assets/img/gallery-4.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="photo"><img src="assets/img/gallery-5.jpg" alt="Past crusade" loading="lazy"></div>
+      <div class="photo"><img src="assets/img/gallery-6.jpg" alt="Past crusade" loading="lazy"></div>
     </div>
   </div>
 </section>
 
-<section class="cta">
-  <div class="cta-photo"><img src="assets/gallery/g-162.jpg" alt="" aria-hidden="true"></div>
+<section style="padding-bottom:0">
   <div class="wrap">
-    <h2 class="display reveal">Come and stand<br><span class="accent">in the fire</span></h2>
-    <p class="reveal">Three evenings. One ground. A people gathered around the Word, the Spirit, and Prayer.</p>
-    <div class="btn-row reveal"><a href="#register" class="btn btn-ember">Reserve a Seat</a></div>
+    <div class="cta-card">
+      <h2>Come and stand<br><span class="accent">in the fire</span></h2>
+      <p>Three evenings. One ground. A people gathered around the Word, the Spirit, and Prayer.</p>
+      <a href="#register" class="btn">Reserve a Seat <i>↗</i></a>
+    </div>
   </div>
 </section>
 
 <section id="register">
   <div class="wrap">
     <div class="reg-grid">
-      <div class="reveal">
-        <span class="eyebrow" style="display:block">Registration</span>
-        <h2 class="display">Count Me In</h2>
-        <p class="reg-copy">Register so we can pray for you through the prayer period and keep you posted on the crusade.</p>
+      <div class="sec-head" style="margin-bottom:18px">
+        <span class="chip"><em>✦</em> Registration</span>
+        <h2 class="display">Count <span class="accent">Me In</span></h2>
+        <span class="side">Register so we can pray for you through the prayer period and keep you posted on the crusade.</span>
       </div>
-      <div class="reg-card reveal">
+      <div class="reg-card card">
         <form id="regForm">
           <div class="field">
             <label for="fname">Full name</label>
@@ -702,10 +458,10 @@ footer{border-top:1px solid var(--line);padding:90px 0 36px;background:#0a0807}
             </select>
           </div>
           <div class="field">
-            <label for="fpray">Prayer request <span style="text-transform:none;letter-spacing:0;color:var(--faint)">(optional)</span></label>
+            <label for="fpray">Prayer request <span style="text-transform:none;letter-spacing:0;color:#b3a89c;font-weight:500">(optional)</span></label>
             <textarea id="fpray" name="prayer_request" placeholder="What should we stand with you in prayer for?"></textarea>
           </div>
-          <p id="regError" style="display:none;color:#ff8a5c;margin:14px 0 0;font-size:.9rem"></p>
+          <p id="regError" style="display:none;color:#c2410c;margin:0 0 12px;font-size:.9rem"></p>
           <button type="submit" class="btn reg-btn">Submit Registration</button>
           <p class="reg-note">Your prayer request goes to the prayer team only.</p>
         </form>
@@ -721,20 +477,20 @@ footer{border-top:1px solid var(--line);padding:90px 0 36px;background:#0a0807}
 <section id="location" style="padding-top:0">
   <div class="wrap">
     <div class="loc-grid">
-      <div class="loc-card reveal">
+      <div class="loc-card card">
         <h3>Find the Ground</h3>
         <p>Crusade Ground, opposite Gospel Stars church, off Olori 19 road, behind Ese-G Hostel, Abraka, Delta State.</p>
-        <p style="margin-top:18px"><b>Sun Dec 6 to Tue Dec 8, 2026 · 4:30pm daily</b></p>
-        <p style="margin-top:16px">Coming from outside Abraka? The ground is behind Ese-G Hostel, a short walk off Olori 19 road. Follow the sound of worship.</p>
+        <p><b>Sun Dec 6 to Tue Dec 8, 2026 · 4:30pm daily</b></p>
+        <p>Coming from outside Abraka? The ground is behind Ese-G Hostel, a short walk off Olori 19 road. Follow the sound of worship.</p>
       </div>
-      <div class="loc-map reveal"><p>Venue map pin loading here. If you know the ground, share this page with a friend coming along.</p></div>
+      <div class="map-note">Venue map pin loading here. If you know the ground, share this page with a friend coming along.</div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="foot-words display">Come ready. Come hungry. <span class="accent">Leave on fire.</span></div>
+    <div class="foot-words">Come ready. Come hungry. <span class="accent">Leave on fire.</span></div>
     <div class="foot-grid">
       <div class="foot-brand">
         <img src="assets/brand/logo.png" alt="The Watchmen Prayer Network International">
@@ -770,14 +526,14 @@ footer{border-top:1px solid var(--line);padding:90px 0 36px;background:#0a0807}
 
 <script>
 const nav=document.getElementById('nav');
-addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>60),{passive:true});
 const links=document.getElementById('navLinks');
-document.getElementById('menuBtn').addEventListener('click',()=>links.classList.toggle('open'));
+document.getElementById('menuBtn').addEventListener('click',()=>links.classList.add('open'));
+document.getElementById('menuX').addEventListener('click',()=>links.classList.remove('open'));
 links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
 const target=new Date('2026-12-06T16:30:00+01:00').getTime();
 function tick(){
   let d=target-Date.now();
-  if(d<=0){document.getElementById('count').innerHTML='<div style="flex:1"><strong style="color:var(--gold)">IT IS TIME</strong></div>';return}
+  if(d<=0){document.getElementById('count').innerHTML='<div style="flex:1"><strong style="color:#fff;font-size:1.6rem">IT IS TIME</strong></div>';return}
   const s=Math.floor(d/1000);
   document.getElementById('cd').textContent=String(Math.floor(s/86400)).padStart(2,'0');
   document.getElementById('ch').textContent=String(Math.floor(s%86400/3600)).padStart(2,'0');
