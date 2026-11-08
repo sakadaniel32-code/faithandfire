@@ -9,68 +9,140 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fffdf8;--ink:#161311;--muted:#6f665e;--line:#eadfd2;--ember:#ff5a1f;--soft:#f7f1e9}
+:root{--bg:#fffdf8;--ink:#161311;--muted:#6f665e;--line:#eadfd2;--ember:#ff5a1f;--ember-deep:#e6480f;--gold:#ffb347;--soft:#f7f1e9;--topbar:60px}
 *{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
 body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
-.topbar{background:#0a0806;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.09)}
-.topbar img{width:min(42vw,160px);height:auto;display:block}
+::selection{background:rgba(255,90,31,.18)}
+
+/* ---- top bar ---- */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(10,8,6,.97);display:flex;align-items:center;justify-content:space-between;padding:10px 18px;border-bottom:1px solid rgba(255,255,255,.09);height:var(--topbar)}
+.topbar img{width:min(36vw,140px);height:auto;display:block}
 .topbar .right{display:flex;align-items:center;gap:12px}
-.topbar span{color:#fff;font-weight:600;font-size:.8rem;letter-spacing:.08em}
-.topbar button{background:none;border:1px solid rgba(255,255,255,.28);color:#fff;border-radius:10px;padding:7px 14px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit}
-.wrap{max-width:760px;margin:0 auto;padding:26px 20px 70px}
-h1{font-size:1.45rem;font-weight:700;letter-spacing:-.01em}
-.sub{color:var(--muted);font-size:.9rem;line-height:1.5;margin:6px 0 22px}
-.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 20px;box-shadow:0 10px 26px rgba(22,19,17,.06);margin-bottom:16px}
-label{display:block;font-size:.8rem;font-weight:600;margin:14px 0 6px}
+.topbar span{color:#ffb347;font-weight:700;font-size:.72rem;letter-spacing:.14em}
+.topbar button{background:none;border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;padding:8px 16px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;transition:.18s}
+.topbar button:hover{border-color:#fff}
+
+/* ---- page shell ---- */
+.wrap{max-width:840px;margin:0 auto;padding:24px 18px 90px}
+.pagehead h1{font-size:1.5rem;font-weight:700;letter-spacing:-.01em}
+.pagehead .sub{color:var(--muted);font-size:.88rem;margin-top:5px}
+.sub{color:var(--muted);font-size:.9rem;line-height:1.55}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px 20px;box-shadow:0 12px 30px rgba(22,19,17,.05);margin-bottom:16px}
+label{display:block;font-size:.78rem;font-weight:700;letter-spacing:.02em;margin:16px 0 7px;color:#3d3730}
 label:first-of-type{margin-top:0}
-input,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;font-size:.95rem;background:var(--soft);color:var(--ink)}
-textarea{min-height:110px;resize:vertical;line-height:1.5}
-button{font:inherit;font-weight:600;cursor:pointer;border:none;border-radius:999px;padding:13px 26px;background:var(--ink);color:#fff}
-button.ember{background:var(--ember)}
-button.mini{padding:7px 14px;font-size:.76rem;background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px}
+input,textarea{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:13px 15px;font:inherit;font-size:1rem;background:#fff;color:var(--ink);transition:border-color .15s, box-shadow .15s}
+input:focus,textarea:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px rgba(255,90,31,.14)}
+textarea{min-height:110px;resize:vertical;line-height:1.55}
+button{font:inherit;font-weight:700;cursor:pointer;border:none;border-radius:999px;padding:14px 28px;background:var(--ink);color:#fff;transition:transform .12s, box-shadow .18s, background .18s}
+button:active{transform:scale(.97)}
+button.ember{background:linear-gradient(135deg,var(--ember),var(--ember-deep));box-shadow:0 8px 20px rgba(255,90,31,.28)}
+button.ember:hover{box-shadow:0 10px 24px rgba(255,90,31,.4)}
+button.mini{padding:9px 15px;font-size:.78rem;background:none;border:1.5px solid var(--line);color:var(--muted);border-radius:999px;font-weight:600;min-height:38px}
 button.mini:hover{border-color:var(--ember);color:var(--ember)}
-.status{margin-top:12px;font-size:.85rem;min-height:1.2em}
-.status.ok{color:#1d7a3e}.status.err{color:#c2410c}
-.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px;margin-bottom:20px}
-.tab{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:9px 18px;font-size:.85rem;white-space:nowrap}
-.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
-.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
-.stat b{display:block;font-size:2rem;letter-spacing:-.02em}
-.stat span{font-size:.78rem;color:var(--muted);font-weight:600}
-h2{font-size:1.02rem;font-weight:700;margin:26px 0 10px}
-.feed{background:#fff;border:1px solid var(--line);border-radius:16px;padding:6px 16px}
-.feed .row{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+button.upbtn{border-color:var(--ember);color:var(--ember-deep)}
+button.upbtn:hover{background:var(--ember);color:#fff}
+button.togbtn{border-color:#d9a53f;color:#9a6b12}
+button.togbtn:hover{border-color:#9a6b12;background:#fdf6e8;color:#9a6b12}
+button.delbtn{border-color:#e7b7ab;color:#b3400f}
+button.delbtn:hover{border-color:#b3400f;background:#fdf0e9;color:#b3400f}
+button:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+
+/* ---- status pills ---- */
+.status:empty{display:none}
+.status{margin-top:14px;font-size:.85rem;min-height:1.2em;display:inline-flex;align-items:flex-start;gap:8px;padding:10px 15px;border-radius:12px;line-height:1.4}
+.status.ok{background:#edf6ee;color:#1d7a3e}
+.status.err{background:#fdf0e9;color:#c2410c}
+.status.ok::before{content:'✓';font-weight:700}
+.status.err::before{content:'!';font-weight:700}
+
+/* ---- tabs ---- */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:10px 2px 12px;margin:0 -2px 18px;position:sticky;top:calc(var(--topbar) + 6px);background:linear-gradient(var(--bg) 78%,rgba(255,253,248,0));z-index:50;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:none;display:inline-flex;align-items:center;gap:7px;border:1.5px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:11px 18px;font-size:.87rem;font-weight:600;white-space:nowrap}
+.tab svg{width:15px;height:15px;flex:none;opacity:.85}
+.tab:hover{border-color:#c9bcb0;color:var(--ink)}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 6px 16px rgba(22,19,17,.18)}
+.tab.on svg{opacity:1}
+
+/* ---- overview ---- */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:8px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;position:relative;overflow:hidden}
+.stat::after{content:'';position:absolute;left:18px;right:auto;bottom:14px;width:26px;height:4px;border-radius:99px;background:var(--ember)}
+.stat:nth-child(2)::after{background:var(--gold)}
+.stat:nth-child(3)::after{background:#c9bcb0}
+.stat:nth-child(4)::after{background:#1d7a3e}
+.stat b{display:block;font-size:2.1rem;font-weight:700;letter-spacing:-.02em;line-height:1.1;margin-bottom:14px}
+.stat span{font-size:.72rem;color:var(--muted);font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:26px 0 10px}
+h2{font-size:1.02rem;font-weight:700}
+.feed{background:#fff;border:1px solid var(--line);border-radius:18px;padding:6px 16px}
+.feed .row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.88rem;align-items:baseline}
 .feed .row:last-child{border-bottom:none}
-.feed .who b{display:block}
-.feed .when{color:var(--muted);font-size:.76rem;white-space:nowrap}
+.feed .who b{display:block;font-size:.92rem}
+.feed .who span{color:var(--muted);font-size:.8rem}
+.feed .when{color:var(--muted);font-size:.74rem;white-space:nowrap}
+
+/* ---- registrations ---- */
 .bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
 .bar input{flex:1;min-width:180px}
-.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fff}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:#fff}
 table{border-collapse:collapse;width:100%;font-size:.84rem}
-th{background:var(--soft);text-align:left;padding:10px 12px;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
-td.pr{min-width:180px;line-height:1.45}
-td a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
-.count{font-size:.78rem;color:var(--muted);margin-left:auto}
-.trow{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px;background:#fff}
-.trow p{font-size:.9rem;line-height:1.5;margin-bottom:6px}
-.trow .who{font-size:.76rem;color:var(--muted)}
-.trow.hidden-row{opacity:.55}
-.trow .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
-.count-hint{font-size:.74rem;color:var(--muted);text-align:right;margin-top:4px}
+th{background:var(--soft);text-align:left;padding:11px 14px;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+td{padding:12px 14px;border-top:1px solid var(--line);vertical-align:top}
+td.pr{min-width:180px;line-height:1.5}
+td a{color:var(--ember-deep);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.count{font-size:.78rem;color:var(--muted);font-weight:600}
 .empty{color:var(--muted);font-size:.85rem}
-@media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+
+/* ---- testimonies ---- */
+.trow{border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:10px;background:#fff}
+.trow p{font-size:.9rem;line-height:1.55;margin-bottom:8px}
+.trow .who{font-size:.75rem;color:var(--muted)}
+.trow.hidden-row{opacity:.55;background:var(--soft)}
+.trow .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+.count-hint{font-size:.74rem;color:var(--muted);text-align:right;margin-top:5px}
+
+/* ---- photos ---- */
 .pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-@media(min-width:640px){.pgrid{grid-template-columns:repeat(3,1fr)}}
-.pcard{border:1px solid var(--line);border-radius:16px;padding:10px;background:#fff}
-.pcard img{width:100%;height:110px;object-fit:cover;border-radius:10px;background:var(--soft)}
-.pcard .pl{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:.8rem;font-weight:600}
-.ovb{font-style:normal;font-size:.64rem;color:var(--ember-deep);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.pcard .btns{display:flex;gap:6px;margin-top:8px}
-.pcard .btns button{padding:6px 10px;font-size:.72rem;border-radius:999px}
-.chk{display:flex;align-items:center;gap:8px;margin:14px 0}
-.chk input{width:auto}
+.pcard{border:1px solid var(--line);border-radius:18px;padding:10px;background:#fff}
+.pcard img{width:100%;height:120px;object-fit:cover;border-radius:12px;background:var(--soft)}
+.pcard .pl{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:9px;font-size:.8rem;font-weight:600;min-height:20px}
+.pcard .pl span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ovb{font-style:normal;font-size:.6rem;color:#1d7a3e;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:#edf6ee;border-radius:999px;padding:3px 8px;flex:none}
+.pcard .btns{display:flex;gap:6px;margin-top:9px}
+.pcard .btns button{padding:8px 12px;font-size:.74rem;border-radius:999px;flex:1}
+
+/* ---- shirt offer ---- */
+.chk{display:flex;align-items:center;gap:10px;margin:16px 0}
+.chk input{width:19px;height:19px;accent-color:var(--ember)}
+.chk label{margin:0;font-size:.9rem}
+.simgrow{display:flex;gap:12px;align-items:center;margin-top:2px}
+.simgrow img{width:110px;height:110px;object-fit:cover;border-radius:14px;background:var(--soft);border:1px solid var(--line)}
+
+/* ---- gate ---- */
+.gate-wrap{display:flex;justify-content:center;padding-top:8vh}
+.gate-card{max-width:420px;width:100%;text-align:left;padding:30px 26px}
+.gate-card h1{font-size:1.4rem;margin-bottom:4px}
+.gate-card .sub{margin-bottom:18px}
+@media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+
+/* ---- phones: registrations become cards ---- */
+@media(max-width:639px){
+ .table-scroll{border:none;background:none;overflow:visible}
+ table,tbody,tr,td{display:block;width:100%}
+ thead{display:none}
+ tr{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-bottom:10px;box-shadow:0 4px 14px rgba(22,19,17,.04)}
+ td{border:none;padding:5px 0;display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+ td:first-child{display:none}
+ td::before{content:attr(data-label);color:var(--muted);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;flex:none}
+ td.pr{display:block}
+ td.pr::before{display:block;margin-bottom:3px}
+ td b{font-size:.95rem}
+ .stat b{font-size:1.7rem}
+ .card{padding:20px 16px}
+ .tab{padding:11px 15px}
+}
 </style>
 </head>
 <body>
@@ -80,13 +152,13 @@ td a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
 </div>
 
 <div id="gate" style="display:none">
-  <div class="wrap">
-    <h1>Site admin</h1>
-    <p class="sub">Enter your admin passcode to open the dashboard.</p>
-    <div class="card" style="max-width:420px">
+  <div class="wrap gate-wrap">
+    <div class="card gate-card">
+      <h1>Site admin</h1>
+      <p class="sub">Enter the admin passcode to open the dashboard.</p>
       <label for="pc">Passcode</label>
-      <input id="pc" type="text" autocomplete="off" spellcheck="false" placeholder="Your admin passcode" style="margin-bottom:16px">
-      <button class="ember" id="go">Open dashboard</button>
+      <input id="pc" type="text" autocomplete="off" spellcheck="false" placeholder="Your admin passcode" style="margin-bottom:18px">
+      <button class="ember" id="go" style="width:100%">Open dashboard</button>
       <div class="status" id="gateStatus"></div>
     </div>
   </div>
@@ -94,11 +166,17 @@ td a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
 
 <div id="app" style="display:none">
   <div class="wrap">
+    <div class="pagehead">
+      <h1>Dashboard</h1>
+      <p class="sub">Faith &amp; Fire Crusade · Sun Dec 6 – Tue Dec 8 · 4:30pm daily · Abraka</p>
+    </div>
     <div class="tabs" id="tabs">
-      <button class="tab on" data-tab="ov">Overview</button>
-      <button class="tab" data-tab="reg">Registrations</button>
-      <button class="tab" data-tab="tst">Testimonies</button>
-      <button class="tab" data-tab="photo">Photos</button><button class="tab" data-tab="shirt">Shirt offer</button><button class="tab" data-tab="ann">Announcement</button>
+      <button class="tab on" data-tab="ov"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Overview</button>
+      <button class="tab" data-tab="reg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Registrations</button>
+      <button class="tab" data-tab="tst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Testimonies</button>
+      <button class="tab" data-tab="photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>Photos</button>
+      <button class="tab" data-tab="shirt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 12 22l-9-9V4a1 1 0 0 1 1-1h9l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg>Shirt offer</button>
+      <button class="tab" data-tab="ann"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-7v16l-18-7z"/><path d="M7 13v6a2 2 0 0 0 4 0v-4"/></svg>Announcement</button>
     </div>
 
     <section id="tab-ov">
@@ -108,18 +186,18 @@ td a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
         <div class="stat"><b id="st-pray">–</b><span>Prayer requests</span></div>
         <div class="stat"><b id="st-testi">–</b><span>Testimonies live</span></div>
       </div>
-      <h2>Latest signups</h2>
+      <div class="sechead"><h2>Latest signups</h2><button class="mini" id="refresh">Refresh</button></div>
       <div class="feed" id="feed"><div class="row"><span class="empty">Loading…</span></div></div>
     </section>
 
     <section id="tab-reg" style="display:none">
       <div class="card">
-        <h2 style="margin:0 0 14px">Registrations</h2>
+        <h2 style="margin-bottom:14px">Registrations</h2>
         <div class="bar">
           <input id="regSearch" type="text" placeholder="Search name, phone or prayer request…">
           <button class="mini" id="csv">Download CSV</button>
-          <span class="count" id="regCount"></span>
         </div>
+        <span class="count" id="regCount" style="display:block;margin-bottom:10px"></span>
         <div class="table-scroll">
           <table>
             <thead><tr><th>#</th><th>Name</th><th>Phone</th><th>WhatsApp</th><th>Prayer request</th><th>Registered</th></tr></thead>
@@ -132,33 +210,34 @@ td a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
 
     <section id="tab-tst" style="display:none">
       <div class="card">
-        <h2 style="margin:0 0 4px">Post a testimony</h2>
+        <h2 style="margin-bottom:4px">Post a testimony</h2>
         <label for="tbody">Testimony</label>
         <textarea id="tbody" placeholder="The story, told in the person's own words. How it started and how it ended."></textarea>
         <label for="tname">Person's name (optional)</label>
         <input id="tname" type="text" placeholder="e.g. Mrs Joy Okeke">
         <label for="tchurch">Church or city (optional)</label>
         <input id="tchurch" type="text" placeholder="e.g. Abraka">
-        <div style="margin-top:16px"><button class="ember" id="tsave">Post to live site</button></div>
+        <div style="margin-top:18px"><button class="ember" id="tsave">Post to live site</button></div>
         <div class="status" id="tstatus"></div>
       </div>
-      <h2>All testimonies</h2>
+      <div class="sechead"><h2>All testimonies</h2></div>
       <div id="tlist" class="empty">Loading…</div>
     </section>
 
     <section id="tab-photo" style="display:none">
       <div class="card">
-        <h2 style="margin:0 0 4px">Site photos</h2>
-        <p class="sub" style="margin-bottom:8px">Replace any photo on the live site. Pick a slot, upload the new picture, and visitors see it on their next page load. Revert puts the original back.</p>
+        <h2 style="margin-bottom:4px">Site photos</h2>
+        <p class="sub" style="margin-bottom:14px">Replace any photo on the live site. Pick a slot, upload the new picture, and visitors see it on their next page load. Revert puts the original back.</p>
         <div class="pgrid" id="pgrid">Loading…</div>
         <div class="status" id="pstatus"></div>
       </div>
     </section>
+
     <section id="tab-shirt" style="display:none">
       <div class="card">
-        <h2 style="margin:0 0 4px">Shirt offer popup</h2>
-        <p class="sub" style="margin-bottom:0">This appears as a popup 4 minutes after someone opens the site, once per visit. On by default.</p>
-        <div class="chk"><input type="checkbox" id="sOn" checked><label for="sOn" style="margin:0">Show the popup on the site</label></div>
+        <h2 style="margin-bottom:4px">Shirt offer popup</h2>
+        <p class="sub" style="margin-bottom:0">This appears as a popup 4 minutes after someone opens the site, once per visit.</p>
+        <div class="chk"><input type="checkbox" id="sOn" checked><label for="sOn">Show the popup on the site</label></div>
         <label for="sTitle">Title</label>
         <input id="sTitle" type="text" placeholder="FFC '26 Merch is here">
         <label for="sPrice">Price</label>
@@ -168,22 +247,23 @@ td a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
         <label for="sLink">WhatsApp order link</label>
         <input id="sLink" type="text" placeholder="https://wa.me/2347046031599">
         <label for="sImgFile">Popup image</label>
-        <div style="display:flex;gap:10px;align-items:center">
-          <img id="sImgPrev" style="width:96px;height:96px;object-fit:cover;border-radius:12px;background:var(--soft);display:none" alt="">
-          <input id="sImgFile" type="file" accept="image/*" style="max-width:260px">
+        <div class="simgrow">
+          <img id="sImgPrev" style="display:none" alt="">
+          <input id="sImgFile" type="file" accept="image/*" style="max-width:280px">
         </div>
-        <div style="margin-top:16px"><button class="ember" id="sSave">Save shirt offer</button></div>
+        <div style="margin-top:18px"><button class="ember" id="sSave">Save shirt offer</button></div>
         <div class="status" id="sStatus"></div>
       </div>
     </section>
+
     <section id="tab-ann" style="display:none">
       <div class="card">
-        <h2 style="margin:0 0 4px">Announcement bar</h2>
+        <h2 style="margin-bottom:4px">Announcement bar</h2>
         <p class="sub" style="margin-bottom:6px">The short line at the very top of the site. It updates live; visitors see the change on their next page load.</p>
         <label for="annc">Text (240 characters max)</label>
         <textarea id="annc" style="min-height:80px"></textarea>
         <div class="count-hint" id="anncCount"></div>
-        <div style="margin-top:10px"><button class="ember" id="anncSave">Update the bar</button></div>
+        <div style="margin-top:12px"><button class="ember" id="anncSave">Update the bar</button></div>
         <div class="status" id="anncStatus"></div>
       </div>
     </section>
@@ -191,6 +271,7 @@ td a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
 </div>
 
 <script>
+
 var SB='https://wyffeifapgjyndsickzw.supabase.co/rest/v1';
 var K='sb_publishable_-l_aiV-1dwtGWg9wmm3vig_72yl4HgL';
 var $=function(id){return document.getElementById(id)};
@@ -256,7 +337,7 @@ function renderRegs(){
   $('regCount').textContent=rows.length+(rows.length===1?' person':' people');
   if(!rows.length){el.innerHTML='<tr><td colspan="6" class="empty" style="border:none;padding:18px 12px">'+(REGS.length?'No match for that search.':'No registrations yet.')+'</td></tr>';return}
   el.innerHTML=rows.map(function(r,i){
-    return '<tr><td>'+(i+1)+'</td><td><b>'+esc(r.full_name)+'</b></td><td><a href="tel:'+(r.phone||'').replace(/[^\d+]/g,'')+'">'+esc(r.phone)+'</a></td><td>'+(r.whatsapp_group===true?'Yes':'No')+'</td><td class="pr">'+esc(r.prayer_request||'—')+'</td><td>'+when(r.created_at)+'</td></tr>';
+    return '<tr><td>'+(i+1)+'</td><td data-label="Name"><b>'+esc(r.full_name)+'</b></td><td data-label="Phone"><a href="tel:'+(r.phone||'').replace(/[^\d+]/g,'')+'">'+esc(r.phone)+'</a></td><td data-label="WhatsApp group">'+(r.whatsapp_group===true?'Yes':'No')+'</td><td class="pr" data-label="Prayer request">'+esc(r.prayer_request||'—')+'</td><td data-label="Registered">'+when(r.created_at)+'</td></tr>';
   }).join('');
 }
 function csv(){
@@ -273,7 +354,7 @@ function renderTestis(){
   if(!TESTIS.length){el.innerHTML='Nothing posted yet. The site shows its placeholder cards until you post the first one.';el.className='empty';return}
   el.className='';
   el.innerHTML=TESTIS.map(function(t){
-    return '<div class="trow'+(t.approved?'':' hidden-row')+'"><p>'+esc(t.body)+'</p><div class="who">'+esc(t.person_name||'Name withheld')+(t.church?' · '+esc(t.church):'')+' · '+when(t.created_at)+(t.approved?'':' · hidden from the site')+'</div><div class="actions"><button class="mini" data-tog="'+t.id+'">'+(t.approved?'Hide':'Show')+'</button><button class="mini" data-del="'+t.id+'">Delete</button></div></div>';
+    return '<div class="trow'+(t.approved?'':' hidden-row')+'"><p>'+esc(t.body)+'</p><div class="who">'+esc(t.person_name||'Name withheld')+(t.church?' · '+esc(t.church):'')+' · '+when(t.created_at)+(t.approved?'':' · hidden from the site')+'</div><div class="actions"><button class="mini togbtn" data-tog="'+t.id+'">'+(t.approved?'Hide':'Show')+'</button><button class="mini delbtn" data-del="'+t.id+'">Delete</button></div></div>';
   }).join('');
 }
 function act(name,body,statusId,done){
@@ -287,6 +368,7 @@ $('go').addEventListener('click',login);
 $('pc').addEventListener('keydown',function(e){if(e.key==='Enter')login()});
 $('regSearch').addEventListener('input',renderRegs);
 $('csv').addEventListener('click',csv);
+$('refresh').addEventListener('click',loadAll);
 $('annc').addEventListener('input',anncCount);
 $('tsave').addEventListener('click',function(){
   var b=$('tbody').value.trim(); if(b.length<5){say('tstatus','The testimony text is too short.');return}
@@ -310,15 +392,17 @@ $('tabs').addEventListener('click',function(e){
   var b=e.target.closest('.tab');if(!b)return;
   document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('on',x===b)});
   ['ov','reg','tst','photo','shirt','ann'].forEach(function(id){$('tab-'+id).style.display=(id===b.getAttribute('data-tab'))?'block':'none'});
+  if(b.scrollIntoView)try{b.scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'})}catch(e){}
 });
 var FN='https://wyffeifapgjyndsickzw.supabase.co/functions/v1/admin-upload';
 var SLOTS=['hero','about','night-1','night-2','night-3','minister-1','minister-2','minister-3','gallery-1','gallery-2','gallery-3','gallery-4','gallery-5','gallery-6'];
+var PLABEL={hero:'Hero banner',about:'About photo','night-1':'Night 1 · Ignition','night-2':'Night 2 · Consecration','night-3':'Night 3 · Fire & Commissioning','minister-1':'Pastor Ikechukwu Ubabudike','minister-2':'Pastor Oluwatobi Olayinka','minister-3':'Rev. Kolawole Ogoigbe','gallery-1':'Gallery 1','gallery-2':'Gallery 2','gallery-3':'Gallery 3','gallery-4':'Gallery 4','gallery-5':'Gallery 5','gallery-6':'Gallery 6'};
 var IMGOV={},SHIRT_CFG=null;
 function loadPhotos(){fetch(SB+'/site_images?select=slot,url',{headers:H()}).then(function(r){return r.ok?r.json():[]}).then(function(rows){IMGOV={};(rows||[]).forEach(function(x){IMGOV[x.slot]=x.url});renderPhotos()}).catch(function(){renderPhotos()})}
 function renderPhotos(){
   var el=$('pgrid');el.innerHTML=SLOTS.map(function(sl){
     var url=IMGOV[sl]||('assets/img/'+sl+'.jpg');var ov=!!IMGOV[sl];
-    return '<div class="pcard"><img src="'+url+'" alt="'+sl+'"><div class="pl"><span>'+sl+'</span>'+(ov?'<em class="ovb">custom</em>':'')+'</div><div class="btns"><button class="mini" data-up="'+sl+'">Upload</button>'+(ov?'<button class="mini" data-rev="'+sl+'">Revert</button>':'')+'</div><input type="file" accept="image/*" id="fi-'+sl+'" data-slot="'+sl+'" style="position:absolute;left:-9999px;top:0;width:1px;height:1px;opacity:0"></div>';
+    return '<div class="pcard"><img src="'+url+'" alt="'+(PLABEL[sl]||sl)+'"><div class="pl"><span>'+(PLABEL[sl]||sl)+'</span>'+(ov?'<em class="ovb">custom</em>':'')+'</div><div class="btns"><button class="mini upbtn" data-up="'+sl+'">Upload</button>'+(ov?'<button class="mini" data-rev="'+sl+'">Revert</button>':'')+'</div><input type="file" accept="image/*" id="fi-'+sl+'" data-slot="'+sl+'" style="position:absolute;left:-9999px;top:0;width:1px;height:1px;opacity:0"></div>';
   }).join('');
 }
 $('pgrid').addEventListener('click',function(e){
@@ -395,6 +479,7 @@ $('sSave').addEventListener('click',function(){
 });
 var saved=sessionStorage.getItem('ffAdmin');
 if(saved){PC=saved;$('gate').style.display='none';openApp()}else{$('gate').style.display='block'}
+
 </script>
 </body>
 </html>
