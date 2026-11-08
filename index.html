@@ -689,11 +689,11 @@ form.addEventListener('submit',async e=>{
       document.querySelectorAll('img[src$="/'+r.slot+'.jpg"],img[src$="/'+r.slot+'.png"]').forEach(function(im){im.src=r.url;});
     });
   }).catch(function(){});
-  /* shirt offer popup, 2 minutes after open, once per visit */
+  /* shirt offer popup, 4 minutes after open, once per visit */
   var shown=false;
   var ov=document.getElementById('shirtOv');
   function armShirt(){
-    var delay=/shirt=1/.test(location.search)?3000:120000;
+    var delay=/shirt=1/.test(location.search)?3000:240000;
     setTimeout(function(){if(!shown&&!sessionStorage.getItem('ffShirt')){shown=true;sessionStorage.setItem('ffShirt','1');ov.classList.add('open');}},delay);
   }
   document.getElementById('shirtX').addEventListener('click',function(){ov.classList.remove('open');});
