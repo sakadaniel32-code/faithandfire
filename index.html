@@ -651,5 +651,69 @@ form.addEventListener('submit',async e=>{
   }).catch(function(){});
 })();
 </script>
+<style>
+/* shirt offer popup */
+.shirt-ov{position:fixed;inset:0;background:rgba(10,6,3,.6);z-index:200;display:none;align-items:flex-end;justify-content:center;padding:16px}
+@media(min-width:640px){.shirt-ov{align-items:center}}
+.shirt-ov.open{display:flex}
+.shirt-card{background:var(--bg);border-radius:24px;max-width:420px;width:100%;padding:28px 24px;text-align:center;position:relative;box-shadow:0 24px 60px rgba(10,6,3,.35);max-height:88vh;overflow:auto}
+.shirt-x{position:absolute;top:12px;right:12px;background:var(--soft);border:1px solid var(--line);border-radius:999px;width:34px;height:34px;font-size:1.05rem;line-height:1;cursor:pointer;color:var(--muted);padding:0}
+.shirt-img{width:100%;max-height:230px;object-fit:contain;border-radius:14px;background:var(--soft);margin-bottom:14px;display:block}
+.shirt-kick{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ember-deep);margin-bottom:8px}
+.shirt-title{font-size:1.35rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+.shirt-price{font-size:1.05rem;font-weight:600;color:var(--ember-deep);margin-bottom:8px}
+.shirt-note{font-size:.9rem;color:var(--muted);line-height:1.5;margin-bottom:18px}
+.shirt-cta{display:block;width:100%;background:var(--ember);color:#fff;font-weight:600;border-radius:999px;padding:15px 20px;text-decoration:none}
+</style>
+<div class="shirt-ov" id="shirtOv" role="dialog" aria-modal="true" aria-label="Faith and Fire shirt offer">
+  <div class="shirt-card">
+    <button class="shirt-x" id="shirtX" type="button" aria-label="Close">&times;</button>
+    <img class="shirt-img" id="shirtImg" src="" alt="" style="display:none">
+    <div class="shirt-kick">Crusade week exclusive</div>
+    <div class="shirt-title" id="shirtTitle">Official Faith &amp; Fire shirt</div>
+    <div class="shirt-price" id="shirtPrice" style="display:none"></div>
+    <div class="shirt-note" id="shirtNote">Wearing it is carrying the fire. Limited stock for crusade week.</div>
+    <a class="shirt-cta" id="shirtCta" href="https://wa.me/2349082727263?text=Hello%2C%20I%27d%20like%20to%20order%20the%20Faith%20%26%20Fire%20shirt" target="_blank" rel="noopener">Order on WhatsApp</a>
+  </div>
+</div>
+<script>
+(function(){
+  var SB='https://wyffeifapgjyndsickzw.supabase.co/rest/v1';
+  var K='sb_publishable_-l_aiV-1dwtGWg9wmm3vig_72yl4HgL';
+  var H={'apikey':K,'Authorization':'Bearer '+K};
+  /* live photo overrides */
+  fetch(SB+'/site_images?select=slot,url',{headers:H})
+  .then(function(r){return r.ok?r.json():[]})
+  .then(function(rows){
+    (rows||[]).forEach(function(r){
+      document.querySelectorAll('img[src$="/'+r.slot+'.jpg"],img[src$="/'+r.slot+'.png"]').forEach(function(im){im.src=r.url;});
+    });
+  }).catch(function(){});
+  /* shirt offer popup, 2 minutes after open, once per visit */
+  var shown=false;
+  var ov=document.getElementById('shirtOv');
+  function armShirt(){
+    var delay=/shirt=1/.test(location.search)?3000:120000;
+    setTimeout(function(){if(!shown&&!sessionStorage.getItem('ffShirt')){shown=true;sessionStorage.setItem('ffShirt','1');ov.classList.add('open');}},delay);
+  }
+  document.getElementById('shirtX').addEventListener('click',function(){ov.classList.remove('open');});
+  ov.addEventListener('click',function(e){if(e.target===ov)ov.classList.remove('open');});
+  fetch(SB+'/site_meta?select=value&key=eq.shirt_offer',{headers:H})
+  .then(function(r){return r.ok?r.json():[]})
+  .then(function(rows){
+    var cfg=null;if(rows&&rows[0]){try{cfg=JSON.parse(rows[0].value)}catch(e){}}
+    if(cfg&&cfg.enabled===false)return;
+    if(cfg){
+      if(cfg.title)document.getElementById('shirtTitle').textContent=cfg.title;
+      if(cfg.price){var p=document.getElementById('shirtPrice');p.textContent=cfg.price;p.style.display='block';}
+      if(cfg.note)document.getElementById('shirtNote').textContent=cfg.note;
+      if(cfg.link)document.getElementById('shirtCta').href=cfg.link;
+      if(cfg.image_url){var im=document.getElementById('shirtImg');im.src=cfg.image_url;im.style.display='block';}
+    }
+    armShirt();
+  }).catch(armShirt);
+})();
+</script>
 </body>
+
 </html>
