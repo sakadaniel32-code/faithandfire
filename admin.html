@@ -318,7 +318,7 @@ function loadPhotos(){fetch(SB+'/site_images?select=slot,url',{headers:H()}).the
 function renderPhotos(){
   var el=$('pgrid');el.innerHTML=SLOTS.map(function(sl){
     var url=IMGOV[sl]||('assets/img/'+sl+'.jpg');var ov=!!IMGOV[sl];
-    return '<div class="pcard"><img src="'+url+'" alt="'+sl+'"><div class="pl"><span>'+sl+'</span>'+(ov?'<em class="ovb">custom</em>':'')+'</div><div class="btns"><button class="mini" data-up="'+sl+'">Upload</button>'+(ov?'<button class="mini" data-rev="'+sl+'">Revert</button>':'')+'</div><input type="file" accept="image/*" id="fi-'+sl+'" data-slot="'+sl+'" style="display:none"></div>';
+    return '<div class="pcard"><img src="'+url+'" alt="'+sl+'"><div class="pl"><span>'+sl+'</span>'+(ov?'<em class="ovb">custom</em>':'')+'</div><div class="btns"><button class="mini" data-up="'+sl+'">Upload</button>'+(ov?'<button class="mini" data-rev="'+sl+'">Revert</button>':'')+'</div><input type="file" accept="image/*" id="fi-'+sl+'" data-slot="'+sl+'" style="position:absolute;left:-9999px;top:0;width:1px;height:1px;opacity:0"></div>';
   }).join('');
 }
 $('pgrid').addEventListener('click',function(e){
@@ -327,17 +327,37 @@ $('pgrid').addEventListener('click',function(e){
     fetch(FN,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({passcode:PC,slot:sl,action:'revert'})}).then(function(r){return r.json()}).then(function(j){if(j.ok){delete IMGOV[sl];renderPhotos();say('pstatus','Original restored for '+sl+'.',true)}else{say('pstatus',j.error||'Revert failed.')}}).catch(function(){say('pstatus','Could not reach the server.')});return}
   var slot=up.getAttribute('data-up'),fi=document.getElementById('fi-'+slot);if(fi)fi.click();
 });
+function shrink(file,cb){
+  var max=2000,img=new Image(),url=URL.createObjectURL(file);
+  img.onload=function(){
+    URL.revokeObjectURL(url);
+    var w=img.width,h=img.height,k=Math.min(1,max/Math.max(w,h));
+    var c=document.createElement('canvas');c.width=Math.round(w*k);c.height=Math.round(h*k);
+    c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+    var keep=file.type==='image/png'&&hasAlpha(img)?null:c.toDataURL('image/jpeg',0.85);
+    cb(keep?keep:file,keep?'image/jpeg':file.type);
+  };
+  img.onerror=function(){URL.revokeObjectURL(url);cb(file,file.type)};
+  img.src=url;
+}
+function hasAlpha(img){try{var c=document.createElement('canvas');c.width=8;c.height=8;c.getContext('2d').drawImage(img,0,0,8,8);var d=c.getContext('2d').getImageData(0,0,8,8).data;for(var i=3;i<d.length;i+=4)if(d[i]<250)return true}catch(e){}return false}
+function postImg(slot,base64,ctype,okMsg,statId,done){
+  fetch(FN,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({passcode:PC,slot:slot,base64:base64,content_type:ctype})}).then(function(r){return r.text().then(function(t){return {s:r.status,j:function(){try{return JSON.parse(t)}catch(e){return {error:t}}}}})}).then(function(o){
+    var j=o.j();
+    if(j.ok){done(j.url);say(statId,okMsg,true)}
+    else say(statId,(j.error||'Upload failed')+' (code '+o.s+').');
+  }).catch(function(){say(statId,'Could not reach the server. Check your connection and try again.')});
+}
 $('pgrid').addEventListener('change',function(e){
   var fi=e.target;if(fi.tagName!=='INPUT'||fi.type!=='file'||!fi.files||!fi.files.length)return;
-  var slot=fi.getAttribute('data-slot'),f=fi.files[0];
-  if(f.size>6*1024*1024){say('pstatus','That image is over 6MB. Pick a smaller one.');return}
+  var slot=fi.getAttribute('data-slot'),f=fi.files[0];fi.value='';
+  if(f.size>6*1024*1024){say('pstatus','Shrinking that big photo first…',true)}
   say('pstatus','Uploading '+slot+'…',true);
-  var rd=new FileReader();rd.onload=function(){
-    fetch(FN,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({passcode:PC,slot:slot,base64:rd.result.split(',')[1],content_type:f.type})}).then(function(r){return r.json()}).then(function(j){
-      if(j.ok){IMGOV[slot]=j.url;renderPhotos();say('pstatus',slot+' updated. Visitors see it on their next page load.',true)}
-      else say('pstatus',j.error||'Upload failed.');
-    }).catch(function(){say('pstatus','Could not reach the server.')});
-  };rd.readAsDataURL(f);
+  shrink(f,function(blob,ctype){
+    var rd=new FileReader();rd.onload=function(){
+      postImg(slot,rd.result.split(',')[1],ctype,slot+' updated. Visitors see it on their next page load.','pstatus',function(url){IMGOV[slot]=url;renderPhotos()});
+    };rd.readAsDataURL(blob);
+  });
 });
 function loadShirt(){
   fetch(SB+'/site_meta?select=value&key=eq.shirt_offer',{headers:H()}).then(function(r){return r.ok?r.json():[]}).then(function(rows){
@@ -351,15 +371,13 @@ function loadShirt(){
   }).catch(function(){});
 }
 $('sImgFile').addEventListener('change',function(){
-  var f=this.files&&this.files[0];if(!f)return;
-  if(f.size>6*1024*1024){say('sStatus','That image is over 6MB. Pick a smaller one.');return}
+  var f=this.files&&this.files[0];this.value='';if(!f)return;
   say('sStatus','Uploading image…',true);
-  var rd=new FileReader();rd.onload=function(){
-    fetch(FN,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({passcode:PC,slot:'shirt',base64:rd.result.split(',')[1],content_type:f.type})}).then(function(r){return r.json()}).then(function(j){
-      if(j.ok){$('sImgPrev').src=j.url;$('sImgPrev').style.display='block';say('sStatus','Image ready. Save to publish.',true)}
-      else say('sStatus',j.error||'Upload failed.');
-    }).catch(function(){say('sStatus','Could not reach the server.')});
-  };rd.readAsDataURL(f);
+  shrink(f,function(blob,ctype){
+    var rd=new FileReader();rd.onload=function(){
+      postImg('shirt',rd.result.split(',')[1],ctype,'Image ready. Save to publish.','sStatus',function(url){$('sImgPrev').src=url;$('sImgPrev').style.display='block'});
+    };rd.readAsDataURL(blob);
+  });
 });
 $('sSave').addEventListener('click',function(){
   var data={enabled:$('sOn').checked,title:$('sTitle').value.trim(),price:$('sPrice').value.trim(),note:$('sNote').value.trim(),link:$('sLink').value.trim(),image_url:($('sImgPrev').style.display!=='none')?$('sImgPrev').src:''};
