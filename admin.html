@@ -13,101 +13,265 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
 .topbar{background:#0a0806;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.09)}
-.topbar img{width:min(46vw,170px);height:auto;display:block}
-.topbar span{color:#fff;font-weight:600;font-size:.85rem;letter-spacing:.08em}
-.wrap{max-width:640px;margin:0 auto;padding:28px 20px 60px}
-h1{font-size:1.5rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
-.sub{color:var(--muted);font-size:.9rem;line-height:1.5;margin-bottom:22px}
+.topbar img{width:min(42vw,160px);height:auto;display:block}
+.topbar .right{display:flex;align-items:center;gap:12px}
+.topbar span{color:#fff;font-weight:600;font-size:.8rem;letter-spacing:.08em}
+.topbar button{background:none;border:1px solid rgba(255,255,255,.28);color:#fff;border-radius:10px;padding:7px 14px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:26px 20px 70px}
+h1{font-size:1.45rem;font-weight:700;letter-spacing:-.01em}
+.sub{color:var(--muted);font-size:.9rem;line-height:1.5;margin:6px 0 22px}
 .card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 20px;box-shadow:0 10px 26px rgba(22,19,17,.06);margin-bottom:16px}
 label{display:block;font-size:.8rem;font-weight:600;margin:14px 0 6px}
 label:first-of-type{margin-top:0}
 input,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;font-size:.95rem;background:var(--soft);color:var(--ink)}
-textarea{min-height:120px;resize:vertical;line-height:1.5}
-button{font:inherit;font-weight:600;cursor:pointer;border:none;border-radius:999px;padding:14px 26px;background:var(--ink);color:#fff}
+textarea{min-height:110px;resize:vertical;line-height:1.5}
+button{font:inherit;font-weight:600;cursor:pointer;border:none;border-radius:999px;padding:13px 26px;background:var(--ink);color:#fff}
 button.ember{background:var(--ember)}
-button.mini{padding:7px 14px;font-size:.78rem;background:none;border:1px solid var(--line);color:var(--muted)}
+button.mini{padding:7px 14px;font-size:.76rem;background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px}
 button.mini:hover{border-color:var(--ember);color:var(--ember)}
 .status{margin-top:12px;font-size:.85rem;min-height:1.2em}
 .status.ok{color:#1d7a3e}.status.err{color:#c2410c}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:2px 0 4px;margin-bottom:20px}
+.tab{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:9px 18px;font-size:.85rem;white-space:nowrap}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}
+.stat b{display:block;font-size:2rem;letter-spacing:-.02em}
+.stat span{font-size:.78rem;color:var(--muted);font-weight:600}
+h2{font-size:1.02rem;font-weight:700;margin:26px 0 10px}
+.feed{background:#fff;border:1px solid var(--line);border-radius:16px;padding:6px 16px}
+.feed .row{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.feed .row:last-child{border-bottom:none}
+.feed .who b{display:block}
+.feed .when{color:var(--muted);font-size:.76rem;white-space:nowrap}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.bar input{flex:1;min-width:180px}
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th{background:var(--soft);text-align:left;padding:10px 12px;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+td{padding:11px 12px;border-top:1px solid var(--line);vertical-align:top}
+td.pr{min-width:180px;line-height:1.45}
+td a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+.count{font-size:.78rem;color:var(--muted);margin-left:auto}
 .trow{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px;background:#fff}
-.trow p{font-size:.9rem;line-height:1.5;margin-bottom:8px}
-.trow .who{font-size:.78rem;color:var(--muted)}
-.trow .actions{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
-h2{font-size:1.05rem;font-weight:700;margin:28px 0 12px}
+.trow p{font-size:.9rem;line-height:1.5;margin-bottom:6px}
+.trow .who{font-size:.76rem;color:var(--muted)}
+.trow.hidden-row{opacity:.55}
+.trow .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+.count-hint{font-size:.74rem;color:var(--muted);text-align:right;margin-top:4px}
 .empty{color:var(--muted);font-size:.85rem}
+@media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
 <div class="topbar">
   <img src="assets/brand/logo.png" alt="The Watchmen Prayer Network International">
-  <span>ADMIN</span>
+  <div class="right" id="topRight"><span>ADMIN</span></div>
 </div>
-<div class="wrap">
-  <h1>Site admin</h1>
-  <p class="sub">Post testimonies straight to the live page. Enter your passcode once; it is used for saving and deleting.</p>
-  <div class="card">
-    <label for="pc">Passcode</label>
-    <input id="pc" type="password" autocomplete="off" placeholder="Your admin passcode">
-    <label for="body">Testimony</label>
-    <textarea id="body" placeholder="The story, told in the person's own words. How it started and how it ended."></textarea>
-    <label for="name">Person's name (optional)</label>
-    <input id="name" type="text" placeholder="e.g. Mrs Joy Okeke">
-    <label for="church">Church or city (optional)</label>
-    <input id="church" type="text" placeholder="e.g. Abraka">
-    <div style="margin-top:16px"><button class="ember" id="save">Post to live site</button></div>
-    <div class="status" id="status"></div>
+
+<div id="gate" style="display:none">
+  <div class="wrap">
+    <h1>Site admin</h1>
+    <p class="sub">Enter your admin passcode to open the dashboard.</p>
+    <div class="card" style="max-width:420px">
+      <label for="pc">Passcode</label>
+      <input id="pc" type="password" autocomplete="off" placeholder="Your admin passcode" style="margin-bottom:16px">
+      <button class="ember" id="go">Open dashboard</button>
+      <div class="status" id="gateStatus"></div>
+    </div>
   </div>
-  <h2>Live on the site now</h2>
-  <div id="list" class="empty">Loading…</div>
 </div>
+
+<div id="app" style="display:none">
+  <div class="wrap">
+    <div class="tabs" id="tabs">
+      <button class="tab on" data-tab="ov">Overview</button>
+      <button class="tab" data-tab="reg">Registrations</button>
+      <button class="tab" data-tab="tst">Testimonies</button>
+      <button class="tab" data-tab="ann">Announcement</button>
+    </div>
+
+    <section id="tab-ov">
+      <div class="stats">
+        <div class="stat"><b id="st-total">–</b><span>Registrations</span></div>
+        <div class="stat"><b id="st-wa">–</b><span>On WhatsApp group</span></div>
+        <div class="stat"><b id="st-pray">–</b><span>Prayer requests</span></div>
+        <div class="stat"><b id="st-testi">–</b><span>Testimonies live</span></div>
+      </div>
+      <h2>Latest signups</h2>
+      <div class="feed" id="feed"><div class="row"><span class="empty">Loading…</span></div></div>
+    </section>
+
+    <section id="tab-reg" style="display:none">
+      <div class="card">
+        <h2 style="margin:0 0 14px">Registrations</h2>
+        <div class="bar">
+          <input id="regSearch" type="text" placeholder="Search name, phone or prayer request…">
+          <button class="mini" id="csv">Download CSV</button>
+          <span class="count" id="regCount"></span>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>#</th><th>Name</th><th>Phone</th><th>WhatsApp</th><th>Prayer request</th><th>Registered</th></tr></thead>
+            <tbody id="regBody"></tbody>
+          </table>
+        </div>
+        <div class="status" id="regStatus"></div>
+      </div>
+    </section>
+
+    <section id="tab-tst" style="display:none">
+      <div class="card">
+        <h2 style="margin:0 0 4px">Post a testimony</h2>
+        <label for="tbody">Testimony</label>
+        <textarea id="tbody" placeholder="The story, told in the person's own words. How it started and how it ended."></textarea>
+        <label for="tname">Person's name (optional)</label>
+        <input id="tname" type="text" placeholder="e.g. Mrs Joy Okeke">
+        <label for="tchurch">Church or city (optional)</label>
+        <input id="tchurch" type="text" placeholder="e.g. Abraka">
+        <div style="margin-top:16px"><button class="ember" id="tsave">Post to live site</button></div>
+        <div class="status" id="tstatus"></div>
+      </div>
+      <h2>All testimonies</h2>
+      <div id="tlist" class="empty">Loading…</div>
+    </section>
+
+    <section id="tab-ann" style="display:none">
+      <div class="card">
+        <h2 style="margin:0 0 4px">Announcement bar</h2>
+        <p class="sub" style="margin-bottom:6px">The short line at the very top of the site. It updates live; visitors see the change on their next page load.</p>
+        <label for="annc">Text (240 characters max)</label>
+        <textarea id="annc" style="min-height:80px"></textarea>
+        <div class="count-hint" id="anncCount"></div>
+        <div style="margin-top:10px"><button class="ember" id="anncSave">Update the bar</button></div>
+        <div class="status" id="anncStatus"></div>
+      </div>
+    </section>
+  </div>
+</div>
+
 <script>
 var SB='https://wyffeifapgjyndsickzw.supabase.co/rest/v1';
 var K='sb_publishable_-l_aiV-1dwtGWg9wmm3vig_72yl4HgL';
-var H={'apikey':K,'Authorization':'Bearer '+K,'Content-Type':'application/json'};
 var $=function(id){return document.getElementById(id)};
 function esc(t){return (t||'').replace(/[&<>"]/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]})}
-function say(msg,ok){var el=$('status');el.textContent=msg;el.className='status '+(ok?'ok':'err')}
-function load(){
-  fetch(SB+'/testimonies?select=id,body,person_name,church,created_at&approved=eq.true&order=created_at.desc',{headers:{'apikey':K,'Authorization':'Bearer '+K}})
-  .then(function(r){return r.ok?r.json():[]})
-  .then(function(rows){
-    var el=$('list');
-    if(!rows.length){el.textContent='Nothing posted yet. The site shows its placeholder cards until you post the first one.';el.className='empty';return}
-    el.className='';
-    el.innerHTML=rows.map(function(t){
-      var d=new Date(t.created_at);
-      return '<div class="trow"><p>'+esc(t.body)+'</p><div class="who">'+esc(t.person_name||'Name withheld')+(t.church?' · '+esc(t.church):'')+' · '+d.toLocaleDateString()+'</div><div class="actions"><span></span><button class="mini" data-del="'+t.id+'">Delete</button></div></div>';
-    }).join('');
-  }).catch(function(){var el=$('list');el.textContent='Could not load the list. Check your connection and refresh.';el.className='empty'});
+function H(){return {'apikey':K,'Authorization':'Bearer '+K,'Content-Type':'application/json'}}
+function say(id,msg,ok){var el=$(id);el.textContent=msg;el.className='status '+(ok?'ok':'err')}
+var PC=null, REGS=[], TESTIS=[];
+function rpc(name,body){return fetch(SB+'/rpc/'+name,{method:'POST',headers:H(),body:JSON.stringify(body)}).then(function(r){return r.text().then(function(t){return {ok:r.ok,t:t}})})}
+function badPC(t){return /bad passcode/i.test(t||'')}
+function when(iso){var d=new Date(iso);return d?d.toLocaleDateString('en-GB',{day:'2-digit',month:'short'})+' '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}):''}
+
+function login(){
+  var v=$('pc').value.trim(); if(!v){say('gateStatus','Enter your passcode.');return}
+  say('gateStatus','Opening…',true);
+  rpc('list_registrations',{p_passcode:v}).then(function(res){
+    if(res.ok){PC=v;sessionStorage.setItem('ffAdmin',PC);openApp()}
+    else{var m='Wrong passcode.';try{m=JSON.parse(res.t).message}catch(e){}say('gateStatus',badPC(m)?'Wrong passcode.':m)}
+  }).catch(function(){say('gateStatus','Could not reach the server. Check your connection.')});
 }
-$('save').addEventListener('click',function(){
-  var pc=$('pc').value.trim(), body=$('body').value.trim();
-  if(!pc){say('Enter your passcode first.');return}
-  if(body.length<5){say('The testimony text is too short.');return}
-  say('Posting…',true);
-  fetch(SB+'/rpc/add_testimony',{method:'POST',headers:H,body:JSON.stringify({p_passcode:pc,p_body:body,p_name:$('name').value.trim(),p_church:$('church').value.trim()})})
-  .then(function(r){return r.text().then(function(t){return {ok:r.ok,t:t}})})
-  .then(function(res){
-    if(res.ok){say('Posted. It is live on the site now.',true);$('body').value='';load()}
-    else{
-      var m=res.t||'Something went wrong.';
-      try{m=JSON.parse(res.t).message}catch(e){}
-      say(/bad passcode/i.test(m)?'Wrong passcode.':m);
-    }
-  }).catch(function(){say('Could not reach the server. Check your connection.')});
+function logout(){sessionStorage.removeItem('ffAdmin');location.reload()}
+function openApp(){
+  $('gate').style.display='none';$('app').style.display='block';
+  $('topRight').innerHTML='<span>ADMIN</span><button id="out">Sign out</button>';
+  $('out').addEventListener('click',logout);
+  loadAll();
+}
+function loadAll(){
+  rpc('list_registrations',{p_passcode:PC}).then(function(res){
+    if(res.ok){try{REGS=JSON.parse(res.t)||[])}catch(e){REGS=[]}renderRegs();renderFeed()}
+    else{var m='';try{m=JSON.parse(res.t).message}catch(e){}say('regStatus',badPC(m)?'Wrong passcode. Sign out and back in.':m)}
+  }).catch(function(){say('regStatus','Could not load registrations.')});
+  rpc('list_testimonies',{p_passcode:PC}).then(function(res){
+    if(res.ok){try{TESTIS=JSON.parse(res.t)||[])}catch(e){TESTIS=[]}renderTestis()}
+  }).catch(function(){});
+  fetch(SB+'/site_meta?select=value&key=eq.announcement',{headers:{'apikey':K,'Authorization':'Bearer '+K}})
+  .then(function(r){return r.ok?r.json():[]})
+  .then(function(rows){var v=rows&&rows[0]&&rows[0].value;if(v!=null){$('annc').value=v;anncCount()}}).catch(function(){});
+}
+function anncCount(){$('anncCount').textContent=$('annc').value.length+' / 240'}
+function renderStats(){
+  $('st-total').textContent=REGS.length;
+  $('st-wa').textContent=REGS.filter(function(r){return r.whatsapp_group===true}).length;
+  $('st-pray').textContent=REGS.filter(function(r){return (r.prayer_request||'').trim()}).length;
+  $('st-testi').textContent=TESTIS.filter(function(t){return t.approved}).length;
+}
+function renderFeed(){
+  renderStats();
+  var el=$('feed');
+  if(!REGS.length){el.innerHTML='<div class="row"><span class="empty">No registrations yet. New signups appear here the moment someone registers.</span></div>';return}
+  el.innerHTML=REGS.slice(0,5).map(function(r){
+    return '<div class="row"><div class="who"><b>'+esc(r.full_name)+'</b>'+(r.prayer_request?'<span>Prayer: '+esc(r.prayer_request.slice(0,60))+(r.prayer_request.length>60?'…':'')+'</span>':'')+'</div><span class="when">'+when(r.created_at)+'</span></div>';
+  }).join('');
+}
+function regFiltered(){
+  var q=($('regSearch').value||'').toLowerCase();
+  if(!q)return REGS;
+  return REGS.filter(function(r){return ((r.full_name||'')+' '+(r.phone||'')+' '+(r.prayer_request||'')).toLowerCase().indexOf(q)>-1});
+}
+function renderRegs(){
+  renderStats();
+  var rows=regFiltered(), el=$('regBody');
+  $('regCount').textContent=rows.length+(rows.length===1?' person':' people');
+  if(!rows.length){el.innerHTML='<tr><td colspan="6" class="empty" style="border:none;padding:18px 12px">'+(REGS.length?'No match for that search.':'No registrations yet.')+'</td></tr>';return}
+  el.innerHTML=rows.map(function(r,i){
+    return '<tr><td>'+(i+1)+'</td><td><b>'+esc(r.full_name)+'</b></td><td><a href="tel:'+(r.phone||'').replace(/[^\d+]/g,'')+'">'+esc(r.phone)+'</a></td><td>'+(r.whatsapp_group===true?'Yes':'No')+'</td><td class="pr">'+esc(r.prayer_request||'—')+'</td><td>'+when(r.created_at)+'</td></tr>';
+  }).join('');
+}
+function csv(){
+  var q=function(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"'};
+  var lines=[['Name','Phone','WhatsApp group','Prayer request','Registered'].map(q).join(',')];
+  REGS.forEach(function(r){lines.push([r.full_name,r.phone,r.whatsapp_group===true?'Yes':'No',r.prayer_request||'',r.created_at].map(q).join(','))});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob(["\ufeff"+lines.join('\r\n')],{type:'text/csv'}));
+  a.download='faithandfire-registrations.csv';a.click();
+}
+function renderTestis(){
+  renderStats();
+  var el=$('tlist');
+  if(!TESTIS.length){el.innerHTML='Nothing posted yet. The site shows its placeholder cards until you post the first one.';el.className='empty';return}
+  el.className='';
+  el.innerHTML=TESTIS.map(function(t){
+    return '<div class="trow'+(t.approved?'':' hidden-row')+'"><p>'+esc(t.body)+'</p><div class="who">'+esc(t.person_name||'Name withheld')+(t.church?' · '+esc(t.church):'')+' · '+when(t.created_at)+(t.approved?'':' · hidden from the site')+'</div><div class="actions"><button class="mini" data-tog="'+t.id+'">'+(t.approved?'Hide':'Show')+'</button><button class="mini" data-del="'+t.id+'">Delete</button></div></div>';
+  }).join('');
+}
+function act(name,body,statusId,done){
+  rpc(name,body).then(function(res){
+    if(res.ok){done&&done(res)}
+    else{var m='Something went wrong.';try{m=JSON.parse(res.t).message}catch(e){}
+      say(statusId,badPC(m)?'Wrong passcode.':m)}
+  }).catch(function(){say(statusId,'Could not reach the server. Check your connection.')});
+}
+$('go').addEventListener('click',login);
+$('pc').addEventListener('keydown',function(e){if(e.key==='Enter')login()});
+$('regSearch').addEventListener('input',renderRegs);
+$('csv').addEventListener('click',csv);
+$('annc').addEventListener('input',anncCount);
+$('tsave').addEventListener('click',function(){
+  var b=$('tbody').value.trim(); if(b.length<5){say('tstatus','The testimony text is too short.');return}
+  say('tstatus','Posting…',true);
+  act('add_testimony',{p_passcode:PC,p_body:b,p_name:$('tname').value.trim(),p_church:$('tchurch').value.trim()},'tstatus',function(){
+    say('tstatus','Posted. It is live on the site now.',true);$('tbody').value='';
+    rpc('list_testimonies',{p_passcode:PC}).then(function(res){if(res.ok){try{TESTIS=JSON.parse(res.t)||[])}catch(e){}renderTestis()}});
+  });
 });
-$('list').addEventListener('click',function(e){
-  var b=e.target.closest('[data-del]'); if(!b) return;
-  var pc=$('pc').value.trim(); if(!pc){say('Enter your passcode first to delete.');return}
-  if(!confirm('Delete this testimony from the live site?')) return;
-  fetch(SB+'/rpc/delete_testimony',{method:'POST',headers:H,body:JSON.stringify({p_passcode:pc,p_id:b.getAttribute('data-del')})})
-  .then(function(r){return r.text().then(function(t){return {ok:r.ok,t:t}})})
-  .then(function(res){
-    if(res.ok){say('Deleted.',true);load()}
-    else{var m=res.t||'Delete failed.';try{m=JSON.parse(res.t).message}catch(e){}say(/bad passcode/i.test(m)?'Wrong passcode.':m)}
-  }).catch(function(){say('Could not reach the server.')});
+$('tlist').addEventListener('click',function(e){
+  var tog=e.target.closest('[data-tog]'),del=e.target.closest('[data-del]');if(!tog&&!del)return;
+  if(del&&!confirm('Delete this testimony from the live site?'))return;
+  if(tog){act('toggle_testimony',{p_passcode:PC,p_id:tog.getAttribute('data-tog')},'tstatus',function(){rpc('list_testimonies',{p_passcode:PC}).then(function(res){if(res.ok){try{TESTIS=JSON.parse(res.t)||[])}catch(e){}renderTestis()}})})}
+  else{act('delete_testimony',{p_passcode:PC,p_id:del.getAttribute('data-del')},'tstatus',function(){say('tstatus','Deleted.',true);TESTIS=TESTIS.filter(function(t){return t.id!==del.getAttribute('data-del')});renderTestis()})}
 });
-load();
+$('anncSave').addEventListener('click',function(){
+  say('anncStatus','Updating…',true);
+  act('set_announcement',{p_passcode:PC,p_text:$('annc').value},'anncStatus',function(){say('anncStatus','Updated. The bar on the site now reads this.',true)});
+});
+$('tabs').addEventListener('click',function(e){
+  var b=e.target.closest('.tab');if(!b)return;
+  document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('on',x===b)});
+  ['ov','reg','tst','ann'].forEach(function(id){$('tab-'+id).style.display=(id===b.getAttribute('data-tab'))?'block':'none'});
+});
+var saved=sessionStorage.getItem('ffAdmin');
+if(saved){PC=saved;$('gate').style.display='none';openApp()}else{$('gate').style.display='block'}
 </script>
 </body>
 </html>

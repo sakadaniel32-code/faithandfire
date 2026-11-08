@@ -252,7 +252,7 @@ footer{margin:64px 0 0;background:var(--ink);color:#fff;border-radius:30px 30px 
      Slots: hero.jpg, about.jpg, night-1.jpg, night-2.jpg, night-3.jpg,
      minister-1.jpg, minister-2.jpg, minister-3.jpg, gallery-1.jpg … gallery-6.jpg
 ===================================================== -->
-<div class="annbar">Faith &amp; Fire Crusade · Dec 6–8, 2026 · Abraka · 4:30pm daily</div>
+<div class="annbar" id="annbarText">Faith &amp; Fire Crusade · Dec 6–8, 2026 · Abraka · 4:30pm daily</div>
 
 <nav id="nav">
   <a href="#top" aria-label="The Watchmen Prayer Network International">
@@ -635,13 +635,18 @@ form.addEventListener('submit',async e=>{
   var SB='https://wyffeifapgjyndsickzw.supabase.co/rest/v1';
   var K='sb_publishable_-l_aiV-1dwtGWg9wmm3vig_72yl4HgL';
   var esc=function(t){return (t||'').replace(/[&<>"]/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]})};
-  fetch(SB+'/testimonies?select=body,person_name,church&approved=eq.true&order=created_at.desc',{headers:{'apikey':K,'Authorization':'Bearer '+K}})
+  var H={'apikey':K,'Authorization':'Bearer '+K};
+  fetch(SB+'/site_meta?select=value&key=eq.announcement',{headers:H})
+  .then(function(r){return r.ok?r.json():[]})
+  .then(function(rows){var v=rows&&rows[0]&&rows[0].value;if(v){var el=document.getElementById('annbarText');if(el)el.textContent=v;}})
+  .catch(function(){});
+  fetch(SB+'/testimonies?select=body,person_name,church&approved=eq.true&order=created_at.desc',{headers:H})
   .then(function(r){return r.ok?r.json():[]})
   .then(function(rows){
     if(!Array.isArray(rows)||!rows.length) return;
     var g=document.querySelector('.testi-grid'); if(!g) return;
     g.innerHTML=rows.map(function(t){
-      return '<div class="testi-card"><span class="testi-mark">"</span><p class="testi-quote">'+esc(t.body)+'</p><div class="testi-by"><b>'+esc(t.person_name||'Name withheld')+'</b><span>'+esc(t.church||'')+'</span></div></div>';
+      return '<div class="testi-card"><span class="testi-mark">\u201c</span><p class="testi-quote">'+esc(t.body)+'</p><div class="testi-by"><b>'+esc(t.person_name||'Name withheld')+'</b><span>'+esc(t.church||'')+'</span></div></div>';
     }).join('');
   }).catch(function(){});
 })();
