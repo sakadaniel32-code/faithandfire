@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin · Faith &amp; Fire Crusade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fffdf8;--ink:#161311;--muted:#6f665e;--line:#eadfd2;--ember:#ff5a1f;--soft:#f7f1e9}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+.topbar{background:#0a0806;display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.09)}
+.topbar img{width:min(46vw,170px);height:auto;display:block}
+.topbar span{color:#fff;font-weight:600;font-size:.85rem;letter-spacing:.08em}
+.wrap{max-width:640px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:1.5rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+.sub{color:var(--muted);font-size:.9rem;line-height:1.5;margin-bottom:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 20px;box-shadow:0 10px 26px rgba(22,19,17,.06);margin-bottom:16px}
+label{display:block;font-size:.8rem;font-weight:600;margin:14px 0 6px}
+label:first-of-type{margin-top:0}
+input,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;font-size:.95rem;background:var(--soft);color:var(--ink)}
+textarea{min-height:120px;resize:vertical;line-height:1.5}
+button{font:inherit;font-weight:600;cursor:pointer;border:none;border-radius:999px;padding:14px 26px;background:var(--ink);color:#fff}
+button.ember{background:var(--ember)}
+button.mini{padding:7px 14px;font-size:.78rem;background:none;border:1px solid var(--line);color:var(--muted)}
+button.mini:hover{border-color:var(--ember);color:var(--ember)}
+.status{margin-top:12px;font-size:.85rem;min-height:1.2em}
+.status.ok{color:#1d7a3e}.status.err{color:#c2410c}
+.trow{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px;background:#fff}
+.trow p{font-size:.9rem;line-height:1.5;margin-bottom:8px}
+.trow .who{font-size:.78rem;color:var(--muted)}
+.trow .actions{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+h2{font-size:1.05rem;font-weight:700;margin:28px 0 12px}
+.empty{color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <img src="assets/brand/logo.png" alt="The Watchmen Prayer Network International">
+  <span>ADMIN</span>
+</div>
+<div class="wrap">
+  <h1>Site admin</h1>
+  <p class="sub">Post testimonies straight to the live page. Enter your passcode once; it is used for saving and deleting.</p>
+  <div class="card">
+    <label for="pc">Passcode</label>
+    <input id="pc" type="password" autocomplete="off" placeholder="Your admin passcode">
+    <label for="body">Testimony</label>
+    <textarea id="body" placeholder="The story, told in the person's own words. How it started and how it ended."></textarea>
+    <label for="name">Person's name (optional)</label>
+    <input id="name" type="text" placeholder="e.g. Mrs Joy Okeke">
+    <label for="church">Church or city (optional)</label>
+    <input id="church" type="text" placeholder="e.g. Abraka">
+    <div style="margin-top:16px"><button class="ember" id="save">Post to live site</button></div>
+    <div class="status" id="status"></div>
+  </div>
+  <h2>Live on the site now</h2>
+  <div id="list" class="empty">Loading…</div>
+</div>
+<script>
+var SB='https://wyffeifapgjyndsickzw.supabase.co/rest/v1';
+var K='sb_publishable_-l_aiV-1dwtGWg9wmm3vig_72yl4HgL';
+var H={'apikey':K,'Authorization':'Bearer '+K,'Content-Type':'application/json'};
+var $=function(id){return document.getElementById(id)};
+function esc(t){return (t||'').replace(/[&<>"]/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]})}
+function say(msg,ok){var el=$('status');el.textContent=msg;el.className='status '+(ok?'ok':'err')}
+function load(){
+  fetch(SB+'/testimonies?select=id,body,person_name,church,created_at&approved=eq.true&order=created_at.desc',{headers:{'apikey':K,'Authorization':'Bearer '+K}})
+  .then(function(r){return r.ok?r.json():[]})
+  .then(function(rows){
+    var el=$('list');
+    if(!rows.length){el.textContent='Nothing posted yet. The site shows its placeholder cards until you post the first one.';el.className='empty';return}
+    el.className='';
+    el.innerHTML=rows.map(function(t){
+      var d=new Date(t.created_at);
+      return '<div class="trow"><p>'+esc(t.body)+'</p><div class="who">'+esc(t.person_name||'Name withheld')+(t.church?' · '+esc(t.church):'')+' · '+d.toLocaleDateString()+'</div><div class="actions"><span></span><button class="mini" data-del="'+t.id+'">Delete</button></div></div>';
+    }).join('');
+  }).catch(function(){var el=$('list');el.textContent='Could not load the list. Check your connection and refresh.';el.className='empty'});
+}
+$('save').addEventListener('click',function(){
+  var pc=$('pc').value.trim(), body=$('body').value.trim();
+  if(!pc){say('Enter your passcode first.');return}
+  if(body.length<5){say('The testimony text is too short.');return}
+  say('Posting…',true);
+  fetch(SB+'/rpc/add_testimony',{method:'POST',headers:H,body:JSON.stringify({p_passcode:pc,p_body:body,p_name:$('name').value.trim(),p_church:$('church').value.trim()})})
+  .then(function(r){return r.text().then(function(t){return {ok:r.ok,t:t}})})
+  .then(function(res){
+    if(res.ok){say('Posted. It is live on the site now.',true);$('body').value='';load()}
+    else{
+      var m=res.t||'Something went wrong.';
+      try{m=JSON.parse(res.t).message}catch(e){}
+      say(/bad passcode/i.test(m)?'Wrong passcode.':m);
+    }
+  }).catch(function(){say('Could not reach the server. Check your connection.')});
+});
+$('list').addEventListener('click',function(e){
+  var b=e.target.closest('[data-del]'); if(!b) return;
+  var pc=$('pc').value.trim(); if(!pc){say('Enter your passcode first to delete.');return}
+  if(!confirm('Delete this testimony from the live site?')) return;
+  fetch(SB+'/rpc/delete_testimony',{method:'POST',headers:H,body:JSON.stringify({p_passcode:pc,p_id:b.getAttribute('data-del')})})
+  .then(function(r){return r.text().then(function(t){return {ok:r.ok,t:t}})})
+  .then(function(res){
+    if(res.ok){say('Deleted.',true);load()}
+    else{var m=res.t||'Delete failed.';try{m=JSON.parse(res.t).message}catch(e){}say(/bad passcode/i.test(m)?'Wrong passcode.':m)}
+  }).catch(function(){say('Could not reach the server.')});
+});
+load();
+</script>
+</body>
+</html>

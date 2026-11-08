@@ -630,5 +630,21 @@ form.addEventListener('submit',async e=>{
   setTimeout(end, 13500);
 })();
 </script>
+<script>
+(function(){
+  var SB='https://wyffeifapgjyndsickzw.supabase.co/rest/v1';
+  var K='sb_publishable_-l_aiV-1dwtGWg9wmm3vig_72yl4HgL';
+  var esc=function(t){return (t||'').replace(/[&<>"]/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]})};
+  fetch(SB+'/testimonies?select=body,person_name,church&approved=eq.true&order=created_at.desc',{headers:{'apikey':K,'Authorization':'Bearer '+K}})
+  .then(function(r){return r.ok?r.json():[]})
+  .then(function(rows){
+    if(!Array.isArray(rows)||!rows.length) return;
+    var g=document.querySelector('.testi-grid'); if(!g) return;
+    g.innerHTML=rows.map(function(t){
+      return '<div class="testi-card"><span class="testi-mark">"</span><p class="testi-quote">'+esc(t.body)+'</p><div class="testi-by"><b>'+esc(t.person_name||'Name withheld')+'</b><span>'+esc(t.church||'')+'</span></div></div>';
+    }).join('');
+  }).catch(function(){});
+})();
+</script>
 </body>
 </html>
