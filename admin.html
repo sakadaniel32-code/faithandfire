@@ -179,11 +179,11 @@ function openApp(){
 }
 function loadAll(){
   rpc('list_registrations',{p_passcode:PC}).then(function(res){
-    if(res.ok){try{REGS=JSON.parse(res.t)||[])}catch(e){REGS=[]}renderRegs();renderFeed()}
+    if(res.ok){try{REGS=JSON.parse(res.t)||[]}catch(e){REGS=[]}renderRegs();renderFeed()}
     else{var m='';try{m=JSON.parse(res.t).message}catch(e){}say('regStatus',badPC(m)?'Wrong passcode. Sign out and back in.':m)}
   }).catch(function(){say('regStatus','Could not load registrations.')});
   rpc('list_testimonies',{p_passcode:PC}).then(function(res){
-    if(res.ok){try{TESTIS=JSON.parse(res.t)||[])}catch(e){TESTIS=[]}renderTestis()}
+    if(res.ok){try{TESTIS=JSON.parse(res.t)||[]}catch(e){TESTIS=[]}renderTestis()}
   }).catch(function(){});
   fetch(SB+'/site_meta?select=value&key=eq.announcement',{headers:{'apikey':K,'Authorization':'Bearer '+K}})
   .then(function(r){return r.ok?r.json():[]})
@@ -252,13 +252,13 @@ $('tsave').addEventListener('click',function(){
   say('tstatus','Posting…',true);
   act('add_testimony',{p_passcode:PC,p_body:b,p_name:$('tname').value.trim(),p_church:$('tchurch').value.trim()},'tstatus',function(){
     say('tstatus','Posted. It is live on the site now.',true);$('tbody').value='';
-    rpc('list_testimonies',{p_passcode:PC}).then(function(res){if(res.ok){try{TESTIS=JSON.parse(res.t)||[])}catch(e){}renderTestis()}});
+    rpc('list_testimonies',{p_passcode:PC}).then(function(res){if(res.ok){try{TESTIS=JSON.parse(res.t)||[]}catch(e){}renderTestis()}});
   });
 });
 $('tlist').addEventListener('click',function(e){
   var tog=e.target.closest('[data-tog]'),del=e.target.closest('[data-del]');if(!tog&&!del)return;
   if(del&&!confirm('Delete this testimony from the live site?'))return;
-  if(tog){act('toggle_testimony',{p_passcode:PC,p_id:tog.getAttribute('data-tog')},'tstatus',function(){rpc('list_testimonies',{p_passcode:PC}).then(function(res){if(res.ok){try{TESTIS=JSON.parse(res.t)||[])}catch(e){}renderTestis()}})})}
+  if(tog){act('toggle_testimony',{p_passcode:PC,p_id:tog.getAttribute('data-tog')},'tstatus',function(){rpc('list_testimonies',{p_passcode:PC}).then(function(res){if(res.ok){try{TESTIS=JSON.parse(res.t)||[]}catch(e){}renderTestis()}})})}
   else{act('delete_testimony',{p_passcode:PC,p_id:del.getAttribute('data-del')},'tstatus',function(){say('tstatus','Deleted.',true);TESTIS=TESTIS.filter(function(t){return t.id!==del.getAttribute('data-del')});renderTestis()})}
 });
 $('anncSave').addEventListener('click',function(){
