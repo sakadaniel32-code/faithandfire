@@ -61,6 +61,16 @@ td a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
 .count-hint{font-size:.74rem;color:var(--muted);text-align:right;margin-top:4px}
 .empty{color:var(--muted);font-size:.85rem}
 @media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:640px){.pgrid{grid-template-columns:repeat(3,1fr)}}
+.pcard{border:1px solid var(--line);border-radius:16px;padding:10px;background:#fff}
+.pcard img{width:100%;height:110px;object-fit:cover;border-radius:10px;background:var(--soft)}
+.pcard .pl{display:flex;justify-content:space-between;align-items:center;margin-top:8px;font-size:.8rem;font-weight:600}
+.ovb{font-style:normal;font-size:.64rem;color:var(--ember-deep);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.pcard .btns{display:flex;gap:6px;margin-top:8px}
+.pcard .btns button{padding:6px 10px;font-size:.72rem;border-radius:999px}
+.chk{display:flex;align-items:center;gap:8px;margin:14px 0}
+.chk input{width:auto}
 </style>
 </head>
 <body>
@@ -88,7 +98,7 @@ td a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
       <button class="tab on" data-tab="ov">Overview</button>
       <button class="tab" data-tab="reg">Registrations</button>
       <button class="tab" data-tab="tst">Testimonies</button>
-      <button class="tab" data-tab="ann">Announcement</button>
+      <button class="tab" data-tab="photo">Photos</button><button class="tab" data-tab="shirt">Shirt offer</button><button class="tab" data-tab="ann">Announcement</button>
     </div>
 
     <section id="tab-ov">
@@ -136,6 +146,36 @@ td a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
       <div id="tlist" class="empty">Loading…</div>
     </section>
 
+    <section id="tab-photo" style="display:none">
+      <div class="card">
+        <h2 style="margin:0 0 4px">Site photos</h2>
+        <p class="sub" style="margin-bottom:8px">Replace any photo on the live site. Pick a slot, upload the new picture, and visitors see it on their next page load. Revert puts the original back.</p>
+        <div class="pgrid" id="pgrid">Loading…</div>
+        <div class="status" id="pstatus"></div>
+      </div>
+    </section>
+    <section id="tab-shirt" style="display:none">
+      <div class="card">
+        <h2 style="margin:0 0 4px">Shirt offer popup</h2>
+        <p class="sub" style="margin-bottom:0">This appears as a popup 2 minutes after someone opens the site, once per visit. On by default.</p>
+        <div class="chk"><input type="checkbox" id="sOn" checked><label for="sOn" style="margin:0">Show the popup on the site</label></div>
+        <label for="sTitle">Title</label>
+        <input id="sTitle" type="text" placeholder="FFC '26 Merch is here">
+        <label for="sPrice">Price</label>
+        <input id="sPrice" type="text" placeholder="N8,500">
+        <label for="sNote">Details line (sizes, colours, payment, call)</label>
+        <input id="sNote" type="text">
+        <label for="sLink">WhatsApp order link</label>
+        <input id="sLink" type="text" placeholder="https://wa.me/2347046031599">
+        <label for="sImgFile">Popup image</label>
+        <div style="display:flex;gap:10px;align-items:center">
+          <img id="sImgPrev" style="width:96px;height:96px;object-fit:cover;border-radius:12px;background:var(--soft);display:none" alt="">
+          <input id="sImgFile" type="file" accept="image/*" style="max-width:260px">
+        </div>
+        <div style="margin-top:16px"><button class="ember" id="sSave">Save shirt offer</button></div>
+        <div class="status" id="sStatus"></div>
+      </div>
+    </section>
     <section id="tab-ann" style="display:none">
       <div class="card">
         <h2 style="margin:0 0 4px">Announcement bar</h2>
@@ -188,6 +228,7 @@ function loadAll(){
   fetch(SB+'/site_meta?select=value&key=eq.announcement',{headers:{'apikey':K,'Authorization':'Bearer '+K}})
   .then(function(r){return r.ok?r.json():[]})
   .then(function(rows){var v=rows&&rows[0]&&rows[0].value;if(v!=null){$('annc').value=v;anncCount()}}).catch(function(){});
+  loadPhotos();loadShirt();
 }
 function anncCount(){$('anncCount').textContent=$('annc').value.length+' / 240'}
 function renderStats(){
@@ -268,7 +309,65 @@ $('anncSave').addEventListener('click',function(){
 $('tabs').addEventListener('click',function(e){
   var b=e.target.closest('.tab');if(!b)return;
   document.querySelectorAll('.tab').forEach(function(x){x.classList.toggle('on',x===b)});
-  ['ov','reg','tst','ann'].forEach(function(id){$('tab-'+id).style.display=(id===b.getAttribute('data-tab'))?'block':'none'});
+  ['ov','reg','tst','photo','shirt','ann'].forEach(function(id){$('tab-'+id).style.display=(id===b.getAttribute('data-tab'))?'block':'none'});
+});
+var FN='https://wyffeifapgjyndsickzw.supabase.co/functions/v1/admin-upload';
+var SLOTS=['hero','about','night-1','night-2','night-3','minister-1','minister-2','minister-3','gallery-1','gallery-2','gallery-3','gallery-4','gallery-5','gallery-6'];
+var IMGOV={},SHIRT_CFG=null;
+function loadPhotos(){fetch(SB+'/site_images?select=slot,url',{headers:H()}).then(function(r){return r.ok?r.json():[]}).then(function(rows){IMGOV={};(rows||[]).forEach(function(x){IMGOV[x.slot]=x.url});renderPhotos()}).catch(function(){renderPhotos()})}
+function renderPhotos(){
+  var el=$('pgrid');el.innerHTML=SLOTS.map(function(sl){
+    var url=IMGOV[sl]||('assets/img/'+sl+'.jpg');var ov=!!IMGOV[sl];
+    return '<div class="pcard"><img src="'+url+'" alt="'+sl+'"><div class="pl"><span>'+sl+'</span>'+(ov?'<em class="ovb">custom</em>':'')+'</div><div class="btns"><button class="mini" data-up="'+sl+'">Upload</button>'+(ov?'<button class="mini" data-rev="'+sl+'">Revert</button>':'')+'</div><input type="file" accept="image/*" id="fi-'+sl+'" data-slot="'+sl+'" style="display:none"></div>';
+  }).join('');
+}
+$('pgrid').addEventListener('click',function(e){
+  var up=e.target.closest('[data-up]'),rev=e.target.closest('[data-rev]');if(!up&&!rev)return;
+  if(rev){var sl=rev.getAttribute('data-rev');say('pstatus','Reverting…',true);
+    fetch(FN,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({passcode:PC,slot:sl,action:'revert'})}).then(function(r){return r.json()}).then(function(j){if(j.ok){delete IMGOV[sl];renderPhotos();say('pstatus','Original restored for '+sl+'.',true)}else{say('pstatus',j.error||'Revert failed.')}}).catch(function(){say('pstatus','Could not reach the server.')});return}
+  var slot=up.getAttribute('data-up'),fi=document.getElementById('fi-'+slot);if(fi)fi.click();
+});
+$('pgrid').addEventListener('change',function(e){
+  var fi=e.target;if(fi.tagName!=='INPUT'||fi.type!=='file'||!fi.files||!fi.files.length)return;
+  var slot=fi.getAttribute('data-slot'),f=fi.files[0];
+  if(f.size>6*1024*1024){say('pstatus','That image is over 6MB. Pick a smaller one.');return}
+  say('pstatus','Uploading '+slot+'…',true);
+  var rd=new FileReader();rd.onload=function(){
+    fetch(FN,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({passcode:PC,slot:slot,base64:rd.result.split(',')[1],content_type:f.type})}).then(function(r){return r.json()}).then(function(j){
+      if(j.ok){IMGOV[slot]=j.url;renderPhotos();say('pstatus',slot+' updated. Visitors see it on their next page load.',true)}
+      else say('pstatus',j.error||'Upload failed.');
+    }).catch(function(){say('pstatus','Could not reach the server.')});
+  };rd.readAsDataURL(f);
+});
+function loadShirt(){
+  fetch(SB+'/site_meta?select=value&key=eq.shirt_offer',{headers:H()}).then(function(r){return r.ok?r.json():[]}).then(function(rows){
+    if(rows&&rows[0]){try{SHIRT_CFG=JSON.parse(rows[0].value)}catch(er){SHIRT_CFG=null}}
+    if(SHIRT_CFG){
+      $('sOn').checked=SHIRT_CFG.enabled!==false;
+      $('sTitle').value=SHIRT_CFG.title||'';$('sPrice').value=SHIRT_CFG.price||'';
+      $('sNote').value=SHIRT_CFG.note||'';$('sLink').value=SHIRT_CFG.link||'';
+      if(SHIRT_CFG.image_url){$('sImgPrev').src=SHIRT_CFG.image_url;$('sImgPrev').style.display='block'}
+    }
+  }).catch(function(){});
+}
+$('sImgFile').addEventListener('change',function(){
+  var f=this.files&&this.files[0];if(!f)return;
+  if(f.size>6*1024*1024){say('sStatus','That image is over 6MB. Pick a smaller one.');return}
+  say('sStatus','Uploading image…',true);
+  var rd=new FileReader();rd.onload=function(){
+    fetch(FN,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({passcode:PC,slot:'shirt',base64:rd.result.split(',')[1],content_type:f.type})}).then(function(r){return r.json()}).then(function(j){
+      if(j.ok){$('sImgPrev').src=j.url;$('sImgPrev').style.display='block';say('sStatus','Image ready. Save to publish.',true)}
+      else say('sStatus',j.error||'Upload failed.');
+    }).catch(function(){say('sStatus','Could not reach the server.')});
+  };rd.readAsDataURL(f);
+});
+$('sSave').addEventListener('click',function(){
+  var data={enabled:$('sOn').checked,title:$('sTitle').value.trim(),price:$('sPrice').value.trim(),note:$('sNote').value.trim(),link:$('sLink').value.trim(),image_url:($('sImgPrev').style.display!=='none')?$('sImgPrev').src:''};
+  say('sStatus','Saving…',true);
+  rpc('set_shirt_offer',{p_passcode:PC,p_data:data}).then(function(res){
+    if(res.ok){say('sStatus','Saved. The popup now shows this on the site.',true)}
+    else{var m='Save failed.';try{m=JSON.parse(res.t).message}catch(er){}say('sStatus',(m.indexOf('bad passcode')>-1)?'Wrong passcode.':m)}
+  }).catch(function(){say('sStatus','Could not reach the server.')});
 });
 var saved=sessionStorage.getItem('ffAdmin');
 if(saved){PC=saved;$('gate').style.display='none';openApp()}else{$('gate').style.display='block'}
