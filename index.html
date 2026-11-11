@@ -26,11 +26,12 @@ a{color:inherit;text-decoration:none}
 .annbar{background:linear-gradient(90deg,var(--ember-deep),var(--ember) 55%,#ff8a3d);color:#fff;font-size:.6rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;text-align:center;padding:9px 10px}
 
 /* nav */
-nav{position:sticky;top:0;z-index:50;background:rgba(12,9,7,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:7px 18px;border-bottom:1px solid rgba(255,255,255,.09)}
+nav{position:sticky;top:0;z-index:50;background:rgba(12,9,7,.94);display:flex;align-items:center;justify-content:space-between;padding:7px 18px;border-bottom:1px solid rgba(255,255,255,.09)}
 nav img{width:min(44vw,176px);height:auto}
 .nav-links{display:none}
 .menu-btn{background:none;border:1px solid rgba(255,255,255,.28);border-radius:12px;padding:8px 12px;font-size:1.15rem;line-height:1;color:#fff;cursor:pointer}
-.nav-links{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding:0 30px;transform:translateY(-102%);transition:transform .35s ease,visibility .35s;visibility:hidden;z-index:60}
+.nav-links li{list-style:none}
+.nav-links{position:fixed;inset:0;background:var(--bg);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:26px;padding:0 30px;transform:translateY(-102%);transition:transform .32s cubic-bezier(.22,.8,.3,1),visibility .32s;visibility:hidden;z-index:60}
 .nav-links.open{transform:none;visibility:visible}
 .nav-links a{font-size:2rem;font-weight:700;letter-spacing:-.02em}
 .nav-links .nav-cta{font-size:1.1rem;background:var(--ink);color:#fff;padding:14px 26px;border-radius:999px}
@@ -146,6 +147,14 @@ body.splash-lock{overflow:hidden}
 .count strong{display:block;font-size:clamp(1.7rem,8.5vw,2.4rem);letter-spacing:-.02em}
 .count span{font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;opacity:.85}
 .count-banner .btn{margin-top:18px;width:100%;background:#fff;color:var(--ember-deep)}
+
+/* merch band */
+.merch-band{margin-top:56px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:22px;display:flex;gap:20px;align-items:center;box-shadow:0 2px 10px rgba(22,19,17,.05)}
+.merch-band img{width:44%;max-width:220px;height:auto;max-height:260px;object-fit:contain;border-radius:18px;background:var(--soft);flex-shrink:0}
+.merch-title{font-size:1.45rem;letter-spacing:-.02em;margin-bottom:6px}
+.merch-sub{font-size:.9rem;color:var(--muted);margin-bottom:16px}
+.merch-band .btn{background:var(--ink);color:#fff;border:none;cursor:pointer;padding:12px 22px;border-radius:999px;font:600 .95rem 'Space Grotesk',sans-serif}
+@media(min-width:640px){.merch-band{padding:28px;gap:30px}.merch-band img{max-width:270px}}
 
 /* story timeline */
 .tl{border-left:2px solid var(--line);margin:8px 0 0 6px;padding-left:22px;display:grid;gap:26px}
@@ -435,6 +444,21 @@ footer{margin:64px 0 0;background:var(--ink);color:#fff;border-radius:30px 30px 
   </div>
 </div>
 
+<section id="merch">
+  <div class="wrap">
+    <div class="merch-band">
+      <img id="merchImg" alt="Faith and Fire shirt" style="display:none">
+      <div>
+        <div class="shirt-kick">Crusade merch</div>
+        <h2 class="merch-title" id="merchTitle">FFC '26 shirt</h2>
+        <p class="shirt-price" id="merchPrice" style="display:none"></p>
+        <p class="merch-sub">Wearing it is carrying the fire. Tap for the full details.</p>
+        <button type="button" class="btn" id="merchOpen">See the shirt</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="story">
   <div class="wrap">
     <div class="sec-head">
@@ -689,14 +713,16 @@ form.addEventListener('submit',async e=>{
       document.querySelectorAll('img[src$="/'+r.slot+'.jpg"],img[src$="/'+r.slot+'.png"]').forEach(function(im){im.src=r.url;});
     });
   }).catch(function(){});
-  /* shirt offer popup, 4 minutes after open, once per visit */
+  /* shirt offer popup, 2 minutes after open, once per visit */
   var shown=false;
   var ov=document.getElementById('shirtOv');
   function armShirt(){
-    var delay=/shirt=1/.test(location.search)?3000:240000;
+    var delay=/shirt=1/.test(location.search)?3000:120000;
     setTimeout(function(){if(!shown&&!sessionStorage.getItem('ffShirt')){shown=true;sessionStorage.setItem('ffShirt','1');ov.classList.add('open');}},delay);
   }
   document.getElementById('shirtX').addEventListener('click',function(){ov.classList.remove('open');});
+  var mo=document.getElementById('merchOpen');
+  if(mo)mo.addEventListener('click',function(){ov.classList.add('open');});
   ov.addEventListener('click',function(e){if(e.target===ov)ov.classList.remove('open');});
   fetch(SB+'/site_meta?select=value&key=eq.shirt_offer',{headers:H})
   .then(function(r){return r.ok?r.json():[]})
@@ -709,6 +735,10 @@ form.addEventListener('submit',async e=>{
       if(cfg.note)document.getElementById('shirtNote').textContent=cfg.note;
       if(cfg.link)document.getElementById('shirtCta').href=cfg.link;
       if(cfg.image_url){var im=document.getElementById('shirtImg');im.src=cfg.image_url;im.style.display='block';}
+      if(cfg.title){var mt=document.getElementById('merchTitle');if(mt)mt.textContent=cfg.title;}
+      if(cfg.price){var mp=document.getElementById('merchPrice');if(mp){mp.textContent=cfg.price;mp.style.display='block';}}
+      var mi=document.getElementById('merchImg');
+      if(mi){var src=cfg.image_url||'';if(src){mi.src=src;mi.style.display='block';}else{fetch(SB+'/site_images?select=url&slot=eq.shirt&limit=1',{headers:H}).then(function(r){return r.ok?r.json():[]}).then(function(rr){if(rr&&rr[0]&&rr[0].url){mi.src=rr[0].url;mi.style.display='block';}}).catch(function(){});}}
     }
     armShirt();
   }).catch(armShirt);
