@@ -109,7 +109,8 @@ body.splash-lock{overflow:hidden}
 .about-card{padding:26px 22px}
 .about-card p{color:var(--muted);font-size:.98rem;margin-top:10px}
 .about-card p b{color:var(--ink)}
-.about-photo{margin-top:22px;aspect-ratio:4/5}
+.about-grid{display:flex;flex-direction:column}
+.about-photo{order:-1;margin:0 0 22px;aspect-ratio:4/5}
 
 /* steps */
 .steps{display:grid;gap:12px;margin-top:14px}
@@ -234,6 +235,7 @@ footer{margin:64px 0 0;background:var(--ink);color:#fff;border-radius:30px 30px 
   .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:34px}
   .sec-head .side{margin-top:0;max-width:36ch;text-align:right}
   .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start}
+  .about-photo{order:0;margin-top:22px;margin-bottom:0}
   .about-card{padding:34px}
   .steps{grid-template-columns:repeat(4,1fr)}
   .feats{grid-template-columns:repeat(2,1fr)}
