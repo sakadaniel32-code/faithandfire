@@ -109,8 +109,7 @@ body.splash-lock{overflow:hidden}
 .about-card{padding:26px 22px}
 .about-card p{color:var(--muted);font-size:.98rem;margin-top:10px}
 .about-card p b{color:var(--ink)}
-.about-grid{display:flex;flex-direction:column}
-.about-photo{order:-1;margin:0 0 22px;aspect-ratio:4/5}
+.about-photo{margin:0 0 24px;aspect-ratio:4/5}
 
 /* steps */
 .steps{display:grid;gap:12px;margin-top:14px}
@@ -234,8 +233,8 @@ footer{margin:64px 0 0;background:var(--ink);color:#fff;border-radius:30px 30px 
   section{padding:84px 0 10px}
   .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:34px}
   .sec-head .side{margin-top:0;max-width:36ch;text-align:right}
-  .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start}
-  .about-photo{order:0;margin-top:22px;margin-bottom:0}
+  .about-photo{max-width:560px;margin:0 auto 28px}
+  .follow-strip{padding-top:0}
   .about-card{padding:34px}
   .steps{grid-template-columns:repeat(4,1fr)}
   .feats{grid-template-columns:repeat(2,1fr)}
@@ -300,7 +299,29 @@ footer{margin:64px 0 0;background:var(--ink);color:#fff;border-radius:30px 30px 
         <div><strong id="cs">00</strong><span>Secs</span></div>
       </div>
     </div>
-    <div class="hero-cta-row">
+    </div>
+</header>
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="sec-head">
+          <span class="chip"><em>✦</em> About</span>
+          <h2 class="display">What Is<br>Faith &amp; <span class="accent">Fire</span></h2>
+    </div>
+    <div class="photo about-photo"><img src="assets/img/about.jpg" alt="The Watchmen Prayer Network gathering" loading="lazy"></div>
+    <div class="card about-card">
+          <p><b>Faith &amp; Fire</b> is the annual crusade of The Watchmen Prayer Network International: three evenings of the Word, worship, and prayer on one ground in Abraka. Formerly known as DELSU Prays, December 2026 is its first edition under the new name. Same altar. Deeper fire.</p>
+    <div class="steps">
+      <div class="step card"><b class="num">01</b><h3>Register Your Seat</h3><p>A one-minute form: your name, your phone, and whether you want in on the WhatsApp group.</p></div>
+      <div class="step card"><b class="num">02</b><h3>Get the Direction</h3><p>Crusade Ground, behind Ese-G Hostel, off Olori 19 road, Abraka. Doors open from 4:00pm.</p></div>
+      <div class="step card"><b class="num">03</b><h3>Come Hungry</h3><p>Bring your Bible, your expectations, and someone who needs the fire too.</p></div>
+      <div class="step card"><b class="num">04</b><h3>Stand in the Fire</h3><p>Three evenings of worship, the Word, and prayer. Leave carrying what you came for.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="follow-strip">
+  <div class="wrap">
+<div class="hero-cta-row">
       <a href="#register" class="btn btn-dark">Reserve a Seat <i>↗</i></a>
       <a href="#programme" class="btn btn-ghost">See the Programme</a>
     </div>
@@ -309,28 +330,6 @@ footer{margin:64px 0 0;background:var(--ink);color:#fff;border-radius:30px 30px 
       <div><strong>9 yrs</strong><span>of standing prayer</span></div>
       <div><strong>1000+</strong><span>gathered per crusade</span></div>
       <div><strong>3 nights</strong><span>one ground, Abraka</span></div>
-    </div>
-  </div>
-</header>
-<section id="about" class="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div>
-        <div class="sec-head">
-          <span class="chip"><em>✦</em> About</span>
-          <h2 class="display">What Is<br>Faith &amp; <span class="accent">Fire</span></h2>
-        </div>
-        <div class="card about-card">
-          <p><b>Faith &amp; Fire</b> is the annual crusade of The Watchmen Prayer Network International: three evenings of the Word, worship, and prayer on one ground in Abraka. Formerly known as DELSU Prays, December 2026 is its first edition under the new name. Same altar. Deeper fire.</p>
-        </div>
-      </div>
-      <div class="photo about-photo"><img src="assets/img/about.jpg" alt="The Watchmen Prayer Network gathering" loading="lazy"></div>
-    </div>
-    <div class="steps">
-      <div class="step card"><b class="num">01</b><h3>Register Your Seat</h3><p>A one-minute form: your name, your phone, and whether you want in on the WhatsApp group.</p></div>
-      <div class="step card"><b class="num">02</b><h3>Get the Direction</h3><p>Crusade Ground, behind Ese-G Hostel, off Olori 19 road, Abraka. Doors open from 4:00pm.</p></div>
-      <div class="step card"><b class="num">03</b><h3>Come Hungry</h3><p>Bring your Bible, your expectations, and someone who needs the fire too.</p></div>
-      <div class="step card"><b class="num">04</b><h3>Stand in the Fire</h3><p>Three evenings of worship, the Word, and prayer. Leave carrying what you came for.</p></div>
     </div>
   </div>
 </section>
