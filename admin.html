@@ -185,6 +185,7 @@ td a{color:var(--ember-deep);font-weight:600;text-decoration:underline;text-unde
         <div class="stat"><b id="st-wa">–</b><span>On WhatsApp group</span></div>
         <div class="stat"><b id="st-pray">–</b><span>Prayer requests</span></div>
         <div class="stat"><b id="st-testi">–</b><span>Testimonies live</span></div>
+        <div class="stat"><b id="st-visits">–</b><span>Site visits</span></div>
       </div>
       <div class="sechead"><h2>Latest signups</h2><button class="mini" id="refresh">Refresh</button></div>
       <div class="feed" id="feed"><div class="row"><span class="empty">Loading…</span></div></div>
@@ -278,7 +279,7 @@ var $=function(id){return document.getElementById(id)};
 function esc(t){return (t||'').replace(/[&<>"]/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]})}
 function H(){return {'apikey':K,'Authorization':'Bearer '+K,'Content-Type':'application/json'}}
 function say(id,msg,ok){var el=$(id);el.textContent=msg;el.className='status '+(ok?'ok':'err')}
-var PC=null, REGS=[], TESTIS=[];
+var PC=null, REGS=[], TESTIS=[], VIS=[];
 function rpc(name,body){return fetch(SB+'/rpc/'+name,{method:'POST',headers:H(),body:JSON.stringify(body)}).then(function(r){return r.text().then(function(t){return {ok:r.ok,t:t}})})}
 function badPC(t){return /bad passcode/i.test(t||'')}
 function when(iso){var d=new Date(iso);return d?d.toLocaleDateString('en-GB',{day:'2-digit',month:'short'})+' '+d.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}):''}
@@ -309,6 +310,9 @@ function loadAll(){
   fetch(SB+'/site_meta?select=value&key=eq.announcement',{headers:{'apikey':K,'Authorization':'Bearer '+K}})
   .then(function(r){return r.ok?r.json():[]})
   .then(function(rows){var v=rows&&rows[0]&&rows[0].value;if(v!=null){$('annc').value=v;anncCount()}}).catch(function(){});
+  rpc('get_visits',{p_passcode:PC}).then(function(res){
+    if(res.ok){try{VIS=JSON.parse(res.t)||[]}catch(e){VIS=[]}renderVisits()}
+  }).catch(function(){});
   loadPhotos();loadShirt();
 }
 function anncCount(){$('anncCount').textContent=$('annc').value.length+' / 240'}
@@ -317,6 +321,12 @@ function renderStats(){
   $('st-wa').textContent=REGS.filter(function(r){return r.whatsapp_group===true}).length;
   $('st-pray').textContent=REGS.filter(function(r){return (r.prayer_request||'').trim()}).length;
   $('st-testi').textContent=TESTIS.filter(function(t){return t.approved}).length;
+}
+function renderVisits(){
+  var total=0,last7=0,cut=new Date();cut.setDate(cut.getDate()-6);
+  var cs=cut.toISOString().slice(0,10);
+  VIS.forEach(function(r){var n=Number(r.n)||0;total+=n;if(r.day>=cs)last7+=n});
+  var el=$('st-visits');if(el){el.textContent=total.toLocaleString();el.title=last7.toLocaleString()+' in the last 7 days'}
 }
 function renderFeed(){
   renderStats();

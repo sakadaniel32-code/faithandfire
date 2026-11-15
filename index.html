@@ -683,6 +683,7 @@ form.addEventListener('submit',async e=>{
   var K='sb_publishable_-l_aiV-1dwtGWg9wmm3vig_72yl4HgL';
   var esc=function(t){return (t||'').replace(/[&<>"]/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]})};
   var H={'apikey':K,'Authorization':'Bearer '+K};
+  fetch(SB+'/rpc/bump_visit',{method:'POST',headers:{'apikey':K,'Authorization':'Bearer '+K,'Content-Type':'application/json'},body:'{}'}).catch(function(){});
   fetch(SB+'/site_meta?select=value&key=eq.announcement',{headers:H})
   .then(function(r){return r.ok?r.json():[]})
   .then(function(rows){var v=rows&&rows[0]&&rows[0].value;if(v){var els=document.querySelectorAll('.ann-item');if(els.length)els.forEach(function(n,i){if(i<2)n.textContent=v;});}})
