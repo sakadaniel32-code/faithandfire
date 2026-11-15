@@ -724,7 +724,7 @@ form.addEventListener('submit',async e=>{
   var shown=false;
   var ov=document.getElementById('shirtOv');
   function armShirt(){
-    var delay=/shirt=1/.test(location.search)?3000:120000;
+    var delay=/shirt=1/.test(location.search)?3000:30000;
     setTimeout(function(){if(!shown&&!sessionStorage.getItem('ffShirt')){shown=true;sessionStorage.setItem('ffShirt','1');ov.classList.add('open');}},delay);
   }
   document.getElementById('shirtX').addEventListener('click',function(){ov.classList.remove('open');});
